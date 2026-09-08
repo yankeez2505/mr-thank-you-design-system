@@ -101,7 +101,7 @@ td code { color: var(--primary); }
 .card b { font-size: var(--fs-h3); letter-spacing: var(--ls-tight); }
 .card span { font-size: var(--fs-small); color: var(--muted-foreground); }
 .card__box { height: 72px; background: var(--primary-tint); border: var(--border-width) solid var(--border); overflow: hidden; }
-.card__box img { height: 100%; width: 100%; object-fit: contain; padding: var(--space-3); }
+.card__box img { height: 48px; width: auto; max-width: 80%; object-fit: contain; }
 
 /* ---------- подвал ---------- */
 .foot { padding-block: var(--space-12); border-top: var(--border-width) solid var(--border); font-size: var(--fs-small); color: var(--muted-foreground); }
