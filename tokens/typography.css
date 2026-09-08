@@ -8,7 +8,7 @@
 
 :root {
   --fs-ghost:   clamp(96px, 26vw, 420px); /* wordmark behind content, 900 */
-  --fs-display: 64px;   /* hero */
+  --fs-display: clamp(36px, 4.2vw, 70px);  /* hero — 70 on a desktop, 36 on a phone */
   --fs-h1:      40px;
   --fs-stat:    48px;   /* the pink numbers: 78M+, 2B+, 100% */
   --fs-h2:      28px;

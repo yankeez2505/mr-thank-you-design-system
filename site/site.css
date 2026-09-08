@@ -53,6 +53,12 @@ p  { margin: 0; }
 .btn--onDark:hover { background: var(--inverse-foreground); color: var(--inverse); }
 .btn:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
 
+/* visible to a screen reader, not to the eye */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+}
+
 /* ---------- header ---------- */
 .announce {
   background: var(--inverse); color: var(--inverse-foreground);
@@ -122,7 +128,7 @@ p  { margin: 0; }
   letter-spacing: var(--ls-label); text-transform: uppercase;
 }
 .look__title {
-  margin: 0; font-size: clamp(36px, 4.2vw, 70px);
+  margin: 0; font-size: var(--fs-display);
   line-height: var(--lh-tight); letter-spacing: var(--ls-tight); text-wrap: balance;
 }
 .look__title em { font-style: italic; color: var(--primary); white-space: nowrap; }
