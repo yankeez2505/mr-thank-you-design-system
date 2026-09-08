@@ -37,3 +37,39 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1
 .top nav { display: flex; gap: var(--space-5); margin-left: auto; flex-wrap: wrap; }
 .top nav a { font-size: var(--fs-small); color: var(--muted-foreground); text-decoration: none; }
 .top nav a:hover { color: var(--foreground); }
+
+/* ---------- титул ---------- */
+.hero { padding-block: var(--space-20) var(--space-16); }
+.hero h1 { max-width: 16ch; margin-bottom: var(--space-6); }
+.hero h1 em { font-style: normal; color: var(--primary); }
+.hero__lead { max-width: var(--measure); font-size: var(--fs-lead); color: var(--body); }
+.hero__src {
+  display: grid; gap: var(--space-2); margin-top: var(--space-8); padding: var(--space-6);
+  border: var(--border-width) solid var(--border); border-radius: var(--r-lg); max-width: var(--measure);
+  font-size: var(--fs-small); color: var(--muted-foreground);
+}
+.hero__src b { color: var(--foreground); }
+
+/* ---------- карта системы ---------- */
+.map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); margin-top: var(--space-10); }
+.map a {
+  display: grid; align-content: start; gap: var(--space-2); padding: var(--space-6);
+  border: var(--border-width) solid var(--border); border-radius: var(--r-lg);
+  text-decoration: none; transition: border-color .2s ease, background .2s ease;
+}
+.map a:hover { border-color: var(--primary); background: var(--primary-tint); }
+.map b { font-size: var(--fs-h3); letter-spacing: var(--ls-tight); }
+.map span { font-size: var(--fs-small); color: var(--muted-foreground); }
+.map i { font-style: normal; font-size: var(--fs-label); letter-spacing: var(--ls-label); color: var(--primary); }
+
+/* ---------- образцы ---------- */
+.swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-4); }
+.sw {
+  display: grid; gap: var(--space-3); padding: 0; text-align: left; cursor: pointer;
+  background: none; border: 0; font: inherit; color: inherit;
+}
+.sw b { display: block; height: 96px; border-radius: var(--r-md); border: var(--border-width) solid var(--border); }
+.sw em { display: block; font-style: normal; font-weight: var(--fw-bold); font-size: var(--fs-small); }
+.sw code { display: block; color: var(--muted-foreground); }
+.sw small { display: block; font-size: var(--fs-label); color: var(--muted-foreground); }
+.sw:hover code { color: var(--primary); }
