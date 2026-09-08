@@ -1,7 +1,7 @@
-/* Spacing — brand comps are flat (no auto-layout), so the scale below is the
-   shop file's real auto-layout gaps and paddings, rounded to a 4px base. */
+/* Spacing — 4px base. The deck lays out on a wide margin and generous
+   vertical rhythm; the site keeps the rhythm and goes full-bleed with a
+   40px side gutter. */
 :root {
-  --space-0: 0;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -12,28 +12,11 @@
   --space-10: 40px;
   --space-12: 48px;
   --space-16: 64px;
-
-  /* off-scale values that actually appear in the files */
-  --space-6px: 6px;
-  --space-10px: 10px;
-  --space-15: 15px;
-  --space-18: 18px;
-  --space-21: 21px;
-  --space-30: 30px;
-  --space-38: 38px;
-  --space-47: 47px;
+  --space-20: 80px;
+  --space-30: 120px;   /* section rhythm */
 
   /* layout */
-  --page-w: 1440px;
-  --content-w: 1312px;   /* shop content column */
-  --panel-w: 1255px;     /* brand inner panels */
-  --gutter: 64px;
-
-  /* stroke weights: brand 4px is the signature outline */
-  --stroke-1: 1px;
-  --stroke-2: 2px;
-  --stroke-3: 3px;
-  --stroke-4: 4px;
-  --stroke-6: 6px;
-  --stroke-9: 9px;
+  --gutter: 40px;      /* side padding, full-bleed page */
+  --measure: 68ch;     /* running text width */
+  --sect-y: clamp(64px, 9vw, 120px);
 }

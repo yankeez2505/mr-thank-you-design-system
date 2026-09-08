@@ -1,59 +1,37 @@
 /* Semantic layer — the middle tier between raw values and components.
-   primitive (colors.css)  ->  semantic (this file)  ->  component (components/*)
-   --pink-500                  --primary                 .b-btn background
+   primitive (colors.css)  ->  semantic (this file)  ->  component
 
-   A direction must be declared on a wrapper: <div data-ds="brand"> or
-   <div data-ds="shop">. There is no global default on purpose — the two
-   directions are different systems and must never inherit from each other. */
+   One system, one direction. The Brand Overview deck decides: white ground,
+   black type, a single pink accent. Roles are declared on :root, so any
+   component can be dropped anywhere without a wrapper. */
 
-[data-ds="brand"] {
-  --background: var(--cream-100);
-  --foreground: var(--ink-900);
-  --card: var(--white);
-  --card-foreground: var(--ink-900);
-  --primary: var(--pink-500);
-  --primary-foreground: var(--white);
-  --secondary: var(--sky-500);
-  --secondary-foreground: var(--white);
-  --accent: var(--mint-400);
-  --accent-foreground: var(--ink-900);
-  --muted: var(--cream-200);
-  --muted-foreground: var(--navy-900);
-  --destructive: var(--pink-700);
-  --destructive-foreground: var(--white);
-  --border: var(--ink-900);
-  --input: var(--ink-900);
-  --ring: var(--sky-600);
-
-  --border-width: 4px;          /* the brand signature — see #radius */
-  --radius: var(--r-lg);        /* 10px */
-  --radius-panel: var(--r-3xl); /* 30px */
-  --radius-pill: var(--r-pill); /* 50px */
-  --shadow: var(--shadow-sky-10);
-}
-
-[data-ds="shop"] {
+:root {
   --background: var(--white);
-  --foreground: var(--shop-heading);
+  --foreground: var(--black);
+
+  --surface: var(--gray-050);        /* alternating section band */
+  --surface-foreground: var(--black);
+
   --card: var(--white);
-  --card-foreground: var(--shop-heading);
-  --primary: var(--shop-cta);
-  --primary-foreground: var(--shop-navy);
-  --secondary: var(--shop-teal);
-  --secondary-foreground: var(--white);
-  --accent: var(--shop-cta-alt);
-  --accent-foreground: var(--shop-navy);
-  --muted: var(--shop-gray-300);
-  --muted-foreground: var(--shop-slate);
-  --destructive: var(--lib-red-500);
-  --destructive-foreground: var(--white);
-  --border: var(--shop-line);
-  --input: var(--shop-line);
-  --ring: var(--shop-teal);
+  --card-foreground: var(--black);
+
+  --primary: var(--pink-500);        /* the accent — never a whole surface */
+  --primary-hover: var(--pink-600);
+  --primary-foreground: var(--white);
+  --primary-tint: var(--pink-050);
+
+  --inverse: var(--black);           /* dark slides / dark sections */
+  --inverse-foreground: var(--white);
+
+  --muted: var(--gray-100);
+  --muted-foreground: var(--gray-500);
+  --body: var(--ink-800);            /* running text, softer than pure black */
+
+  --border: var(--gray-200);
+  --input: var(--gray-200);
+  --ring: var(--pink-500);
 
   --border-width: 1px;
-  --radius: var(--r-md);        /* 6px */
-  --radius-panel: var(--r-xl);  /* 15px */
-  --radius-pill: var(--r-40);   /* 40px */
-  --shadow: var(--shadow-soft-md);
+  --radius: var(--r-md);
+  --shadow: var(--shadow-md);
 }
