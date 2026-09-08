@@ -1,15 +1,9 @@
-/* Corner radii — measured counts in the source files.
-   Brand: 5 (x89), 10 (x179), 20 (x12), 30 (x81), 50 (x95).
-   Shop:  4, 6 (x2418), 8, 10, 12, 15 (x480), 16, 40 (x245), 75, 100 (x1390). */
+/* Corner radii. The deck rounds everything on one small step: cards and
+   buttons share it, media tiles get one size up, chips go full round. */
 :root {
-  --r-xs: 4px;
-  --r-sm: 5px;    /* card footer bands, buttons on dark */
-  --r-md: 6px;    /* shop default */
-  --r-lg: 10px;   /* brand default — cards, buttons, inputs */
-  --r-xl: 15px;
-  --r-2xl: 20px;
-  --r-3xl: 30px;  /* big panels: menu, footer panel, where-to-buy */
-  --r-40: 40px;   /* shop CTA */
-  --r-pill: 50px; /* retailer chips */
-  --r-full: 100px;
+  --r-sm:   6px;    /* inputs, chips inside cards */
+  --r-md:   10px;   /* cards, buttons — the default */
+  --r-lg:   16px;   /* media tiles, image panels */
+  --r-xl:   24px;   /* full-width panels */
+  --r-pill: 999px;  /* retailer chips, pill buttons */
 }
