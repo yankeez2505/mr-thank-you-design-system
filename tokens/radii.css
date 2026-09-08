@@ -1,9 +1,10 @@
-/* Corner radii. The deck rounds everything on one small step: cards and
-   buttons share it, media tiles get one size up, chips go full round. */
+/* Corner radii. One scale per page, and nesting follows a single rule:
+   an inner corner equals the outer corner minus the padding between them.
+   24 − 8 = 16, 24 − 16 = 8, 16 − 8 = 8. Pill is kept for the docs toast only. */
 :root {
-  --r-sm:   6px;    /* inputs, chips inside cards */
-  --r-md:   10px;   /* cards, buttons — the default */
-  --r-lg:   16px;   /* media tiles, image panels */
+  --r-sm:   8px;    /* elements pinned inside a tile with an 8–16px inset */
+  --r-md:   12px;   /* buttons, inputs, chips — the interactive default */
+  --r-lg:   16px;   /* media tiles */
   --r-xl:   24px;   /* full-width panels */
-  --r-pill: 999px;  /* retailer chips, pill buttons */
+  --r-pill: 999px;
 }
