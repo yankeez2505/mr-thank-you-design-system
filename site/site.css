@@ -91,7 +91,7 @@ p  { margin: 0; }
 .hero {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: var(--space-16); align-items: center;
-  padding: var(--space-12) var(--gutter) var(--space-20);
+  padding: var(--space-10) var(--gutter) var(--space-16);
 }
 .hero h1 { font-size: clamp(40px, 5.2vw, var(--fs-display)); }
 .hero h1 em { font-style: italic; color: var(--primary); }
@@ -103,19 +103,22 @@ p  { margin: 0; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 
 /* staggered product panels: one tall, one inset and smaller */
-.hero__art { position: relative; padding-left: 22%; }
+.hero__art { position: relative; margin-right: calc(-1 * var(--gutter)); padding-left: 24%; }
 .shot { margin: 0; }
 .shot__box { display: grid; place-items: center; overflow: hidden; border-radius: var(--r-lg); }
-.shot__box img { width: 74%; transition: scale .5s cubic-bezier(.16, 1, .3, 1); }
+.shot__box img { width: 78%; transition: scale .5s cubic-bezier(.16, 1, .3, 1); }
 .shot:hover .shot__box img { scale: 1.04; }
 .shot figcaption {
   display: flex; justify-content: space-between; gap: var(--space-4);
   margin-top: var(--space-3); font-size: var(--fs-label); color: var(--muted-foreground);
 }
 .shot figcaption b { color: var(--foreground); font-variant-numeric: tabular-nums; }
-.shot--main .shot__box { aspect-ratio: 5 / 6; background: var(--primary-tint); }
+.shot--main .shot__box { height: min(58vh, 520px); background: var(--primary-tint); border-radius: var(--r-lg) 0 0 var(--r-lg); }
+.shot--main figcaption { width: fit-content; margin-left: auto; gap: var(--space-3); padding-right: var(--gutter); }
+.shot--main .shot__box img { width: 62%; }
 .shot--inset { position: absolute; left: 0; bottom: var(--space-12); width: 38%; }
-.shot--inset .shot__box { aspect-ratio: 3 / 4; background: var(--surface); }
+.shot--inset .shot__box { height: min(40vh, 360px); background: var(--surface); }
+.shot--inset figcaption { justify-content: flex-start; gap: var(--space-3); }
 
 /* ---------- numbers strip ---------- */
 .strip {
@@ -247,7 +250,8 @@ p  { margin: 0; }
 /* ---------- responsive ---------- */
 @media (max-width: 1100px) {
   .hero, .band, .signup { grid-template-columns: 1fr; }
-  .hero__art { padding-left: 18%; }
+  .hero__art { padding-left: 18%; margin-right: 0; }
+  .shot--main .shot__box { border-radius: var(--r-lg); }
   .grid, .editorial, .stats, .info { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .band { padding: var(--space-16) var(--space-8); }
@@ -259,6 +263,7 @@ p  { margin: 0; }
   .grid, .editorial, .stats, .tiles, .info, .footer__cols { grid-template-columns: 1fr; }
   .hero__art { padding-left: 0; }
   .shot--inset { position: static; width: 62%; margin-top: var(--space-4); }
+  .shot--main .shot__box, .shot--inset .shot__box { height: auto; aspect-ratio: 4 / 5; }
   .head { flex-direction: column; align-items: start; }
   .signup form { flex-direction: column; }
   .footer__bottom { flex-direction: column; }
