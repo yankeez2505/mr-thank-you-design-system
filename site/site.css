@@ -356,7 +356,14 @@ p  { margin: 0; }
 @media (max-width: 1100px) {
   .hero, .band, .signup, .feature { grid-template-columns: 1fr; }
   .band > div { padding-bottom: var(--space-10); }
-  .band__art { object-position: 62% top; }
+  /* one column: he stops being a background and becomes the first row,
+     bled to the band's edges and cropped in on him */
+  .band__art {
+    position: static; height: auto;
+    width: calc(100% + 2 * var(--space-8)); max-width: none; margin: calc(-1 * var(--space-16)) calc(-1 * var(--space-8)) 0;
+    /* the slide ends at his waist; fade it out so the cut never meets the copy as an edge */
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  }
   .hero { grid-template-rows: auto auto auto; }
   .hero__frames { grid-area: 2 / 1; }
   .hero__ui { grid-area: 3 / 1; }
@@ -372,6 +379,8 @@ p  { margin: 0; }
 }
 @media (max-width: 720px) {
   :root { --gutter: 20px; }
+  /* too narrow to keep the whole slide: crop in on him and let the rose run off the edges */
+  .band__art { aspect-ratio: 4 / 3; object-fit: cover; object-position: 74% center; }
   .announce { gap: var(--space-4); }
   .announce span:last-child { display: none; }
   .header { grid-template-columns: 1fr auto; row-gap: var(--space-3); padding-block: var(--space-4); }
