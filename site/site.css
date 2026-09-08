@@ -152,6 +152,7 @@ p  { margin: 0; }
   transition: background .2s ease;
 }
 .tile img { position: absolute; inset: 0; margin: auto; width: 72%; transition: scale .4s ease; }
+.tile--mark img { width: 34%; }
 .tile:hover { background: var(--primary-tint); }
 .tile:hover img { scale: 1.04; }
 .tile b { position: relative; font-size: var(--fs-h3); letter-spacing: var(--ls-tight); color: var(--foreground); }
