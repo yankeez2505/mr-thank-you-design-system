@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="tokens/radii.css">
 <link rel="stylesheet" href="tokens/shadows.css">
 <link rel="stylesheet" href="tokens/semantic.css">
+<link rel="stylesheet" href="site/site.css">
 <link rel="stylesheet" href="docs.css">
 </head>
 <body>
@@ -119,6 +120,68 @@
     <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--black)"><img src="assets/logos/wordmark-white.png" alt="Логотип белый" style="width:70%"></div><b>Инверсный</b><span>Белый на чёрном и на фото</span></div>
     <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-pink.png" alt="Логотип розовый" style="width:70%"></div><b>Акцентный</b><span>Розовый, точечно</span></div>
     <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/monogram-pink.png" alt="Монограмма" style="height:80%"></div><b>Монограмма</b><span>Аватар, вышивка, иконка сайта</span></div>
+  </div>
+</div></section>
+
+<section class="sect" id="components"><div class="wrap">
+  <p class="eyebrow">Компоненты</p>
+  <h2>Компоненты</h2>
+  <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
+
+  <h3>Кнопки</h3>
+  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Розовая — главное действие на экране, оно одно. Контурная — второстепенное. Светлая контурная — для тёмных блоков.</p>
+  <div class="canvas">
+    <button class="btn btn--primary">В корзину</button>
+    <button class="btn btn--ghost">Подробнее</button>
+  </div>
+  <div class="canvas canvas--dark">
+    <button class="btn btn--onDark">Читать историю</button>
+  </div>
+
+  <h3>Карточка товара</h3>
+  <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика — мелким серым. Метка «Новинка» и кнопка «В корзину» появляются поверх фото.</p>
+  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start">
+    <article class="prod">
+      <div class="prod__media"><span class="prod__badge">Новинка</span><img src="assets/mockups/cap-leather.png" alt=""><button class="prod__add">В корзину</button></div>
+      <div class="prod__row"><b>Leather Trucker Cap</b><span>$58</span></div>
+      <p>Кожаная панель, сетка сзади</p>
+    </article>
+    <article class="prod">
+      <div class="prod__media"><img src="assets/mockups/sunglasses-a.png" alt=""><button class="prod__add">В корзину</button></div>
+      <div class="prod__row"><b>Signature Sunglasses</b><span>$120</span></div>
+      <p>Итальянский ацетат, UV400</p>
+    </article>
+    <article class="prod">
+      <div class="prod__media"><span class="prod__badge">Мало</span><img src="assets/mockups/sleep-set-pink.png" alt=""><button class="prod__add">В корзину</button></div>
+      <div class="prod__row"><b>Sleep Set, Rose</b><span>$180</span></div>
+      <p>Шесть предметов, мытый шёлк</p>
+    </article>
+  </div>
+
+  <h3>Плитка категории</h3>
+  <p class="spec">Пропорция 3:4, товар по центру, подпись прижата к низу. При наведении подложка становится розовой.</p>
+  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr))">
+    <a class="tile" href="#components"><img src="assets/mockups/cap-cotton.png" alt=""><b>Headwear</b><span>2 модели</span></a>
+    <a class="tile" href="#components"><img src="assets/mockups/sunglasses-b.png" alt=""><b>Eyewear</b><span>2 модели</span></a>
+    <a class="tile tile--mark" href="#components"><img src="assets/logos/monogram-pink.png" alt=""><b>Вся коллекция</b><span>Шесть предметов</span></a>
+  </div>
+
+  <h3>Поле ввода и подписка</h3>
+  <p class="spec">Высота 48px, обводка <code>--border</code>, скругление <code>--r-pill</code>. Фокус — розовая обводка <code>--shadow-focus</code>, чтобы поле было видно при работе с клавиатуры.</p>
+  <div class="canvas">
+    <form class="signup__form" style="display:flex;gap:var(--space-3);flex-wrap:wrap;width:100%" onsubmit="return false">
+      <input type="email" placeholder="your@email.com" aria-label="Почта" style="flex:1 1 240px;min-height:48px;padding:0 var(--space-6);border:var(--border-width) solid var(--input);border-radius:var(--r-pill);font:inherit">
+      <button class="btn btn--primary" type="submit">Подписаться</button>
+    </form>
+  </div>
+
+  <h3>Блок условий</h3>
+  <p class="spec">Четыре карточки с обводкой: доставка, сроки, возврат, оплата. Заголовок — <code>--fs-h3</code>, пояснение — <code>--fs-small</code> серым.</p>
+  <div class="canvas" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--background)">
+    <div class="info__c"><b>Бесплатно от $80</b><span>Ниже — $6, в любую страну</span></div>
+    <div class="info__c"><b>Отправка за 48 часов</b><span>Трек-номер приходит на почту</span></div>
+    <div class="info__c"><b>Возврат 30 дней</b><span>Без следов носки, с бирками</span></div>
+    <div class="info__c"><b>Любая оплата</b><span>Карты, Apple Pay, PayPal</span></div>
   </div>
 </div></section>
 
