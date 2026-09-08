@@ -85,6 +85,43 @@
   </table></div>
 </div></section>
 
+<section class="sect" id="layout"><div class="wrap">
+  <p class="eyebrow">Основы</p>
+  <h2>Сетка, отступы, скругления, тени</h2>
+  <p class="sect__lead">Шаг сетки — 4px, всё кратно ему. Страница идёт на всю ширину экрана с полем 40px по краям, на мобильном поле сжимается до 20px. Расстояние между секциями задаётся одним значением и меняется вместе с шириной экрана.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Токен</th><th>Значение</th><th>Назначение</th></tr></thead>
+    <tbody>
+      <tr><td><code>--gutter</code></td><td class="num">40px → 20px</td><td>Поле по краям страницы</td></tr>
+      <tr><td><code>--sect-y</code></td><td class="num">64–120px</td><td>Вертикальный отступ секции</td></tr>
+      <tr><td><code>--measure</code></td><td class="num">68ch</td><td>Ширина текстового абзаца</td></tr>
+      <tr><td><code>--space-2 … --space-30</code></td><td class="num">8 · 12 · 16 · 24 · 32 · 40 · 48 · 64 · 80 · 120</td><td>Внутренние отступы и промежутки</td></tr>
+      <tr><td><code>--r-sm … --r-pill</code></td><td class="num">6 · 10 · 16 · 24 · 999</td><td>Скругления: поле, карточка, блок, кнопка</td></tr>
+      <tr><td><code>--border-width</code></td><td class="num">1px</td><td>Толщина всех обводок</td></tr>
+      <tr><td><code>--shadow-md</code></td><td class="num">0 8 20 / 8%</td><td>Мягкая тень, только на всплывающих элементах</td></tr>
+      <tr><td><code>--shadow-focus</code></td><td class="num">0 0 0 3px розовый 35%</td><td>Обводка фокуса при работе с клавиатуры</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards" style="margin-top:var(--space-8)">
+    <div class="card"><div class="card__box" style="border-radius:var(--r-sm)"></div><b>6px</b><span><code>--r-sm</code> — поле ввода, мелкая метка</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-md)"></div><b>10px</b><span><code>--r-md</code> — базовое скругление интерфейса</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-lg)"></div><b>16px</b><span><code>--r-lg</code> — карточка товара, плитка</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-pill)"></div><b>999px</b><span><code>--r-pill</code> — кнопка, метка на фото</span></div>
+  </div>
+</div></section>
+
+<section class="sect" id="logo"><div class="wrap">
+  <p class="eyebrow">Основы</p>
+  <h2>Логотип</h2>
+  <p class="sect__lead">Два знака: полное написание и монограмма. Каждый — в трёх цветах: чёрный на светлом, белый на тёмном, розовый как акцент. Знак не растягивают, не наклоняют и не перекрашивают в другие цвета. Свободное поле вокруг — не меньше высоты буквы «M».</p>
+  <div class="cards">
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-black.png" alt="Логотип чёрный" style="width:70%"></div><b>Основной</b><span>Чёрный на белом и светлом фоне</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--black)"><img src="assets/logos/wordmark-white.png" alt="Логотип белый" style="width:70%"></div><b>Инверсный</b><span>Белый на чёрном и на фото</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-pink.png" alt="Логотип розовый" style="width:70%"></div><b>Акцентный</b><span>Розовый, точечно</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/monogram-pink.png" alt="Монограмма" style="height:80%"></div><b>Монограмма</b><span>Аватар, вышивка, иконка сайта</span></div>
+  </div>
+</div></section>
+
 <footer class="foot"><div class="wrap">
   Mr. Thank You Design System · оформление по презентации Brand Overview · сентябрь 2026
 </div></footer>
