@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-label="English (US)">
+  <defs>
+    <clipPath id="us-circle"><circle cx="12" cy="12" r="11.5"/></clipPath>
+  </defs>
+  <g clip-path="url(#us-circle)">
+    <rect width="24" height="24" fill="#FFFFFF"/>
+    <g fill="#B22234">
+      <rect y="0" width="24" height="1.846"/>
+      <rect y="3.692" width="24" height="1.846"/>
+      <rect y="7.385" width="24" height="1.846"/>
+      <rect y="11.077" width="24" height="1.846"/>
+      <rect y="14.769" width="24" height="1.846"/>
+      <rect y="18.462" width="24" height="1.846"/>
+      <rect y="22.154" width="24" height="1.846"/>
+    </g>
+    <rect width="10.2" height="12.923" fill="#3C3B6E"/>
+    <g fill="#FFFFFF">
+      <circle cx="1.7" cy="1.6" r="0.62"/><circle cx="5.1" cy="1.6" r="0.62"/><circle cx="8.5" cy="1.6" r="0.62"/>
+      <circle cx="3.4" cy="3.8" r="0.62"/><circle cx="6.8" cy="3.8" r="0.62"/>
+      <circle cx="1.7" cy="6.1" r="0.62"/><circle cx="5.1" cy="6.1" r="0.62"/><circle cx="8.5" cy="6.1" r="0.62"/>
+      <circle cx="3.4" cy="8.4" r="0.62"/><circle cx="6.8" cy="8.4" r="0.62"/>
+      <circle cx="1.7" cy="10.7" r="0.62"/><circle cx="5.1" cy="10.7" r="0.62"/><circle cx="8.5" cy="10.7" r="0.62"/>
+    </g>
+  </g>
+  <circle cx="12" cy="12" r="11.5" fill="none" stroke="#000000" stroke-opacity="0.15"/>
+</svg>

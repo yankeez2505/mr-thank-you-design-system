@@ -1,0 +1,18 @@
+<!-- @dsCard group="components" viewport="700x260" subtitle="Button и Counter — два настоящих компонент-сета из файла магазина" name="Core" -->
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Core</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 700px; height: 260px; background: #fff; color: #1a202c; font-family: var(--font-sans); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  h1 { margin: 0; font: 700 13px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; color: #6d6d6d; }
+  .r { display: flex; gap: 10px; align-items: center; }
+</style></head><body>
+<h1>Button · 480 вариантов</h1>
+<div class="r"><button class="lib-btn" data-size="small">Small</button><button class="lib-btn">Medium</button><button class="lib-btn" data-size="large">Large</button><button class="lib-btn" disabled>Disabled</button><button class="lib-btn" data-variant="icon"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></button></div>
+<div class="r"><button class="lib-btn" data-style="secondary">Secondary</button><button class="lib-btn" data-style="tertiary">Tertiary</button><button class="lib-btn" data-style="link">Link</button><button class="lib-btn" data-type="danger">Danger</button><button class="lib-btn" data-type="success">Success</button><button class="lib-btn" data-type="dark">Dark</button></div>
+<h1>Counter · 20 вариантов</h1>
+<div class="r"><span class="counter">2</span><span class="counter" data-type="primary">2</span><span class="counter" data-type="success">2</span><span class="counter" data-type="warning">2</span><span class="counter" data-type="danger">2</span>
+<span class="counter" data-style="flat">2</span><span class="counter" data-style="flat" data-type="primary">2</span><span class="counter" data-style="flat" data-type="success">2</span><span class="counter" data-style="flat" data-type="warning">2</span><span class="counter" data-style="flat" data-type="danger">2</span>
+<span class="counter" data-variant="dot"></span><span class="counter" data-variant="dot" data-type="danger"></span></div>
+</body></html>

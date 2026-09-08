@@ -1,0 +1,43 @@
+/* Library tokens — third-party UI kit palette imported into Mr Thank You.fig.
+   NOT brand colors. Kept because shop components (Button, Counter) reference them. */
+:root {
+  --lib-indigo-50: #f7f8fe;
+  --lib-indigo-100: #eff0fd;
+  --lib-indigo-200: #dee0fc;
+  --lib-indigo-300: #ced1fa;
+  --lib-indigo-500: #5b64ee;
+  --lib-indigo-600: #525ad6;
+  --lib-indigo-700: #4046a7;
+
+  --lib-red-25: #fffbfa;
+  --lib-red-50: #fef3f2;
+  --lib-red-100: #fee4e2;
+  --lib-red-200: #fecdca;
+  --lib-red-500: #f04438;
+  --lib-red-600: #d92d20;
+  --lib-red-700: #b42318;
+
+  --lib-green-25: #f6fef9;
+  --lib-green-50: #edfcf2;
+  --lib-green-100: #d3f8df;
+  --lib-green-200: #aaf0c4;
+  --lib-green-300: #b4e69a;
+  --lib-green-500: #16b364;
+  --lib-green-600: #099250;
+  --lib-green-700: #087443;
+
+  --lib-amber-100: #fef0c7;
+  --lib-amber-500: #f79009;
+  --lib-amber-600: #dc6803;
+
+  --lib-gray-25: #fcfcfd;
+  --lib-gray-50: #f9fafb;
+  --lib-gray-100: #f2f4f7;
+  --lib-gray-200: #eaecf0;
+  --lib-gray-300: #d0d5dd;
+  --lib-gray-500: #667085;
+  --lib-gray-600: #475467;
+  --lib-gray-700: #344054;
+  --lib-gray-800: #1d2939;
+  --lib-cyan-100: #dcf9ff;
+}

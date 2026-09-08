@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr. Thank You — Design System</title>
+<link rel="icon" href="assets/logos/monogram-black.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ui/primitives.css">
+<style>
+  /* Оболочка документации. Базовые примитивы — ui/primitives.css,
+     здесь только раскладка страницы и плитки образцов. */
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  body { font-size: 15px; line-height: 1.6; }
+  a { color: inherit; }
+
+  /* ── topbar ──────────────────────────────────────────────────────────── */
+  .topbar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--background) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  .topbar__in { display: flex; align-items: center; gap: 20px; height: 56px; }
+  .topbar__logo { display: flex; align-items: center; gap: 9px; font: 600 14px/1 var(--font-sans); letter-spacing: -.01em; white-space: nowrap; }
+  .topbar__logo img { height: 20px; }
+  .topnav { display: flex; gap: 2px; margin-left: auto; flex-wrap: wrap; align-items: center; }
+  .topnav .separator { margin: 0 6px; height: 16px; }
+
+  /* ── hero ────────────────────────────────────────────────────────────── */
+  .hero { padding: 64px 0 48px; }
+  .hero h1 { margin: 0 0 14px; font: 600 42px/1.1 var(--font-sans); letter-spacing: -.03em; }
+  .hero p { margin: 0; max-width: 68ch; color: var(--muted-foreground); font-size: 16px; }
+  .hero__meta { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; margin-top: 36px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; }
+  .hero__meta div { background: var(--card); padding: 14px 16px; font: 500 13px/1.4 var(--font-sans); color: var(--muted-foreground); }
+  .hero__meta b { display: block; margin-bottom: 3px; font: 600 24px/1.2 var(--font-sans); color: var(--foreground); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+
+  /* ── sections ────────────────────────────────────────────────────────── */
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  .eyebrow { margin: 0 0 10px; font: 500 13px/1 var(--font-sans); color: var(--muted-foreground); }
+  h2 { margin: 0 0 8px; font: 600 26px/1.25 var(--font-sans); letter-spacing: -.02em; }
+  h3 { margin: 40px 0 14px; font: 600 16px/1.3 var(--font-sans); letter-spacing: -.01em; color: var(--foreground); }
+  .lead { margin: 0 0 8px; color: var(--muted-foreground); max-width: 74ch; }
+  .alert { margin: 24px 0 0; }
+  p.alert { display: block; }            /* сетка alert ломает строчные code/b внутри абзаца */
+  .alert b { color: var(--foreground); }
+  .alert code { overflow-wrap: anywhere; }
+
+  /* ── плитки образцов: card + card-action, начинка своя ──────────────── */
+  .grid { display: grid; gap: 12px; }
+  .sw { grid-template-columns: repeat(auto-fill, minmax(184px, 1fr)); }
+  .swatch { gap: 0; overflow: hidden; }
+  .swatch > b { display: block; height: 72px; flex: none; border-bottom: 1px solid var(--border); }
+  .swatch > span { display: block; padding: 11px 13px 13px; }
+  .swatch em { display: block; font: 500 13px/1.4 var(--font-sans); font-style: normal; }
+  .swatch code { display: block; margin-top: 2px; font: 400 12px/1.4 var(--font-mono); color: var(--muted-foreground); text-transform: uppercase; }
+  .swatch small { display: block; margin-top: 6px; font-size: 12px; line-height: 1.45; color: var(--muted-foreground); }
+
+  .ramp { display: grid; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .ramp button { height: 52px; border: 0; padding: 0; cursor: pointer; }
+  .ramp-labels { display: grid; margin: 6px 0 20px; font: 400 11px/1.4 var(--font-mono); color: var(--muted-foreground); }
+  .ramp-labels span { text-align: center; }
+
+  .rows { display: grid; gap: 6px; }
+  .row { display: flex; align-items: center; gap: 16px; padding: 9px 14px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--card); transition: border-color .15s; }
+  .row:hover { border-color: color-mix(in srgb, var(--foreground) 18%, var(--border)); }
+  .row code { flex: none; font: 400 12.5px/1 var(--font-mono); }
+  .row code:first-child { width: 108px; }
+  .row code:nth-child(2) { width: 46px; text-align: right; color: var(--muted-foreground); }
+  .row i { display: block; height: 12px; border-radius: 2px; background: var(--primary); flex: none; }
+
+  .specs { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 12px; }
+  .spec-tile { gap: 0; padding: 20px; }
+  .spec-tile > i { display: block; width: 100%; height: 76px; background: var(--muted); border: 1px solid color-mix(in srgb, var(--foreground) 18%, var(--border)); }
+  .spec-tile em { display: block; margin-top: 16px; font: 500 13px/1.4 var(--font-mono); font-style: normal; }
+  .spec-tile small { display: block; margin-top: 5px; font-size: 12px; line-height: 1.45; color: var(--muted-foreground); }
+  /* тень уходит вправо-вниз на 10 px — оставляем ей поле справа и снизу */
+  .spec-tile[data-fx] { padding: 20px 34px 20px 20px; }
+  .spec-tile[data-fx] > i { height: 68px; margin-bottom: 26px; background: #fff; border: 4px solid var(--ink-900); border-radius: 10px; }
+  .spec-tile[data-fx="soft"] > i { border: 1px solid var(--shop-line); }
+  .spec-tile[data-fx] em { margin-top: 0; }
+
+  .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(208px, 1fr)); gap: 12px; }
+  .file { gap: 0; padding: 12px; text-decoration: none; }
+  .file__prev { height: 104px; display: grid; place-items: center; border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .file__prev img { max-height: 72px; max-width: 84%; }
+  .file b { display: block; font: 500 13px/1.4 var(--font-sans); }
+  .file span { display: block; margin-top: 2px; font: 400 11.5px/1.4 var(--font-mono); color: var(--muted-foreground); }
+  .file p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted-foreground); }
+
+  .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 8px; }
+  .thumbs a { display: block; aspect-ratio: 1; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); }
+  .thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ── демо-полотно: направление объявляется через data-ds ─────────────── */
+  .canvas { background: var(--cream-100); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+  .canvas[data-bg="pink"] { background: var(--pink-500); }
+  .canvas[data-bg="sky"] { background: var(--sky-500); }
+  .canvas[data-bg="light"] { background: #fff; }
+
+  /* ── accordion: одиночный, поэтому в рамке карточки ──────────────────── */
+  .accordion { margin-top: 16px; border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--card); padding: 0 18px; }
+  .accordion > .accordion-item:last-child { border-bottom: 0; }
+  .accordion-content { padding-top: 4px; }
+
+  /* таблицы: колонки образцов */
+  .table td.dim { font-size: 13px; }
+  .table thead th { white-space: normal; }  /* иначе узкие колонки наезжают */
+  .table td.spec { width: 34%; padding: 10px 16px; }
+  #type .table { table-layout: fixed; }
+  #type .table th:nth-child(2) { width: 130px; }   /* при table-layout:fixed ширину задаёт шапка */
+  #type .table th:nth-child(3) { width: 152px; }
+  #type .table th:nth-child(4) { width: 118px; }
+  #type .table th:last-child { width: 210px; }
+  #type .table td:nth-child(4) { white-space: nowrap; }
+  #type .table td:last-child { font-size: 12.5px; line-height: 1.45; }
+  .table td.spec > div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* образец ужат, реальный кегль — в колонке «размер» */
+  td .t-hero, td .t-title-96, td .t-mega-128, td .t-mega-148, td .s-h1 { zoom: .3; }
+  td .t-display-80, td .t-display-60, td .s-h2 { zoom: .42; }
+  td .t-title-48, td .t-title-40, td .t-lead-40, td .t-marquee, td .s-h3 { zoom: .6; }
+  td .t-link-30, td .t-btn-32, td .s-h4, td .s-h5 { zoom: .78; }
+
+  footer { padding: 36px 0 72px; border-top: 1px solid var(--border); color: var(--muted-foreground); font-size: 13px; }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding: 44px 0 36px; }
+    .hero h1 { font-size: 32px; }
+    .hero__meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap topbar__in">
+  <div class="topbar__logo"><img src="assets/logos/monogram-black.png" alt="">Design System</div>
+  <nav class="topnav">
+    <a class="btn btn-ghost btn-sm" href="#tokens">Токены</a><i class="separator" data-orientation="vertical"></i>
+    <a class="btn btn-ghost btn-sm" href="#logo">Логотип</a>
+    <a class="btn btn-ghost btn-sm" href="#color">Цвет</a>
+    <a class="btn btn-ghost btn-sm" href="#type">Шрифт</a>
+    <a class="btn btn-ghost btn-sm" href="#space">Отступы</a>
+    <a class="btn btn-ghost btn-sm" href="#radius">Радиусы</a>
+    <a class="btn btn-ghost btn-sm" href="#effects">Тени</a>
+    <a class="btn btn-ghost btn-sm" href="#icons">Иконки</a><i class="separator" data-orientation="vertical"></i>
+    <a class="btn btn-ghost btn-sm" href="#brand">Бренд</a>
+    <a class="btn btn-ghost btn-sm" href="#shop">Магазин</a>
+    <a class="btn btn-ghost btn-sm" href="#templates">Шаблоны</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <h1>Mr. Thank You<br>Design System</h1>
+  <p>Система разобрана из двух исходников: <b>MrThankYou.fig</b> — бренд-направление, Y2K, и <b>Mr Thank You.fig</b> — магазин. Значения не подбирались на глаз: цвета, кегли, обводки и тени вынуты из файлов и сверены с макетами. Клик по любой плашке копирует значение.</p>
+  <div class="hero__meta">
+    <div><b>23</b>цвета бренда</div>
+    <div><b>36</b>текстовых стилей</div>
+    <div><b>13</b>семейств компонентов</div>
+    <div><b>9</b>файлов логотипа</div>
+    <div><b>43</b>изображения</div>
+  </div>
+</div></header>
+
+<section id="tokens"><div class="wrap">
+<p class="eyebrow">Основы</p>
+<h2>Модель токенов</h2>
+<p class="lead">Токены идут тремя слоями. Значение из макета попадает в компонент только через роль — так одна правка цвета расходится по системе, а не по сорока местам.</p>
+<div class="table-container"><table class="table"><thead><tr><th>Слой</th><th>Файл</th><th>Пример</th><th>Кто им пользуется</th></tr></thead><tbody>
+<tr><td><span class="badge badge-secondary">1 · Примитив</span></td><td><code>tokens/colors.css</code><br><code>radii.css</code> · <code>shadows.css</code> · <code>spacing.css</code></td><td><code>--pink-500: #FA6794</code></td><td class="dim">Только семантический слой. В разметку не попадает.</td></tr>
+<tr><td><span class="badge badge-secondary">2 · Роль</span></td><td><code>tokens/semantic.css</code></td><td><code>--primary: var(--pink-500)</code></td><td class="dim">Компоненты и вёрстка страниц.</td></tr>
+<tr><td><span class="badge badge-secondary">3 · Компонент</span></td><td><code>components/brand/brand.css</code><br><code>components/core/core.css</code></td><td><code>.b-btn { background: var(--primary) }</code></td><td class="dim">Разметка. Цвет внутри компонента не задаётся.</td></tr>
+</tbody></table></div>
+<h3>Роли и чем они заняты в каждом направлении</h3>
+<div class="table-container"><table class="table"><thead><tr><th>Роль</th><th>Бренд <code>data-ds="brand"</code></th><th>Магазин <code>data-ds="shop"</code></th><th>Назначение</th></tr></thead><tbody>
+<tr><td><code>--background</code></td><td><code>--cream-100</code></td><td><code>--white</code></td><td class="dim">Фон страницы</td></tr>
+<tr><td><code>--foreground</code></td><td><code>--ink-900</code></td><td><code>--shop-heading</code></td><td class="dim">Основной текст</td></tr>
+<tr><td><code>--card</code></td><td><code>--white</code></td><td><code>--white</code></td><td class="dim">Поверхность карточки</td></tr>
+<tr><td><code>--primary</code></td><td><code>--pink-500</code></td><td><code>--shop-cta</code></td><td class="dim">Главное действие</td></tr>
+<tr><td><code>--secondary</code></td><td><code>--sky-500</code></td><td><code>--shop-teal</code></td><td class="dim">Второе действие, шапка</td></tr>
+<tr><td><code>--accent</code></td><td><code>--mint-400</code></td><td><code>--shop-cta-alt</code></td><td class="dim">Подписка, выделение</td></tr>
+<tr><td><code>--muted</code> / <code>--muted-foreground</code></td><td><code>--cream-200</code> / <code>--navy-900</code></td><td><code>--shop-gray-300</code> / <code>--shop-slate</code></td><td class="dim">Приглушённая пара</td></tr>
+<tr><td><code>--destructive</code></td><td><code>--pink-700</code></td><td><code>--lib-red-500</code></td><td class="dim">Удаление, ошибка</td></tr>
+<tr><td><code>--border</code> / <code>--input</code></td><td><code>--ink-900</code></td><td><code>--shop-line</code></td><td class="dim">Рамки и поля</td></tr>
+<tr><td><code>--ring</code></td><td><code>--sky-600</code></td><td><code>--shop-teal</code></td><td class="dim">Кольцо фокуса</td></tr>
+<tr><td><code>--border-width</code></td><td><code>4px</code></td><td><code>1px</code></td><td class="dim">Толщина обводки по умолчанию</td></tr>
+<tr><td><code>--radius</code></td><td><code>10px</code></td><td><code>6px</code></td><td class="dim">Базовый радиус</td></tr>
+<tr><td><code>--shadow</code></td><td><code>10px 10px 0</code></td><td><code>0 10px 18px</code></td><td class="dim">Тень по умолчанию</td></tr>
+</tbody></table></div>
+<h3>Как подключить</h3>
+<div class="table-container"><table class="table"><tbody>
+<tr><td style="width:180px"><code>1</code></td><td><code>&lt;link rel="stylesheet" href="design-system/ui/primitives.css"&gt;</code> — примитивы</td></tr>
+<tr><td><code>2</code></td><td><code>&lt;link rel="stylesheet" href="design-system/styles.css"&gt;</code> — токены и компоненты бренда</td></tr>
+<tr><td><code>3</code></td><td><code>&lt;body data-ds="brand"&gt;</code> — или <code>data-ds="shop"</code></td></tr>
+<tr><td><code>4</code></td><td>дальше только классы и роли: <code>class="b-btn"</code>, <code>color: var(--foreground)</code></td></tr>
+</tbody></table></div>
+<p class="alert alert-description"><b>Направление объявляется явно.</b> Глобального значения по умолчанию нет намеренно: без <code>data-ds</code> роли не подставятся. Два направления — две разные системы, и молчаливое наследование одного из них рано или поздно даст гибрид, который не работает нигде.</p>
+</div></section>
+<section id="logo"><div class="wrap">
+<p class="eyebrow">Основы</p><h2>Логотип</h2><p class="lead">Файлы из папки ИСХОДНИКИ как есть, без пересохранения. Клик по карточке — скачивание. Рядом лежат векторные <code>.ai</code>: для печати и любых пересборок.</p>
+<h3>Шрифтовой логотип</h3><div class="files">
+<a class="card card-compact card-action file" href="assets/logos/wordmark-white.png" download><div class="file__prev" style="background:#229CDF"><img src="assets/logos/wordmark-white.png" alt=""></div><b>Белый</b><span>wordmark-white.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/wordmark-sky.png" download><div class="file__prev" style="background:#FCF6E0"><img src="assets/logos/wordmark-sky.png" alt=""></div><b>Голубой</b><span>wordmark-sky.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/wordmark-pink.png" download><div class="file__prev" style="background:#FCF6E0"><img src="assets/logos/wordmark-pink.png" alt=""></div><b>Розовый</b><span>wordmark-pink.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/wordmark-black.png" download><div class="file__prev" style="background:#FFFFFF"><img src="assets/logos/wordmark-black.png" alt=""></div><b>Чёрный</b><span>wordmark-black.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/wordmark-source.ai" download><div class="file__prev" style="background:var(--muted);font:700 13px/1 var(--font-sans);color:var(--muted-foreground)">.AI</div><b>Векторный исходник</b><span>wordmark-source.ai</span></a>
+</div>
+<h3>Монограмма</h3><div class="files">
+<a class="card card-compact card-action file" href="assets/logos/monogram-white.png" download><div class="file__prev" style="background:#229CDF"><img src="assets/logos/monogram-white.png" alt=""></div><b>Белая</b><span>monogram-white.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/monogram-pink.png" download><div class="file__prev" style="background:#FCF6E0"><img src="assets/logos/monogram-pink.png" alt=""></div><b>Розовая</b><span>monogram-pink.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/monogram-black.png" download><div class="file__prev" style="background:#FFFFFF"><img src="assets/logos/monogram-black.png" alt=""></div><b>Чёрная</b><span>monogram-black.png</span></a>
+<a class="card card-compact card-action file" href="assets/logos/monogram-source.ai" download><div class="file__prev" style="background:var(--muted);font:700 13px/1 var(--font-sans);color:var(--muted-foreground)">.AI</div><b>Векторный исходник</b><span>monogram-source.ai</span></a>
+</div>
+<p class="alert alert-description">В макете <b>Section-WHOIS</b> монограмма стоит белым цветом 174×170 px, в шапке — 60×59 px. Минимальный размер монограммы — 40 px по высоте, ниже теряется штрих.</p>
+</div></section>
+<section id="color"><div class="wrap">
+<p class="eyebrow">Основы</p><h2>Цвет</h2><p class="lead">Цифра в конце описания — сколько раз цвет встречается в макетах. Это и есть иерархия: чёрный и белый держат контур, розовый и голубой несут бренд, остальное работает точечно.</p>
+<h3>Бренд — Y2K направление</h3><div class="grid sw">
+<button class="card card-compact card-action swatch" data-copy="#FA6794"><b style="background:#FA6794"></b><span><em>--pink-500</em><code>#FA6794</code><small>Основной розовый, фон страницы · x18</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#FF9DBB"><b style="background:#FF9DBB"></b><span><em>--pink-400</em><code>#FF9DBB</code><small>Панель Where to buy, 20% pattern · x3</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#ED5F84"><b style="background:#ED5F84"></b><span><em>--pink-300</em><code>#ED5F84</code><small>Второстепенный розовый · x6</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#DA5A82"><b style="background:#DA5A82"></b><span><em>--pink-600</em><code>#DA5A82</code><small>Заливка display-заголовка · x3</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#CD0C47"><b style="background:#CD0C47"></b><span><em>--pink-700</em><code>#CD0C47</code><small>Бегущая строка, обводка кнопки · x29</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#229CDF"><b style="background:#229CDF"></b><span><em>--sky-500</em><code>#229CDF</code><small>Шапка, футер, тень 10/10 · x39</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#41BCFF"><b style="background:#41BCFF"></b><span><em>--sky-400</em><code>#41BCFF</code><small>Панель футера, блок Mission · x10</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#006297"><b style="background:#006297"></b><span><em>--sky-600</em><code>#006297</code><small>Активный пункт меню, глубокая тень · x2</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#00324D"><b style="background:#00324D"></b><span><em>--navy-900</em><code>#00324D</code><small>Текст в футере · x44</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#FCF6E0"><b style="background:#FCF6E0"></b><span><em>--cream-100</em><code>#FCF6E0</code><small>Основной светлый фон · x11</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#FFF2E0"><b style="background:#FFF2E0"></b><span><em>--cream-200</em><code>#FFF2E0</code><small>Радужный акцент в меню · x4</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#A3C892"><b style="background:#A3C892"></b><span><em>--mint-400</em><code>#A3C892</code><small>Sign up, Find a store · x21</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#F6F7F9"><b style="background:#F6F7F9"></b><span><em>--paper-50</em><code>#F6F7F9</code><small>Текст на тёмном · x20</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#000000"><b style="background:#000000"></b><span><em>--ink-900</em><code>#000000</code><small>Обводка 4px, весь контур · x270</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#FFFFFF"><b style="background:#FFFFFF"></b><span><em>--white</em><code>#FFFFFF</code><small>Карточки, текст, обводка · x143</small></span></button>
+</div>
+<h3>Магазин</h3><div class="grid sw">
+<button class="card card-compact card-action swatch" data-copy="#1A202C"><b style="background:#1A202C"></b><span><em>--shop-heading</em><code>#1A202C</code><small>Заголовки секций · Extra Bold 36</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#FAC3E1"><b style="background:#FAC3E1"></b><span><em>--shop-cta</em><code>#FAC3E1</code><small>Кнопка Shop All To Support · r=40 + 1px black</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#EFC3DD"><b style="background:#EFC3DD"></b><span><em>--shop-cta-alt</em><code>#EFC3DD</code><small>Вариант кнопки</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#007C96"><b style="background:#007C96"></b><span><em>--shop-teal</em><code>#007C96</code><small>Оверлей блока Mission @70%</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#8A6A86"><b style="background:#8A6A86"></b><span><em>--shop-glass</em><code>#8A6A86</code><small>Стеклянная шапка @40% + blur</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#162A41"><b style="background:#162A41"></b><span><em>--shop-navy</em><code>#162A41</code><small>Текст на белых кнопках</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#000A18"><b style="background:#000A18"></b><span><em>--shop-black</em><code>#000A18</code><small>Футер</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#486284"><b style="background:#486284"></b><span><em>--shop-slate</em><code>#486284</code><small>Вторичный текст</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#90A3BF"><b style="background:#90A3BF"></b><span><em>--shop-muted</em><code>#90A3BF</code><small>Подписи</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#DEE1E4"><b style="background:#DEE1E4"></b><span><em>--shop-line</em><code>#DEE1E4</code><small>Разделители</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#E5E5E5"><b style="background:#E5E5E5"></b><span><em>--shop-gray-300</em><code>#E5E5E5</code><small></small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#C4C4C4"><b style="background:#C4C4C4"></b><span><em>--shop-gray-400</em><code>#C4C4C4</code><small></small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#ACACAC"><b style="background:#ACACAC"></b><span><em>--shop-gray-500</em><code>#ACACAC</code><small></small></span></button>
+<button class="card card-compact card-action swatch" data-copy="#6D6D6D"><b style="background:#6D6D6D"></b><span><em>--shop-gray-700</em><code>#6D6D6D</code><small></small></span></button>
+</div>
+<h3>Градиенты</h3><div class="grid sw">
+<button class="card card-compact card-action swatch" data-copy="radial-gradient(circle at 50% 50%, #FA6794 0%, #FCF6E0 100%)"><b style="background:radial-gradient(circle at 50% 50%, #FA6794 0%, #FCF6E0 100%)"></b><span><em>--grad-candy</em><small>GRADIENT_RADIAL, 14 использований</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="radial-gradient(circle at 50% 50%, #F6F7F9 0%, #FCF6E0 100%)"><b style="background:radial-gradient(circle at 50% 50%, #F6F7F9 0%, #FCF6E0 100%)"></b><span><em>--grad-paper</em><small>GRADIENT_RADIAL, 10 использований</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="linear-gradient(180deg, #F6F7F9 0%, #FCF6E0 100%)"><b style="background:linear-gradient(180deg, #F6F7F9 0%, #FCF6E0 100%)"></b><span><em>--grad-paper-lin</em><small>GRADIENT_LINEAR, 6 использований</small></span></button>
+<button class="card card-compact card-action swatch" data-copy="linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%)"><b style="background:linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%)"></b><span><em>--grad-scrim</em><small>Защитная подложка под текст, 13 использований</small></span></button>
+</div>
+<div class="accordion"><details class="accordion-item">
+<summary class="accordion-trigger">Библиотечные шкалы импортированного UI-kit — 35 цветов, не бренд</summary>
+<div class="details__body" style="padding:4px 18px 18px">
+<p class="lead">Шкалы приехали вместе с чужим UI-kit из файла магазина. Держим их только потому, что на них завязаны Button и Counter. В бренд-макетах ни один из этих цветов не встречается — в вёрстку бренда не тянуть.</p>
+<p style="margin:18px 0 6px;font:500 12px/1 var(--font-sans);color:var(--muted-foreground)">Indigo — primary</p><div class="ramp" style="grid-template-columns:repeat(7,1fr)"><button data-copy="#F7F8FE" style="background:#F7F8FE" title="#F7F8FE" aria-label="#F7F8FE"></button><button data-copy="#EFF0FD" style="background:#EFF0FD" title="#EFF0FD" aria-label="#EFF0FD"></button><button data-copy="#DEE0FC" style="background:#DEE0FC" title="#DEE0FC" aria-label="#DEE0FC"></button><button data-copy="#CED1FA" style="background:#CED1FA" title="#CED1FA" aria-label="#CED1FA"></button><button data-copy="#5B64EE" style="background:#5B64EE" title="#5B64EE" aria-label="#5B64EE"></button><button data-copy="#525AD6" style="background:#525AD6" title="#525AD6" aria-label="#525AD6"></button><button data-copy="#4046A7" style="background:#4046A7" title="#4046A7" aria-label="#4046A7"></button></div><div class="ramp-labels" style="grid-template-columns:repeat(7,1fr)"><span>#F7F8FE</span><span>#EFF0FD</span><span>#DEE0FC</span><span>#CED1FA</span><span>#5B64EE</span><span>#525AD6</span><span>#4046A7</span></div>
+<p style="margin:18px 0 6px;font:500 12px/1 var(--font-sans);color:var(--muted-foreground)">Red — danger</p><div class="ramp" style="grid-template-columns:repeat(7,1fr)"><button data-copy="#FFFBFA" style="background:#FFFBFA" title="#FFFBFA" aria-label="#FFFBFA"></button><button data-copy="#FEF3F2" style="background:#FEF3F2" title="#FEF3F2" aria-label="#FEF3F2"></button><button data-copy="#FEE4E2" style="background:#FEE4E2" title="#FEE4E2" aria-label="#FEE4E2"></button><button data-copy="#FECDCA" style="background:#FECDCA" title="#FECDCA" aria-label="#FECDCA"></button><button data-copy="#F04438" style="background:#F04438" title="#F04438" aria-label="#F04438"></button><button data-copy="#D92D20" style="background:#D92D20" title="#D92D20" aria-label="#D92D20"></button><button data-copy="#B42318" style="background:#B42318" title="#B42318" aria-label="#B42318"></button></div><div class="ramp-labels" style="grid-template-columns:repeat(7,1fr)"><span>#FFFBFA</span><span>#FEF3F2</span><span>#FEE4E2</span><span>#FECDCA</span><span>#F04438</span><span>#D92D20</span><span>#B42318</span></div>
+<p style="margin:18px 0 6px;font:500 12px/1 var(--font-sans);color:var(--muted-foreground)">Green — success</p><div class="ramp" style="grid-template-columns:repeat(7,1fr)"><button data-copy="#F6FEF9" style="background:#F6FEF9" title="#F6FEF9" aria-label="#F6FEF9"></button><button data-copy="#EDFCF2" style="background:#EDFCF2" title="#EDFCF2" aria-label="#EDFCF2"></button><button data-copy="#D3F8DF" style="background:#D3F8DF" title="#D3F8DF" aria-label="#D3F8DF"></button><button data-copy="#AAF0C4" style="background:#AAF0C4" title="#AAF0C4" aria-label="#AAF0C4"></button><button data-copy="#16B364" style="background:#16B364" title="#16B364" aria-label="#16B364"></button><button data-copy="#099250" style="background:#099250" title="#099250" aria-label="#099250"></button><button data-copy="#087443" style="background:#087443" title="#087443" aria-label="#087443"></button></div><div class="ramp-labels" style="grid-template-columns:repeat(7,1fr)"><span>#F6FEF9</span><span>#EDFCF2</span><span>#D3F8DF</span><span>#AAF0C4</span><span>#16B364</span><span>#099250</span><span>#087443</span></div>
+<p style="margin:18px 0 6px;font:500 12px/1 var(--font-sans);color:var(--muted-foreground)">Orange — warning</p><div class="ramp" style="grid-template-columns:repeat(3,1fr)"><button data-copy="#FEF0C7" style="background:#FEF0C7" title="#FEF0C7" aria-label="#FEF0C7"></button><button data-copy="#F79009" style="background:#F79009" title="#F79009" aria-label="#F79009"></button><button data-copy="#DC6803" style="background:#DC6803" title="#DC6803" aria-label="#DC6803"></button></div><div class="ramp-labels" style="grid-template-columns:repeat(3,1fr)"><span>#FEF0C7</span><span>#F79009</span><span>#DC6803</span></div>
+<p style="margin:18px 0 6px;font:500 12px/1 var(--font-sans);color:var(--muted-foreground)">Gray — нейтрали</p><div class="ramp" style="grid-template-columns:repeat(9,1fr)"><button data-copy="#FCFCFD" style="background:#FCFCFD" title="#FCFCFD" aria-label="#FCFCFD"></button><button data-copy="#F9FAFB" style="background:#F9FAFB" title="#F9FAFB" aria-label="#F9FAFB"></button><button data-copy="#F2F4F7" style="background:#F2F4F7" title="#F2F4F7" aria-label="#F2F4F7"></button><button data-copy="#EAECF0" style="background:#EAECF0" title="#EAECF0" aria-label="#EAECF0"></button><button data-copy="#D0D5DD" style="background:#D0D5DD" title="#D0D5DD" aria-label="#D0D5DD"></button><button data-copy="#667085" style="background:#667085" title="#667085" aria-label="#667085"></button><button data-copy="#475467" style="background:#475467" title="#475467" aria-label="#475467"></button><button data-copy="#344054" style="background:#344054" title="#344054" aria-label="#344054"></button><button data-copy="#1D2939" style="background:#1D2939" title="#1D2939" aria-label="#1D2939"></button></div><div class="ramp-labels" style="grid-template-columns:repeat(9,1fr)"><span>#FCFCFD</span><span>#F9FAFB</span><span>#F2F4F7</span><span>#EAECF0</span><span>#D0D5DD</span><span>#667085</span><span>#475467</span><span>#344054</span><span>#1D2939</span></div>
+</div>
+</details></div>
+</div></section>
+<section id="type"><div class="wrap">
+<p class="eyebrow">Основы</p><h2>Типографика</h2><p class="lead">Одно семейство — Inter. Им же набрана презентация Brand Overview, поэтому сайт и слайды читаются как один материал. Jost, Josefin Sans, Plus Jakarta Sans и Source Sans Pro встречались в макетах по разу и сведены на Inter. Лицензия OFL: ставится на сайт и в печать без покупки, карточка качает архив с Google Fonts.</p>
+<div class="files">
+<a class="card card-compact card-action file" href="https://fonts.google.com/download?family=Inter" download><div class="file__prev" style="background:var(--muted);font:900 42px/1 'Inter',sans-serif;color:var(--foreground)">Aa</div><b>Inter</b><span>OFL · .zip</span><p>Держит всё: интерфейс, заголовки, текст, кнопки, фоновый мега-текст. Веса 400–900 плюс италики.</p></a>
+<div class="card card-compact file"><div class="file__prev" style="background:var(--muted);color:var(--foreground);display:grid;gap:6px;align-content:center;justify-items:start;padding:0 14px"><span style="font:400 15px/1.2 'Inter',sans-serif">Regular 400 — текст</span><span style="font:700 15px/1.2 'Inter',sans-serif">Bold 700 — заголовки</span><span style="font:900 15px/1.2 'Inter',sans-serif">Black 900 — дисплей</span></div><b>Три рабочих веса</b><span>400 · 700 · 900</span><p>Так набрана презентация Brand Overview. Промежуточные 500/600 — только для интерфейса магазина.</p></div>
+</div>
+<p class="alert alert-description">Подключение одной строкой — уже прописано в <code>tokens/fonts.css</code>:<br><code style="font-size:12px">&lt;link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"&gt;</code></p>
+<h3>Текстовые стили — бренд (20)</h3><div class="table-container"><table class="table"><thead><tr><th>Образец</th><th>Класс</th><th>Шрифт</th><th>Размер / интерлиньяж</th><th>Где в макете</th></tr></thead><tbody>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-hero" style="overflow:hidden;text-overflow:ellipsis">SOME NICE SLOGAN</div></td><td><code>.t-hero</code></td><td>Inter Black Italic</td><td><code>96 / 100%</code></td><td class="dim">Section-WHOIS, белый + обводка 4px чёрным + тень 5,5</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-title-96" style="overflow:hidden;text-overflow:ellipsis">REP THE VIBE</div></td><td><code>.t-title-96</code></td><td>Inter Bold</td><td><code>96 / 100%</code></td><td class="dim">Section-ShopNow, заливка #DA5A82 + обводка 4px белым</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-display-80" style="overflow:hidden;text-overflow:ellipsis">BRIDGING THE GAP</div></td><td><code>.t-display-80</code></td><td>Inter Black</td><td><code>80 / 100%</code></td><td class="dim">Section-MISSION, UPPERCASE, чёрный на белой плашке</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-display-60" style="overflow:hidden;text-overflow:ellipsis">TO YOUR INFINITE HORIZON</div></td><td><code>.t-display-60</code></td><td>Inter Black</td><td><code>60 / 100%</code></td><td class="dim">Section-MISSION, белый + тень 5,5 чёрным</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-title-48" style="overflow:hidden;text-overflow:ellipsis">MR. Thank You</div></td><td><code>.t-title-48</code></td><td>Inter Black</td><td><code>48 / 100%</code></td><td class="dim">Логотип-подпись, #F6F7F9 + обводка 4px</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-title-40" style="overflow:hidden;text-overflow:ellipsis">OUR MISSION IS / SHOP / INFO</div></td><td><code>.t-title-40</code></td><td>Inter Black</td><td><code>40 / 100%</code></td><td class="dim">Заголовки колонок футера, #00324D</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-lead-40" style="overflow:hidden;text-overflow:ellipsis">Grab our freshest gear and make it your own.</div></td><td><code>.t-lead-40</code></td><td>Inter Bold</td><td><code>40 / 100%</code></td><td class="dim">Подзаголовок секции, #229CDF</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-marquee" style="overflow:hidden;text-overflow:ellipsis">FIND US AT · H&M · FASHION STORE</div></td><td><code>.t-marquee</code></td><td>Inter Extra Bold Italic</td><td><code>40 / 100%</code></td><td class="dim">Бегущая строка, #CD0C47 поверх чёрного контура 6px</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-link-30" style="overflow:hidden;text-overflow:ellipsis">SHOP ALL / HEADWEAR / T-SHIRTS</div></td><td><code>.t-link-30</code></td><td>Inter Black Italic</td><td><code>30 / 100%</code></td><td class="dim">Ссылки футера, #00324D</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-btn-32" style="overflow:hidden;text-overflow:ellipsis">LEARN MORE</div></td><td><code>.t-btn-32</code></td><td>Inter Black Italic</td><td><code>32 / 100%</code></td><td class="dim">Текст на кнопке CTA</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-card-24" style="overflow:hidden;text-overflow:ellipsis">Headwear</div></td><td><code>.t-card-24</code></td><td>Inter Bold</td><td><code>24 / 100%</code></td><td class="dim">Заголовок карточки товара</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-body-24" style="overflow:hidden;text-overflow:ellipsis">We are dedicated to closing the gap.</div></td><td><code>.t-body-24</code></td><td>Inter Semi Bold</td><td><code>24 / 100%</code></td><td class="dim">Основной текст на плашках</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-cta-24" style="overflow:hidden;text-overflow:ellipsis">SHOP NOW</div></td><td><code>.t-cta-24</code></td><td>Inter Black Italic <span class="dim">(в макете Jost)</span></td><td><code>24 / 100%</code></td><td class="dim">Нижняя плашка карточки товара</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-menu-24" style="overflow:hidden;text-overflow:ellipsis">HEADWEAR</div></td><td><code>.t-menu-24</code></td><td>Inter Black Italic <span class="dim">(в макете Source Sans Pro)</span></td><td><code>24 / 100%</code></td><td class="dim">Пункты мега-меню</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-tag-24" style="overflow:hidden;text-overflow:ellipsis">NEW DROP</div></td><td><code>.t-tag-24</code></td><td>Inter Bold <span class="dim">(в макете Josefin Sans)</span></td><td><code>24 / 100%</code></td><td class="dim">Теги и подписи</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-nav-20" style="overflow:hidden;text-overflow:ellipsis">SHOP  OUR STORY  AVAILABLE WORLDWIDE</div></td><td><code>.t-nav-20</code></td><td>Inter Black Italic</td><td><code>20 / 100% / ls 5%</code></td><td class="dim">Навигация в шапке, #F6F7F9</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-label-20" style="overflow:hidden;text-overflow:ellipsis">MR. THANK YOU T-SHIRT</div></td><td><code>.t-label-20</code></td><td>Inter Extra Bold</td><td><code>20 / 100%</code></td><td class="dim">Подписи секций, двойная обводка</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-legal-16" style="overflow:hidden;text-overflow:ellipsis">2026 MR. Thank you</div></td><td><code>.t-legal-16</code></td><td>Inter Black</td><td><code>16 / 100%</code></td><td class="dim">Копирайт в футере</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-mega-128" style="overflow:hidden;text-overflow:ellipsis">MR. THANK YOU MERC</div></td><td><code>.t-mega-128</code></td><td>Inter Black <span class="dim">(в макете Source Sans Pro)</span></td><td><code>128 / 100%</code></td><td class="dim">Фоновый текст Where to buy, белый @30%</td></tr>
+<tr><td class="spec" style="background:var(--muted)"><div class="t-mega-148" style="overflow:hidden;text-overflow:ellipsis">AVAILABLE HERE & NOW</div></td><td><code>.t-mega-148</code></td><td>Inter Black <span class="dim">(в макете Source Sans Pro)</span></td><td><code>148 / 100%</code></td><td class="dim">Фоновый текст, только контур 1px</td></tr>
+</tbody></table></div>
+<h3>Текстовые стили — магазин (16)</h3><div class="table-container"><table class="table"><thead><tr><th>Образец</th><th>Класс</th><th>Шрифт</th><th>Размер / интерлиньяж</th><th>Где в макете</th></tr></thead><tbody>
+<tr><td class="spec"><div class="s-h1" style="overflow:hidden;text-overflow:ellipsis">EVERY PURCHASE HELPS</div></td><td><code>.s-h1</code></td><td>Inter Extra Bold</td><td><code>72 / 1.212</code></td><td class="dim">Заголовок героя, UPPERCASE</td></tr>
+<tr><td class="spec"><div class="s-h2" style="overflow:hidden;text-overflow:ellipsis">OUR MISSION</div></td><td><code>.s-h2</code></td><td>Inter Extra Bold</td><td><code>50 / 1.212</code></td><td class="dim">Крупный заголовок секции</td></tr>
+<tr><td class="spec"><div class="s-h3" style="overflow:hidden;text-overflow:ellipsis">MISSIONS</div></td><td><code>.s-h3</code></td><td>Inter Extra Bold</td><td><code>40 / 1.212</code></td><td class="dim">Заголовок блока</td></tr>
+<tr><td class="spec"><div class="s-h4" style="overflow:hidden;text-overflow:ellipsis">Best Sellers</div></td><td><code>.s-h4</code></td><td>Inter Extra Bold</td><td><code>36 / 1.212</code></td><td class="dim">Основной заголовок секции, #1A202C</td></tr>
+<tr><td class="spec"><div class="s-h5" style="overflow:hidden;text-overflow:ellipsis">MISSION NAME</div></td><td><code>.s-h5</code></td><td>Inter Extra Bold</td><td><code>32 / 1.212</code></td><td class="dim">Заголовок карточки</td></tr>
+<tr><td class="spec"><div class="s-h6" style="overflow:hidden;text-overflow:ellipsis">Short Title</div></td><td><code>.s-h6</code></td><td>Inter Extra Bold</td><td><code>24 / 1.212</code></td><td class="dim">Подзаголовок карточки</td></tr>
+<tr><td class="spec"><div class="s-lead" style="overflow:hidden;text-overflow:ellipsis">Shop All To Support</div></td><td><code>.s-lead</code></td><td>Inter Bold</td><td><code>20 / 1.5 / ls -3%</code></td><td class="dim">Ведущий текст, кнопки</td></tr>
+<tr><td class="spec"><div class="s-strong" style="overflow:hidden;text-overflow:ellipsis">$99</div></td><td><code>.s-strong</code></td><td>Inter Bold</td><td><code>16 / 1.5 / ls -3%</code></td><td class="dim">Цена, акценты</td></tr>
+<tr><td class="spec"><div class="s-body" style="overflow:hidden;text-overflow:ellipsis">We are fully committed to helping alleviate suffering.</div></td><td><code>.s-body</code></td><td>Inter Medium</td><td><code>16 / 1.5 / ls -3%</code></td><td class="dim">Основной текст</td></tr>
+<tr><td class="spec"><div class="s-body-r" style="overflow:hidden;text-overflow:ellipsis">Individuals Fed · Meals Delivered · Pounds of Food</div></td><td><code>.s-body-r</code></td><td>Inter Regular</td><td><code>16 / 30px</code></td><td class="dim">Длинные абзацы</td></tr>
+<tr><td class="spec"><div class="s-sub" style="overflow:hidden;text-overflow:ellipsis">©2026 MR. THANK YOU. All rights reserved</div></td><td><code>.s-sub</code></td><td>Inter Semi Bold</td><td><code>18 / 100%</code></td><td class="dim">Футер</td></tr>
+<tr><td class="spec"><div class="s-sm" style="overflow:hidden;text-overflow:ellipsis">Ann Johnson · New York, USA</div></td><td><code>.s-sm</code></td><td>Inter Semi Bold</td><td><code>14 / 20px</code></td><td class="dim">Подписи, отзывы</td></tr>
+<tr><td class="spec"><div class="s-xs" style="overflow:hidden;text-overflow:ellipsis">Track your order</div></td><td><code>.s-xs</code></td><td>Inter Semi Bold</td><td><code>12 / 18px</code></td><td class="dim">Ссылки футера, мелкий UI</td></tr>
+<tr><td class="spec"><div class="s-2xs" style="overflow:hidden;text-overflow:ellipsis">Button</div></td><td><code>.s-2xs</code></td><td>Inter Semi Bold</td><td><code>10 / 16px</code></td><td class="dim">Small-кнопка, Counter</td></tr>
+<tr><td class="spec"><div class="s-cap" style="overflow:hidden;text-overflow:ellipsis">NEW · SALE · SOLD OUT</div></td><td><code>.s-cap</code></td><td>Inter Bold</td><td><code>14 / 20px</code></td><td class="dim">Бейджи, UPPERCASE</td></tr>
+<tr><td class="spec"><div class="s-ui" style="overflow:hidden;text-overflow:ellipsis">Select your city</div></td><td><code>.s-ui</code></td><td>Inter Bold <span class="dim">(в макете Plus Jakarta Sans)</span></td><td><code>16 / 1.5 / ls -2%</code></td><td class="dim">Только UI-kit</td></tr>
+</tbody></table></div>
+<p class="alert alert-description"><b>Пять семейств сведены к двум.</b> Jost стоял на одной надписи SHOP NOW, Josefin Sans — на тегах, Plus Jakarta Sans приехал с чужим UI-kit. Все трое заменены на Inter: <code>--font-button</code>, <code>--font-tag</code> и <code>--font-ui</code> теперь алиасы <code>--font-sans</code>. Классы <code>.t-cta-24</code>, <code>.t-tag-24</code> и <code>.s-ui</code> работают как работали — в разметке менять нечего. Вернуть исходные шрифты — четыре строки в <code>tokens/fonts.css</code>.</p>
+</div></section>
+<section id="space"><div class="wrap"><p class="eyebrow">Основы</p><h2>Отступы и сетка</h2>
+<p class="lead">Бренд-макет собран без auto-layout, поэтому шкала снята из файла магазина: реальные gap и padding, приведённые к базе 4 px. Полоса = реальный размер.</p>
+<h3>Базовая шкала</h3><div class="rows">
+<button class="card-action row" data-copy="4px"><code>--space-1</code><code>4px</code><i style="width:4px"></i></button>
+<button class="card-action row" data-copy="8px"><code>--space-2</code><code>8px</code><i style="width:8px"></i></button>
+<button class="card-action row" data-copy="12px"><code>--space-3</code><code>12px</code><i style="width:12px"></i></button>
+<button class="card-action row" data-copy="16px"><code>--space-4</code><code>16px</code><i style="width:16px"></i></button>
+<button class="card-action row" data-copy="20px"><code>--space-5</code><code>20px</code><i style="width:20px"></i></button>
+<button class="card-action row" data-copy="24px"><code>--space-6</code><code>24px</code><i style="width:24px"></i></button>
+<button class="card-action row" data-copy="32px"><code>--space-8</code><code>32px</code><i style="width:32px"></i></button>
+<button class="card-action row" data-copy="40px"><code>--space-10</code><code>40px</code><i style="width:40px"></i></button>
+<button class="card-action row" data-copy="48px"><code>--space-12</code><code>48px</code><i style="width:48px"></i></button>
+<button class="card-action row" data-copy="64px"><code>--space-16</code><code>64px</code><i style="width:64px"></i></button>
+</div>
+<h3>Значения вне шкалы (есть в макете)</h3><div class="table-container"><table class="table"><thead><tr><th>Токен</th><th>Значение</th><th>Где</th></tr></thead><tbody>
+<tr><td><code>--space-6px</code></td><td><code>6px</code></td><td class="dim">gap в мелких кнопках</td></tr>
+<tr><td><code>--space-10px</code></td><td><code>10px</code></td><td class="dim">gap в строках</td></tr>
+<tr><td><code>--space-15</code></td><td><code>15px</code></td><td class="dim">gap в сетке товаров</td></tr>
+<tr><td><code>--space-18</code></td><td><code>18px</code></td><td class="dim">padding карточки</td></tr>
+<tr><td><code>--space-21</code></td><td><code>21px</code></td><td class="dim">gap в блоке отзывов</td></tr>
+<tr><td><code>--space-30</code></td><td><code>30px</code></td><td class="dim">gap между секциями</td></tr>
+<tr><td><code>--space-38</code></td><td><code>38px</code></td><td class="dim">gap в блоке Mission</td></tr>
+<tr><td><code>--space-47</code></td><td><code>47px</code></td><td class="dim">gap в футере</td></tr>
+</tbody></table></div>
+<h3>Ширины макета</h3><div class="table-container"><table class="table"><thead><tr><th>Токен</th><th>Значение</th><th>Что это</th></tr></thead><tbody><tr><td><code>--page-w</code></td><td><code>1440px</code></td><td class="dim">Ширина холста в обоих файлах</td></tr><tr><td><code>--content-w</code></td><td><code>1312px</code></td><td class="dim">Контентная колонка магазина, поля 64px</td></tr><tr><td><code>--panel-w</code></td><td><code>1255px</code></td><td class="dim">Внутренние панели бренда (футер, Where to buy)</td></tr><tr><td><code>--gutter</code></td><td><code>64px</code></td><td class="dim">Боковое поле</td></tr></tbody></table></div></div></section>
+<section id="radius"><div class="wrap"><p class="eyebrow">Основы</p><h2>Скругления и обводки</h2>
+<p class="lead">Фигура показывает радиус в натуральную величину, цифра в конце — число вхождений в файлах. Два базовых значения: 10px у бренда, 6px у магазина.</p><h3>Радиусы</h3>
+<div class="specs">
+<button class="card card-compact card-action spec-tile" data-copy="4px"><i style="border-radius:4px"></i><em>4px</em><small>--r-xs · Мелкие чипы магазина</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="5px"><i style="border-radius:5px"></i><em>5px</em><small>--r-sm · Плашка SHOP NOW, кнопка SHOP ALL</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="6px"><i style="border-radius:6px"></i><em>6px</em><small>--r-md · База магазина: Button, Counter · 2418</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="10px"><i style="border-radius:10px"></i><em>10px</em><small>--r-lg · База бренда: карточки, кнопки, инпуты · 179</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="15px"><i style="border-radius:15px"></i><em>15px</em><small>--r-xl · Карточки товара магазина · 480</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="20px"><i style="border-radius:20px"></i><em>20px</em><small>--r-2xl · Редкие панели</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="30px"><i style="border-radius:30px"></i><em>30px</em><small>--r-3xl · Крупные панели: меню, футер, Where to buy · 81</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="40px"><i style="border-radius:40px"></i><em>40px</em><small>--r-40 · CTA магазина Shop All To Support</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="50px"><i style="border-radius:50px"></i><em>50px</em><small>--r-pill · Чипы ритейлеров 194×73 · 95</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="100px"><i style="border-radius:100px"></i><em>100px</em><small>--r-full · Круглые элементы, Counter · 1390</small></button>
+</div>
+<h3>Толщина обводки</h3>
+<div class="specs">
+<button class="card card-compact card-action spec-tile" data-copy="1px"><i style="border:1px solid var(--ink-900);border-radius:10px;background:var(--cream-100)"></i><em>1px</em><small>Магазин: рамки карточек и кнопок · 374</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="2px"><i style="border:2px solid var(--ink-900);border-radius:10px;background:var(--cream-100)"></i><em>2px</em><small>Обводка текста на розовой кнопке · 18</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="3px"><i style="border:3px solid var(--ink-900);border-radius:10px;background:var(--cream-100)"></i><em>3px</em><small>Внутренняя обводка подписи секции · 25</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="4px"><i style="border:4px solid var(--ink-900);border-radius:10px;background:var(--cream-100)"></i><em>4px</em><small>Подпись бренда — контур всего · 203</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="6px"><i style="border:6px solid var(--ink-900);border-radius:10px;background:var(--cream-100)"></i><em>6px</em><small>Контур бегущей строки, внешняя обводка подписи · 34</small></button>
+<button class="card card-compact card-action spec-tile" data-copy="9px"><i style="border:9px solid var(--ink-900);border-radius:10px;background:var(--cream-100)"></i><em>9px</em><small>Внешний контур заголовка WHERE TO BUY · 2</small></button>
+</div>
+<p class="alert alert-description"><b>4px чёрным — это подпись бренда.</b> 203 объекта в макете обведены именно так. Уменьшишь до 2px — направление рассыпается.</p></div></section>
+<section id="effects"><div class="wrap"><p class="eyebrow">Основы</p><h2>Тени и эффекты</h2>
+<p class="lead">У бренда тень без размытия и со смещением 10px — плоский стикерный сдвиг, а не глубина. У магазина обычная мягкая. Смешивать нельзя: это два разных языка поверхности.</p>
+<div class="specs">
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 10px 10px 0 #229CDF;"><i style="box-shadow:10px 10px 0 #229CDF"></i><em>--shadow-sky-10</em><small>Карточки Find a store, чипы ритейлеров · 22</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 10px 10px 0 #FA6794;"><i style="box-shadow:10px 10px 0 #FA6794"></i><em>--shadow-pink-10</em><small>Карточки товара · 13</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 10px 10px 0 #006297;"><i style="box-shadow:10px 10px 0 #006297"></i><em>--shadow-sky-deep</em><small>Карточки на голубом фоне · 8</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 10px 10px 0 #FFFFFF;"><i style="box-shadow:10px 10px 0 #FFFFFF;background:var(--sky-500)"></i><em>--shadow-white-10</em><small>Кнопка Learn more · 3</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 7px 7px 0 #229CDF;"><i style="box-shadow:7px 7px 0 #229CDF"></i><em>--shadow-sky-7</em><small>Заголовок REP THE VIBE · 1</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 5px 5px 0 #000000;"><i style="box-shadow:5px 5px 0 #000000"></i><em>--shadow-ink-5</em><small>Крупные заголовки · 5</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="hard" data-copy="box-shadow: 4px 4px 0 rgba(0,0,0,.25);"><i style="box-shadow:4px 4px 0 rgba(0,0,0,.25)"></i><em>--shadow-ink-4</em><small>Текст на голубом · 3</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="soft" data-copy="box-shadow: 0 14px 24px rgba(0,0,0,.10);"><i style="box-shadow:0 14px 24px rgba(0,0,0,.10)"></i><em>--shadow-soft-lg</em><small>Магазин: карточки · 3</small></button>
+<button class="card card-compact card-action spec-tile" data-fx="soft" data-copy="box-shadow: 0 10px 18px rgba(0,0,0,.10);"><i style="box-shadow:0 10px 18px rgba(0,0,0,.10)"></i><em>--shadow-soft-md</em><small>Магазин: мелкие поверхности · 3</small></button>
+</div>
+<h3>NOISE</h3><p class="lead">В Figma это эффект NOISE (r=4, #000000 @25%, смещение 0,4) — 10 объектов. В вебе воспроизводится SVG-текстурой <code>--noise</code> поверх фона.</p>
+<div class="canvas" data-bg="sky" style="height:150px;position:relative" class="noise"><div class="noise" style="position:absolute;inset:0;border-radius:12px"></div></div>
+<h3>GLASS — только магазин</h3><p class="lead">Шапка магазина: заливка <code>#8A6A86</code> @40% + <code>backdrop-filter: blur(4px)</code>.</p>
+<div class="canvas" style="background:url(assets/images/shop-catalog-1.png) center/cover,#333;padding:0;height:160px;align-items:flex-start"><div style="width:100%;height:76px;background:var(--glass-tint);backdrop-filter:var(--glass-blur);display:flex;align-items:center;padding:0 64px;gap:32px;color:#fff;font:600 14px/1 var(--font-sans)"><b style="font:900 16px/1 var(--font-sans)">MR. THANK YOU</b><span>SHOP</span><span>SUPPORT</span><span>COLLECTIONS</span></div></div>
+</div></section>
+<section id="icons"><div class="wrap"><p class="eyebrow">Основы</p><h2>Иконки</h2>
+<p class="lead">Восемь символов из файла магазина, пересобранных в SVG по исходной геометрии. Рабочий размер 16–24 px, обводка 1px. Клик — скачивание.</p>
+<div class="files">
+<a class="card card-compact card-action file" href="assets/icons/chevron-down.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/chevron-down.svg" alt="" style="max-height:40px"></div><b>chevron-down</b><span>chevron-down.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/clear.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/clear.svg" alt="" style="max-height:40px"></div><b>clear</b><span>clear.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/employees.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/employees.svg" alt="" style="max-height:40px"></div><b>employees</b><span>employees.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/language-english-us.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/language-english-us.svg" alt="" style="max-height:40px"></div><b>language-english-us</b><span>language-english-us.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/placeholder.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/placeholder.svg" alt="" style="max-height:40px"></div><b>placeholder</b><span>placeholder.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/search.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/search.svg" alt="" style="max-height:40px"></div><b>search</b><span>search.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/vuesax-linear-heart.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/vuesax-linear-heart.svg" alt="" style="max-height:40px"></div><b>vuesax-linear-heart</b><span>vuesax-linear-heart.svg</span></a>
+<a class="card card-compact card-action file" href="assets/icons/vuesax-outline-arrow-down.svg" download><div class="file__prev" style="background:#fff"><img src="assets/icons/vuesax-outline-arrow-down.svg" alt="" style="max-height:40px"></div><b>vuesax-outline-arrow-down</b><span>vuesax-outline-arrow-down.svg</span></a>
+</div>
+<p class="alert alert-description">В бренд-макете иконки нарисованы прямо в кнопках-кружках (корзина, профиль, инфо, язык) и не вынесены в компоненты. Если нужен полный набор бренд-иконок — их надо дорисовать, в исходниках их нет.</p>
+<h3>Мокапы носителей</h3><p class="lead">Из папки ИСХОДНИКИ: реальные фото с нанесённой монограммой.</p><div class="files">
+<a class="card card-compact card-action file" href="assets/mockups/monogram-кепка1.png" download><div class="file__prev" style="background:#fff"><img src="assets/mockups/monogram-кепка1.png" alt=""></div><b>кепка1</b><span>1488 KB</span></a>
+<a class="card card-compact card-action file" href="assets/mockups/monogram-кепка2.png" download><div class="file__prev" style="background:#fff"><img src="assets/mockups/monogram-кепка2.png" alt=""></div><b>кепка2</b><span>1531 KB</span></a>
+<a class="card card-compact card-action file" href="assets/mockups/monogram-очки1.png" download><div class="file__prev" style="background:#fff"><img src="assets/mockups/monogram-очки1.png" alt=""></div><b>очки1</b><span>319 KB</span></a>
+<a class="card card-compact card-action file" href="assets/mockups/monogram-очки2.png" download><div class="file__prev" style="background:#fff"><img src="assets/mockups/monogram-очки2.png" alt=""></div><b>очки2</b><span>561 KB</span></a>
+<a class="card card-compact card-action file" href="assets/mockups/monogram-пижама_голубая.png" download><div class="file__prev" style="background:#fff"><img src="assets/mockups/monogram-пижама_голубая.png" alt=""></div><b>пижама_голубая</b><span>1040 KB</span></a>
+<a class="card card-compact card-action file" href="assets/mockups/monogram-пижама_розовая.png" download><div class="file__prev" style="background:#fff"><img src="assets/mockups/monogram-пижама_розовая.png" alt=""></div><b>пижама_розовая</b><span>1183 KB</span></a>
+</div>
+<h3>Изображения из макетов (43)</h3><p class="lead">Растр, извлечённый из обоих <code>.fig</code> в оригинальном качестве. Префикс <code>brand-</code> — Y2K-макет, <code>shop-</code> — магазин.</p>
+<div class="thumbs">
+<a href="assets/images/brand-1-1.png" download title="brand-1-1.png"><img src="assets/images/brand-1-1.png" alt=""></a>
+<a href="assets/images/brand-1.png" download title="brand-1.png"><img src="assets/images/brand-1.png" alt=""></a>
+<a href="assets/images/brand-2-1.png" download title="brand-2-1.png"><img src="assets/images/brand-2-1.png" alt=""></a>
+<a href="assets/images/brand-584384106-18042444437880747-759163082782580764-n.jpg" download title="brand-584384106-18042444437880747-759163082782580764-n.jpg"><img src="assets/images/brand-584384106-18042444437880747-759163082782580764-n.jpg" alt=""></a>
+<a href="assets/images/brand-587116486-18043492433880747-925422933122734937-n.jpg" download title="brand-587116486-18043492433880747-925422933122734937-n.jpg"><img src="assets/images/brand-587116486-18043492433880747-925422933122734937-n.jpg" alt=""></a>
+<a href="assets/images/brand-589102724-18043000661880747-4282145178622059727-.jpg" download title="brand-589102724-18043000661880747-4282145178622059727-.jpg"><img src="assets/images/brand-589102724-18043000661880747-4282145178622059727-.jpg" alt=""></a>
+<a href="assets/images/brand-gemini-generated-image-bop70ibop70ibop7-1.png" download title="brand-gemini-generated-image-bop70ibop70ibop7-1.png"><img src="assets/images/brand-gemini-generated-image-bop70ibop70ibop7-1.png" alt=""></a>
+<a href="assets/images/brand-image-4.png" download title="brand-image-4.png"><img src="assets/images/brand-image-4.png" alt=""></a>
+<a href="assets/images/brand-image-7.png" download title="brand-image-7.png"><img src="assets/images/brand-image-7.png" alt=""></a>
+<a href="assets/images/brand-leathercap.png" download title="brand-leathercap.png"><img src="assets/images/brand-leathercap.png" alt=""></a>
+<a href="assets/images/brand-photo.png" download title="brand-photo.png"><img src="assets/images/brand-photo.png" alt=""></a>
+<a href="assets/images/brand-rectangle.png" download title="brand-rectangle.png"><img src="assets/images/brand-rectangle.png" alt=""></a>
+<a href="assets/images/brand-screenshot-2026-03-06-at-18-46-52-1.png" download title="brand-screenshot-2026-03-06-at-18-46-52-1.png"><img src="assets/images/brand-screenshot-2026-03-06-at-18-46-52-1.png" alt=""></a>
+<a href="assets/images/brand-shops.png" download title="brand-shops.png"><img src="assets/images/brand-shops.png" alt=""></a>
+<a href="assets/images/brand-united-states-1.png" download title="brand-united-states-1.png"><img src="assets/images/brand-united-states-1.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-10.jpg" download title="shop-catalog-1-10.jpg"><img src="assets/images/shop-catalog-1-10.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-11.jpg" download title="shop-catalog-1-11.jpg"><img src="assets/images/shop-catalog-1-11.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-12.jpg" download title="shop-catalog-1-12.jpg"><img src="assets/images/shop-catalog-1-12.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-13.png" download title="shop-catalog-1-13.png"><img src="assets/images/shop-catalog-1-13.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-14.png" download title="shop-catalog-1-14.png"><img src="assets/images/shop-catalog-1-14.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-15.png" download title="shop-catalog-1-15.png"><img src="assets/images/shop-catalog-1-15.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-16.png" download title="shop-catalog-1-16.png"><img src="assets/images/shop-catalog-1-16.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-17.png" download title="shop-catalog-1-17.png"><img src="assets/images/shop-catalog-1-17.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-18.png" download title="shop-catalog-1-18.png"><img src="assets/images/shop-catalog-1-18.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-19.png" download title="shop-catalog-1-19.png"><img src="assets/images/shop-catalog-1-19.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-2.png" download title="shop-catalog-1-2.png"><img src="assets/images/shop-catalog-1-2.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-20.png" download title="shop-catalog-1-20.png"><img src="assets/images/shop-catalog-1-20.png" alt=""></a>
+<a href="assets/images/shop-catalog-1-21.jpg" download title="shop-catalog-1-21.jpg"><img src="assets/images/shop-catalog-1-21.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-3.jpg" download title="shop-catalog-1-3.jpg"><img src="assets/images/shop-catalog-1-3.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-4.jpg" download title="shop-catalog-1-4.jpg"><img src="assets/images/shop-catalog-1-4.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-5.jpg" download title="shop-catalog-1-5.jpg"><img src="assets/images/shop-catalog-1-5.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-6.jpg" download title="shop-catalog-1-6.jpg"><img src="assets/images/shop-catalog-1-6.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-7.jpg" download title="shop-catalog-1-7.jpg"><img src="assets/images/shop-catalog-1-7.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-8.jpg" download title="shop-catalog-1-8.jpg"><img src="assets/images/shop-catalog-1-8.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1-9.jpg" download title="shop-catalog-1-9.jpg"><img src="assets/images/shop-catalog-1-9.jpg" alt=""></a>
+<a href="assets/images/shop-catalog-1.png" download title="shop-catalog-1.png"><img src="assets/images/shop-catalog-1.png" alt=""></a>
+<a href="assets/images/shop-ellipse-2519-2.jpg" download title="shop-ellipse-2519-2.jpg"><img src="assets/images/shop-ellipse-2519-2.jpg" alt=""></a>
+<a href="assets/images/shop-ellipse-2519-3.jpg" download title="shop-ellipse-2519-3.jpg"><img src="assets/images/shop-ellipse-2519-3.jpg" alt=""></a>
+<a href="assets/images/shop-ellipse-2519-4.jpg" download title="shop-ellipse-2519-4.jpg"><img src="assets/images/shop-ellipse-2519-4.jpg" alt=""></a>
+<a href="assets/images/shop-ellipse-2519.jpg" download title="shop-ellipse-2519.jpg"><img src="assets/images/shop-ellipse-2519.jpg" alt=""></a>
+<a href="assets/images/shop-frame-1000004192-2.jpg" download title="shop-frame-1000004192-2.jpg"><img src="assets/images/shop-frame-1000004192-2.jpg" alt=""></a>
+<a href="assets/images/shop-frame-1000004192.jpg" download title="shop-frame-1000004192.jpg"><img src="assets/images/shop-frame-1000004192.jpg" alt=""></a>
+<a href="assets/images/shop-rectangle-23784.jpg" download title="shop-rectangle-23784.jpg"><img src="assets/images/shop-rectangle-23784.jpg" alt=""></a>
+</div></div></section>
+<section id="brand"><div class="wrap"><p class="eyebrow">Компоненты</p><h2>Компоненты — бренд</h2>
+<p class="lead">В бренд-файле нет ни одного компонента Figma: всё нарисовано плоско. Ниже — примитивы, которые повторяются в макете и стали компонентами ДС. Размеры и цвета взяты из конкретных экземпляров.</p>
+<h3>Кнопка</h3><p class="lead">Три тона. Голубая 344×72, r=10, обводка 4px белым, тень 10,10 белым (Section-MISSION). Розовая 365×69, r=5, текст с обводкой 2px #CD0C47 (Section-FindStore). Мятная 434×94, r=10, обводка 4px чёрным (Where to buy). Hover — сдвиг −2px, active — +4px.</p><div class="canvas" data-ds="brand" data-bg="sky" ><button class="b-btn">LEARN MORE</button><button class="b-btn" data-tone="pink">SHOP ALL</button><button class="b-btn" data-tone="mint">FIND A STORE</button></div>
+<h3>Кнопка-иконка</h3><p class="lead">Круг 41×41, обводка 4px чёрным. Четыре тона из шапки: корзина — голубая, профиль — розовая, инфо — кремовая, язык — белая.</p><div class="canvas" data-ds="brand" data-bg="sky" ><button class="icon-btn" aria-label="cart"><svg viewBox="0 0 20 20" fill="none" stroke="#000" stroke-width="2"><path d="M2 3h3l2 10h9l2-7H6"/><circle cx="8" cy="17" r="1.4" fill="#000"/><circle cx="15" cy="17" r="1.4" fill="#000"/></svg></button><button class="icon-btn" data-tone="pink" aria-label="profile"><svg viewBox="0 0 20 20" fill="none" stroke="#000" stroke-width="2"><circle cx="10" cy="6.5" r="3.2"/><path d="M3.5 17c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg></button><button class="icon-btn" data-tone="cream" aria-label="info"><svg viewBox="0 0 20 20" fill="none" stroke="#000" stroke-width="2"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6.2v.1"/></svg></button><button class="icon-btn" data-tone="white" aria-label="language"><img src="assets/icons/language-english-us.svg" alt=""></button></div>
+<h3>Пункт навигации</h3><p class="lead">Шапка 1440×90 на #229CDF, нижняя линия 4px чёрным. Активный пункт — плашка 125×57, r=10, #006297. Текст Inter Black Italic 20, letter-spacing 5%.</p><div class="canvas" data-ds="brand" data-bg="sky" ><a class="nav-pill" href="#brand" aria-current="page">SHOP</a><a class="nav-pill" href="#brand">OUR STORY</a><a class="nav-pill" href="#brand">AVAILABLE WORLDWIDE</a></div>
+<h3>Карточка товара</h3><p class="lead">293×374. Белое тело r=10, нижняя плашка 293×69 r=5 #229CDF, тень 10,10 #FA6794. Заголовок Inter Bold 24, CTA Jost Black Italic 24.</p><div class="canvas" data-ds="brand" data-bg="light" ><article class="sticker-card"><img class="sticker-card__media" src="assets/images/brand-leathercap.png" alt=""><div class="sticker-card__title">Headwear</div><div class="sticker-card__cta">SHOP NOW</div></article><article class="sticker-card"><img class="sticker-card__media" src="assets/images/shop-catalog-1-3.jpg" alt=""><div class="sticker-card__title">T-shirts</div><div class="sticker-card__cta">SHOP NOW</div></article><article class="sticker-card"><img class="sticker-card__media" src="assets/images/shop-catalog-1-5.jpg" alt=""><div class="sticker-card__title">Home &amp; Sleep</div><div class="sticker-card__cta">SHOP NOW</div></article></div>
+<h3>Чип ритейлера</h3><p class="lead">194–232×73, r=50, белый фон, тень 10,10 #229CDF. Из секции Where to buy.</p><div class="canvas" data-ds="brand" data-bg="" style="background:var(--pink-400);padding:48px"><span class="chip">H&amp;M</span><span class="chip">EGOIST</span><span class="chip">FASHION STORE</span></div>
+<h3>Подпись секции</h3><p class="lead">Inter Extra Bold 20 + двойная обводка: внутренняя 3px кремовым, внешняя 6px чёрным. Из Section-FindStore.</p><div class="canvas" data-ds="brand" data-bg="" style="background:var(--sky-500);padding:44px;gap:36px"><span class="tag-label">MR. THANK YOU T-SHIRT</span><span class="tag-label">STYLISH SUNGLASSES</span><span class="tag-label">HOME &amp; SLEEP</span></div>
+<h3>Заголовок с обводкой</h3><p class="lead">Три варианта: белый с чёрным контуром 4px + тень 5,5 (WHOIS); розовый с белым контуром + голубая тень 7,7 (Shop Now); только контур 1px белым — фоновый мега-текст.</p><div class="canvas" data-ds="brand" data-bg="" style="background:var(--pink-500);padding:48px"><div style="display:grid;gap:28px"><span class="t-title-48 outline-head">MR. Thank You</span><span class="t-title-96 outline-head" data-outline="white">REP THE VIBE</span><span class="t-mega-128 outline-head" data-outline="ghost" style="font-size:64px">OUR STYLE &amp; COMF</span></div></div>
+<h3>Бегущая строка</h3><p class="lead">1440×100, фон #FCF6E0, линии 4px чёрным сверху и снизу. Текст Inter Extra Bold Italic 40 цветом #CD0C47 поверх дубля с контуром 6px. Разделители — круги 24px с обводкой #CD0C47.</p><div class="canvas" data-ds="brand" data-bg="" style="padding:0;border:0;background:transparent;display:block"><div class="marquee" style="width:100%"><div class="marquee__track"><span class="marquee__item">FIND US AT</span><span class="marquee__dot"></span><span class="marquee__item">H&amp;M</span><span class="marquee__dot"></span><span class="marquee__item">FASHION STORE</span><span class="marquee__dot"></span><span class="marquee__item">EGOIST</span><span class="marquee__dot"></span><span class="marquee__item">FIND US AT</span><span class="marquee__dot"></span><span class="marquee__item">H&amp;M</span><span class="marquee__dot"></span><span class="marquee__item">FASHION STORE</span><span class="marquee__dot"></span><span class="marquee__item">EGOIST</span><span class="marquee__dot"></span></div></div></div>
+<h3>Подписка</h3><p class="lead">Инпут 539×94 r=10, обводка 4px чёрным. Кнопка 214×94 r=10 #A3C892. Плейсхолдер Inter Bold 32 #00324D @50%.</p><div class="canvas" data-ds="brand" data-bg="" style="background:var(--sky-400);padding:40px"><form class="subscribe" style="width:100%" onsubmit="return false"><input placeholder="YOUR EMAIL" aria-label="email"><button class="b-btn" data-tone="mint" style="min-width:214px">SIGN UP</button></form></div>
+<h3>Пагинация</h3><p class="lead">Ряд кругов 24px с обводкой 4px чёрным, активный — розовый. Из карусели Section-FindStore.</p><div class="canvas" data-ds="brand" data-bg="" style="background:var(--sky-500);padding:32px"><div class="dots"><span aria-current="true"></span><span></span><span></span><span></span></div></div>
+<h3>Панель</h3><p class="lead">r=30, обводка 4px чёрным. База для мега-меню (кремовая), панели футера (#41BCFF, 1255×510) и Where to buy (#FF9DBB, 1255×590).</p><div class="canvas" data-ds="brand" data-bg="" style="background:var(--sky-500);padding:32px"><div class="panel noise" style="width:100%;padding:32px;background:var(--sky-400)"><div class="t-title-40" style="color:var(--navy-900)">SHOP</div><div class="t-link-30" style="color:var(--navy-900);margin-top:16px;display:grid;gap:12px"><span>SHOP ALL</span><span>HEADWEAR</span><span>T-SHIRTS</span></div></div></div>
+</div></section>
+<section id="shop"><div class="wrap"><p class="eyebrow">Компоненты</p><h2>Компоненты — магазин</h2>
+<p class="lead">Два настоящих компонент-сета из файла: <b>Button</b> — 480 вариантов по осям Style × Type × Variant × Size × State, и <b>Counter</b> — 20 вариантов. Воспроизведены целиком.</p>
+<h3>Button — Style × Type</h3><div class="canvas" data-ds="shop" data-bg="light" style="display:grid;grid-template-columns:110px repeat(5,1fr);gap:14px;align-items:center">
+<span></span><code style="color:var(--muted-foreground);font-size:12px">Primary</code><code style="color:var(--muted-foreground);font-size:12px">Danger</code><code style="color:var(--muted-foreground);font-size:12px">Success</code><code style="color:var(--muted-foreground);font-size:12px">Dark</code><code style="color:var(--muted-foreground);font-size:12px">White</code>
+<code style="color:var(--muted-foreground);font-size:12px">Primary</code>
+<span><button class="lib-btn" data-style="primary" data-type="primary">Button</button></span>
+<span><button class="lib-btn" data-style="primary" data-type="danger">Button</button></span>
+<span><button class="lib-btn" data-style="primary" data-type="success">Button</button></span>
+<span><button class="lib-btn" data-style="primary" data-type="dark">Button</button></span>
+<span><button class="lib-btn" data-style="primary" data-type="white">Button</button></span>
+<code style="color:var(--muted-foreground);font-size:12px">Secondary</code>
+<span><button class="lib-btn" data-style="secondary" data-type="primary">Button</button></span>
+<span><button class="lib-btn" data-style="secondary" data-type="danger">Button</button></span>
+<span><button class="lib-btn" data-style="secondary" data-type="success">Button</button></span>
+<span><button class="lib-btn" data-style="secondary" data-type="dark">Button</button></span>
+<span><button class="lib-btn" data-style="secondary" data-type="white">Button</button></span>
+<code style="color:var(--muted-foreground);font-size:12px">Tertiary</code>
+<span><button class="lib-btn" data-style="tertiary" data-type="primary">Button</button></span>
+<span><button class="lib-btn" data-style="tertiary" data-type="danger">Button</button></span>
+<span><button class="lib-btn" data-style="tertiary" data-type="success">Button</button></span>
+<span><button class="lib-btn" data-style="tertiary" data-type="dark">Button</button></span>
+<span><button class="lib-btn" data-style="tertiary" data-type="white">Button</button></span>
+<code style="color:var(--muted-foreground);font-size:12px">Link</code>
+<span><button class="lib-btn" data-style="link" data-type="primary">Button</button></span>
+<span><button class="lib-btn" data-style="link" data-type="danger">Button</button></span>
+<span><button class="lib-btn" data-style="link" data-type="success">Button</button></span>
+<span><button class="lib-btn" data-style="link" data-type="dark">Button</button></span>
+<span><button class="lib-btn" data-style="link" data-type="white">Button</button></span>
+</div>
+<h3>Button — Size × State</h3><div class="table-container"><table class="table"><thead><tr><th>Size</th><th>Default</th><th>Hover</th><th>Active</th><th>Disabled</th><th>Icon only</th><th>Метрика</th></tr></thead><tbody>
+<tr style="background:#fff"><td style="color:var(--foreground)"><code style="color:var(--foreground)">Small</code></td><td><button class="lib-btn" data-size="small">Button</button></td><td><button class="lib-btn" data-size="small" style="background:var(--lib-indigo-600);border-color:var(--lib-indigo-600)">Button</button></td><td><button class="lib-btn" data-size="small" style="background:var(--lib-indigo-700);border-color:var(--lib-indigo-700)">Button</button></td><td><button class="lib-btn" data-size="small" disabled>Button</button></td><td><button class="lib-btn" data-variant="icon" data-size="small"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></button></td><td style="color:var(--muted-foreground);font-size:12.5px">padding 4/8, gap 4, 10/16px, высота 24</td></tr>
+<tr style="background:#fff"><td style="color:var(--foreground)"><code style="color:var(--foreground)">Medium (default)</code></td><td><button class="lib-btn">Button</button></td><td><button class="lib-btn" style="background:var(--lib-indigo-600);border-color:var(--lib-indigo-600)">Button</button></td><td><button class="lib-btn" style="background:var(--lib-indigo-700);border-color:var(--lib-indigo-700)">Button</button></td><td><button class="lib-btn" disabled>Button</button></td><td><button class="lib-btn" data-variant="icon"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></button></td><td style="color:var(--muted-foreground);font-size:12.5px">padding 8/12, gap 8, 12/18px, высота 34</td></tr>
+<tr style="background:#fff"><td style="color:var(--foreground)"><code style="color:var(--foreground)">Large</code></td><td><button class="lib-btn" data-size="large">Button</button></td><td><button class="lib-btn" data-size="large" style="background:var(--lib-indigo-600);border-color:var(--lib-indigo-600)">Button</button></td><td><button class="lib-btn" data-size="large" style="background:var(--lib-indigo-700);border-color:var(--lib-indigo-700)">Button</button></td><td><button class="lib-btn" data-size="large" disabled>Button</button></td><td><button class="lib-btn" data-variant="icon" data-size="large"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg></button></td><td style="color:var(--muted-foreground);font-size:12.5px">padding 12/16, gap 12, 14/20px, высота 44</td></tr>
+</tbody></table></div>
+<h3>Counter — Style × Type × Variant</h3><div class="canvas" data-ds="shop" data-bg="light" style="display:grid;grid-template-columns:110px repeat(5,1fr);gap:16px;align-items:center">
+<span></span><code style="color:var(--muted-foreground);font-size:12px">Default</code><code style="color:var(--muted-foreground);font-size:12px">Primary</code><code style="color:var(--muted-foreground);font-size:12px">Success</code><code style="color:var(--muted-foreground);font-size:12px">Warning</code><code style="color:var(--muted-foreground);font-size:12px">Danger</code>
+<code style="color:var(--muted-foreground);font-size:12px">Solid / Number</code>
+<span><span class="counter" data-style="solid" data-type="default" data-variant="number">2</span></span>
+<span><span class="counter" data-style="solid" data-type="primary" data-variant="number">2</span></span>
+<span><span class="counter" data-style="solid" data-type="success" data-variant="number">2</span></span>
+<span><span class="counter" data-style="solid" data-type="warning" data-variant="number">2</span></span>
+<span><span class="counter" data-style="solid" data-type="danger" data-variant="number">2</span></span>
+<code style="color:var(--muted-foreground);font-size:12px">Solid / Dot</code>
+<span><span class="counter" data-style="solid" data-type="default" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="solid" data-type="primary" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="solid" data-type="success" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="solid" data-type="warning" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="solid" data-type="danger" data-variant="dot">2</span></span>
+<code style="color:var(--muted-foreground);font-size:12px">Flat / Number</code>
+<span><span class="counter" data-style="flat" data-type="default" data-variant="number">2</span></span>
+<span><span class="counter" data-style="flat" data-type="primary" data-variant="number">2</span></span>
+<span><span class="counter" data-style="flat" data-type="success" data-variant="number">2</span></span>
+<span><span class="counter" data-style="flat" data-type="warning" data-variant="number">2</span></span>
+<span><span class="counter" data-style="flat" data-type="danger" data-variant="number">2</span></span>
+<code style="color:var(--muted-foreground);font-size:12px">Flat / Dot</code>
+<span><span class="counter" data-style="flat" data-type="default" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="flat" data-type="primary" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="flat" data-type="success" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="flat" data-type="warning" data-variant="dot">2</span></span>
+<span><span class="counter" data-style="flat" data-type="danger" data-variant="dot">2</span></span>
+</div><p class="alert alert-description">Counter: 18×18, r=100, padding 1/5, Inter Semi Bold 10/16. Solid — заливка 500, текст белый. Flat — заливка 100, текст 600.</p>
+</div></section>
+<section id="templates"><div class="wrap"><p class="eyebrow">Блоки</p><h2>Шаблоны страниц</h2>
+<p class="lead">Две главные, собранные на токенах и компонентах отсюда. Порядок секций и размеры повторяют макеты, вёрстка не содержит ни одного цвета мимо токенов.</p>
+<div class="files" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
+  <a class="card card-compact card-action file" href="ui_kits/brand-site/index.html">
+    <div class="file__prev" style="height:150px;background:var(--pink-500)"><img src="assets/images/brand-leathercap.png" alt="" style="max-height:118px"></div>
+    <b>Главная — бренд (Y2K)</b><span>ui_kits/brand-site/index.html</span>
+    <div style="margin-top:8px;color:var(--muted-foreground);font-size:12px;line-height:1.5">Шапка, Shop Now, бегущая строка, Mission, Find a store, Who is, Where to buy, футер. 8 секций из DesktopFull_2.</div>
+  </a>
+  <a class="card card-compact card-action file" href="ui_kits/shop/index.html">
+    <div class="file__prev" style="height:150px;padding:0"><img src="assets/images/shop-catalog-1.png" alt="" style="max-height:none;max-width:none;width:100%;height:100%;object-fit:cover"></div>
+    <b>Главная — магазин</b><span>ui_kits/shop/index.html</span>
+    <div style="margin-top:8px;color:var(--muted-foreground);font-size:12px;line-height:1.5">Стеклянная шапка, герой, Best Sellers с фильтрами, Our Mission со статистикой, Missions, Reviews, футер. Из Main Screen.</div>
+  </a>
+</div>
+<p class="alert alert-description"><b>Два направления — это две разные системы.</b> Y2K-макет и макет магазина сходятся только в логотипе и розовом. Обводки 4px, жёсткие тени и кремовый фон первого несовместимы с чистой сеткой и мягкими тенями второго. Выбрать нужно одно — иначе сайт будет выглядеть как два сайта.</p>
+</div></section>
+
+<footer><div class="wrap">
+Mr. Thank You Design System · собрано из MrThankYou.fig и Mr Thank You.fig · 25 августа 2026<br>
+Примитивы: <code>ui/primitives.css</code> · Токены: <code>styles.css</code> → <code>tokens/</code> · Компоненты: <code>components/</code> · Ассеты: <code>assets/</code>
+</div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+<script>
+function copy(t) {
+  navigator.clipboard.writeText(t);
+  var el = document.getElementById('toast');
+  el.textContent = t + ' — скопировано';
+  el.setAttribute('data-state', 'open');
+  clearTimeout(window._t); window._t = setTimeout(function(){ el.removeAttribute('data-state'); }, 1400);
+}
+document.addEventListener('click', function (e) {
+  var s = e.target.closest('[data-copy]');
+  if (s) copy(s.getAttribute('data-copy'));
+});
+</script>
+</body>
+</html>

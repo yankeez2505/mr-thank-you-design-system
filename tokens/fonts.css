@@ -1,0 +1,16 @@
+/* Fonts — one family: Inter, the same face the Brand Overview deck is set in.
+   Verified glyph-by-glyph against the presentation PDF: body 400,
+   headlines 700, giant background type 900.
+   Jost, Josefin Sans, Plus Jakarta Sans and Source Sans Pro appear once each
+   in the Figma sources and are mapped onto Inter — see index.html #type. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap");
+
+:root {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-sans);   /* giant background type — Inter Black */
+
+  /* role aliases — kept so component CSS never hardcodes a family */
+  --font-button: var(--font-sans);
+  --font-tag: var(--font-sans);
+  --font-ui: var(--font-sans);
+}

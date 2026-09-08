@@ -1,0 +1,190 @@
+/* Brand components — Y2K / sticker direction, from MrThankYou.fig.
+   Signature: 4px black outline + hard 0-blur offset shadow + 10px radius. */
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ---------- Panel — r=30, 4px outline (menu, footer, where-to-buy) ---------- */
+.panel {
+  position: relative;
+  border: var(--stroke-4) solid var(--ink-900);
+  border-radius: var(--r-3xl);
+  background: var(--cream-100);
+}
+
+/* ---------- Button ---------- */
+.b-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-8);
+  min-height: 72px;
+  border: var(--stroke-4) solid var(--white);
+  border-radius: var(--r-lg);
+  background: var(--sky-400);
+  color: var(--white);
+  font: italic 900 var(--fs-32)/var(--lh-tight) var(--font-sans);
+  box-shadow: var(--shadow-white-10);
+  cursor: pointer;
+  transition: transform .12s, box-shadow .12s;
+}
+.b-btn:hover  { transform: translate(-2px, -2px); box-shadow: 12px 12px 0 var(--white); }
+.b-btn:active { transform: translate(4px, 4px); box-shadow: 6px 6px 0 var(--white); }
+
+.b-btn[data-tone="pink"] {
+  background: var(--pink-500);
+  min-height: 69px;
+  border-radius: var(--r-sm);
+  -webkit-text-stroke: var(--stroke-2) var(--pink-700);
+  paint-order: stroke fill;
+}
+.b-btn[data-tone="mint"] {
+  background: var(--mint-400);
+  border-color: var(--ink-900);
+  color: var(--ink-900);
+  min-height: 94px;
+  box-shadow: none;
+}
+.b-btn[data-tone="mint"]:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink-900); }
+
+/* ---------- Icon button — 41px circle ---------- */
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 41px;
+  height: 41px;
+  border: var(--stroke-4) solid var(--ink-900);
+  border-radius: var(--r-full);
+  background: var(--sky-500);
+  cursor: pointer;
+}
+.icon-btn[data-tone="pink"]  { background: var(--pink-500); }
+.icon-btn[data-tone="cream"] { background: var(--cream-100); }
+.icon-btn[data-tone="white"] { background: var(--white); }
+.icon-btn svg, .icon-btn img { width: 20px; height: 20px; }
+
+/* ---------- Nav pill — active state, 125x57 r=10 ---------- */
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  min-height: 57px;
+  border-radius: var(--r-lg);
+  background: transparent;
+  color: var(--paper-50);
+  font: italic 900 var(--fs-20)/var(--lh-tight) var(--font-sans);
+  letter-spacing: var(--ls-wide);
+  text-decoration: none;
+}
+.nav-pill[aria-current="page"], .nav-pill:hover { background: var(--sky-600); }
+
+/* ---------- Outlined display heading ---------- */
+.outline-head {
+  -webkit-text-stroke: 8px var(--ink-900); /* centered stroke = 4px visible outside */
+  paint-order: stroke fill;
+  color: var(--white);
+  text-shadow: var(--shadow-ink-5);
+}
+.outline-head[data-outline="white"] { -webkit-text-stroke-color: var(--white); color: var(--pink-600); text-shadow: var(--shadow-sky-7); }
+.outline-head[data-outline="ghost"] { -webkit-text-stroke: 1px var(--white); color: transparent; text-shadow: none; }
+
+/* ---------- Product card — 293x374 sticker ---------- */
+.sticker-card {
+  width: 293px;
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-pink-10);
+  overflow: hidden;
+}
+.sticker-card__media { display: block; width: 100%; height: 250px; object-fit: cover; }
+.sticker-card__title { padding: var(--space-4); font: 700 var(--fs-24)/var(--lh-tight) var(--font-sans); color: var(--ink-900); }
+.sticker-card__cta {
+  display: grid;
+  place-items: center;
+  height: 69px;
+  border-radius: var(--r-sm);
+  background: var(--sky-500);
+  color: var(--white);
+  font: italic 900 var(--fs-24)/var(--lh-tight) var(--font-button);
+}
+
+/* ---------- Retailer chip — r=50 with hard shadow ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 194px;
+  height: 73px;
+  padding: 0 var(--space-6);
+  border-radius: var(--r-pill);
+  background: var(--white);
+  box-shadow: var(--shadow-sky-10);
+  font: 700 var(--fs-24)/var(--lh-tight) var(--font-sans);
+  color: var(--ink-900);
+}
+
+/* ---------- Section label — 6px black + 3px gradient double outline ---------- */
+.tag-label {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border: var(--stroke-3) solid var(--cream-100);
+  outline: var(--stroke-6) solid var(--ink-900);
+  border-radius: var(--r-sm);
+  background: var(--white);
+  font: 800 var(--fs-20)/var(--lh-tight) var(--font-sans);
+  color: var(--ink-900);
+}
+
+/* ---------- Marquee ---------- */
+.marquee {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  overflow: hidden;
+  border-top: var(--stroke-4) solid var(--ink-900);
+  border-bottom: var(--stroke-4) solid var(--ink-900);
+  background: var(--cream-100);
+}
+.marquee__track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding-left: var(--space-8);
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+.marquee__item {
+  font: italic 800 var(--fs-40)/var(--lh-tight) var(--font-sans);
+  color: var(--pink-700);
+  -webkit-text-stroke: var(--stroke-6) var(--ink-900);
+  paint-order: stroke fill;
+}
+.marquee__dot { width: 24px; height: 24px; border: var(--stroke-4) solid var(--pink-700); border-radius: var(--r-full); flex: none; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+
+/* ---------- Subscribe form ---------- */
+.subscribe { display: flex; gap: var(--space-4); }
+.subscribe input {
+  flex: 1;
+  height: 94px;
+  padding: 0 var(--space-6);
+  border: var(--stroke-4) solid var(--ink-900);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  font: 700 var(--fs-32)/var(--lh-tight) var(--font-sans);
+  color: var(--navy-900);
+}
+.subscribe input::placeholder { color: var(--navy-900); opacity: .5; }
+
+/* ---------- Dot pagination ---------- */
+.dots { display: flex; gap: var(--space-3); }
+.dots span { width: 24px; height: 24px; border: var(--stroke-4) solid var(--ink-900); border-radius: var(--r-full); background: var(--white); }
+.dots span[aria-current="true"] { background: var(--pink-500); }

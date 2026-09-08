@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr. Thank You — Shop</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; font-family: var(--font-sans); color: var(--shop-heading); }
+  img { display: block; max-width: 100%; }
+  .row { width: min(100%, var(--content-w)); margin: 0 auto; padding: 0 24px; }
+
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 30; height: 76px; display: flex; align-items: center; gap: 32px; padding: 0 var(--gutter); background: var(--glass-tint); backdrop-filter: var(--glass-blur); color: #fff; }
+  .nav b { font: 900 var(--fs-20)/1 var(--font-sans); }
+  .nav a { color: #fff; text-decoration: none; }
+  .nav__links { display: flex; gap: 32px; margin: 0 auto; }
+
+  .hero { position: relative; height: 872px; display: grid; align-items: center; background: url(../../assets/images/shop-rectangle-23784.jpg) center/cover no-repeat; color: #fff; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: var(--grad-scrim); opacity: .7; }
+  .hero .row { position: relative; }
+  .hero h1 { margin: 0 0 24px; max-width: 16ch; }
+  .hero p { margin: 0 0 40px; max-width: 46ch; }
+
+  .sect { padding: 80px 0; }
+  .sect h2 { margin: 0 0 32px; }
+  .filters { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+  .filters button { padding: 8px 18px; border: 1px solid var(--shop-line); border-radius: var(--r-full); background: #fff; font: 600 var(--fs-14)/1.43 var(--font-sans); color: var(--shop-slate); cursor: pointer; }
+  .filters button[aria-pressed="true"] { background: var(--shop-heading); border-color: var(--shop-heading); color: #fff; }
+
+  .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .prod { position: relative; }
+  .prod img { width: 100%; height: 360px; object-fit: cover; border-radius: var(--r-xl); background: var(--lib-gray-100); }
+  .prod__badge { position: absolute; top: 16px; left: 16px; padding: 6px 12px; border-radius: var(--r-xs); background: #fff; }
+  .prod__badge[data-kind="sale"] { background: var(--shop-cta); }
+  .prod__badge[data-kind="out"] { background: var(--lib-gray-200); color: var(--shop-gray-700); }
+  .prod__row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; gap: 12px; }
+
+  .mission { position: relative; height: 583px; display: grid; place-items: center; text-align: center; color: #fff; background: url(../../assets/images/shop-frame-1000004192.jpg) center/cover no-repeat; }
+  .mission::before { content: ""; position: absolute; inset: 0; background: var(--shop-teal); opacity: .7; }
+  .mission .row { position: relative; }
+  .stats { display: flex; justify-content: center; gap: 64px; margin: 40px 0; flex-wrap: wrap; }
+  .stats div { font-variant-numeric: tabular-nums; }
+  .stats b { display: block; }
+  .cta { display: inline-flex; align-items: center; justify-content: center; min-width: 240px; height: 44px; border: 1px solid var(--ink-900); border-radius: var(--r-40); background: var(--shop-cta); color: var(--shop-heading); font: 700 var(--fs-16)/1.5 var(--font-sans); letter-spacing: -.03em; cursor: pointer; }
+
+  .reviews { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .review { border: 1px solid var(--shop-line); border-radius: var(--r-xl); padding: 24px; }
+  .review p { margin: 0 0 16px; color: var(--shop-slate); }
+  .review b { display: block; }
+  .review span { color: var(--shop-muted); }
+
+  .ftr { background: var(--shop-black); color: #fff; padding: 64px 0 40px; }
+  .ftr__cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.15); }
+  .ftr a { display: block; color: #fff; opacity: .7; text-decoration: none; margin-bottom: 12px; }
+  .ftr a:hover { opacity: 1; }
+  .ftr__legal { padding-top: 32px; text-align: center; }
+
+  @media (max-width: 1000px) {
+    .products, .reviews { grid-template-columns: repeat(2, 1fr); }
+    .ftr__cols { grid-template-columns: repeat(2, 1fr); }
+    .nav__links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <b>MR. THANK YOU</b>
+  <div class="nav__links s-sm">
+    <a href="#best">SHOP</a><a href="#mission">SUPPORT</a><a href="#more">COLLECTIONS</a>
+  </div>
+  <a href="#" class="s-sm">Account</a>
+  <a href="#" class="s-sm">Cart (0)</a>
+</nav>
+
+<header class="hero"><div class="row">
+  <h1 class="s-h1">Every purchase helps those in need</h1>
+  <p class="s-body">We are fully committed to helping alleviate suffering wherever and whenever we are able.</p>
+  <button class="cta">Shop All To Support</button>
+</div></header>
+
+<section class="sect" id="best"><div class="row">
+  <h2 class="s-h4">Best Sellers</h2>
+  <div class="filters">
+    <button aria-pressed="true">All</button><button>Clothing</button><button>Accessories</button>
+    <button>Sports</button><button>New</button><button>Sales</button>
+  </div>
+  <div class="products">
+    <article class="prod"><img src="../../assets/images/shop-catalog-1.png" alt=""><span class="prod__badge s-cap">NEW</span><div class="prod__row"><b class="s-strong">Short Title</b><span class="s-strong">$99</span></div><span class="s-sm" style="color:var(--shop-muted)">Clothing</span></article>
+    <article class="prod"><img src="../../assets/images/shop-catalog-1-3.jpg" alt=""><span class="prod__badge s-cap" data-kind="sale">SALE</span><div class="prod__row"><b class="s-strong">Short Title</b><span class="s-strong">$99</span></div><span class="s-sm" style="color:var(--shop-muted)">Clothing</span></article>
+    <article class="prod"><img src="../../assets/images/shop-catalog-1-5.jpg" alt=""><div class="prod__row"><b class="s-strong">Short Title</b><span class="s-strong">$99</span></div><span class="s-sm" style="color:var(--shop-muted)">Accessories</span></article>
+    <article class="prod"><img src="../../assets/images/shop-catalog-1-7.jpg" alt=""><span class="prod__badge s-cap" data-kind="out">Sold Out</span><div class="prod__row"><b class="s-strong">Short Title</b><span class="s-strong">$99</span></div><span class="s-sm" style="color:var(--shop-muted)">Sports</span></article>
+  </div>
+</div></section>
+
+<section class="mission" id="mission"><div class="row">
+  <h2 class="s-h2" style="margin:0 0 16px">Our Mission</h2>
+  <p class="s-body-r" style="margin:0 auto;max-width:60ch">We are fully committed to helping alleviate suffering wherever and whenever we are able.</p>
+  <div class="stats">
+    <div><b class="s-h3">46,562,572+</b><span class="s-sm">Individuals Fed</span></div>
+    <div><b class="s-h3">55,825,462+</b><span class="s-sm">Meals Delivered</span></div>
+    <div><b class="s-h3">8,725,979+</b><span class="s-sm">Pounds of Food</span></div>
+  </div>
+  <button class="cta">Shop All To Support</button>
+</div></section>
+
+<section class="sect" id="more"><div class="row">
+  <h2 class="s-h4">Missions</h2>
+  <div class="products">
+    <article class="prod"><img src="../../assets/images/shop-ellipse-2519.jpg" alt=""><div class="prod__row"><b class="s-strong">Mental Health Services</b></div></article>
+    <article class="prod"><img src="../../assets/images/shop-ellipse-2519-2.jpg" alt=""><div class="prod__row"><b class="s-strong">Save the Children</b></div></article>
+    <article class="prod"><img src="../../assets/images/shop-ellipse-2519-3.jpg" alt=""><div class="prod__row"><b class="s-strong">East Side Riders Bike Club</b></div></article>
+    <article class="prod"><img src="../../assets/images/shop-ellipse-2519-4.jpg" alt=""><div class="prod__row"><b class="s-strong">Brave Trails</b></div></article>
+  </div>
+</div></section>
+
+<section class="sect"><div class="row">
+  <h2 class="s-h4">Reviews</h2>
+  <div class="reviews">
+    <article class="review"><p class="s-sm">Great quality and the mission behind it makes every order feel worth it.</p><b class="s-strong">Ann Johnson</b><span class="s-sm">New York, USA</span></article>
+    <article class="review"><p class="s-sm">Fits perfectly, shipped fast. Ordering again for the whole team.</p><b class="s-strong">Jack Green</b><span class="s-sm">New York, USA</span></article>
+    <article class="review"><p class="s-sm">The fabric is heavier than I expected — in a good way.</p><b class="s-strong">Max B.</b><span class="s-sm">New York, USA</span></article>
+    <article class="review"><p class="s-sm">Bought as a gift, ended up keeping it. Buying a second one.</p><b class="s-strong">Monica Vogel</b><span class="s-sm">New York, USA</span></article>
+  </div>
+</div></section>
+
+<footer class="ftr"><div class="row">
+  <div class="ftr__cols">
+    <div>
+      <b class="s-h6">MR. THANK YOU</b>
+      <p class="s-sm" style="opacity:.7;max-width:32ch">Every purchase helps those in need.</p>
+    </div>
+    <div>
+      <b class="s-cap" style="display:block;margin-bottom:16px">Help</b>
+      <a class="s-xs" href="#">FAQs</a><a class="s-xs" href="#">Size details</a><a class="s-xs" href="#">Track your order</a>
+      <a class="s-xs" href="#">Account login</a><a class="s-xs" href="#">Return and exchange</a><a class="s-xs" href="#">Contact us</a>
+    </div>
+    <div>
+      <b class="s-cap" style="display:block;margin-bottom:16px">About</b>
+      <a class="s-xs" href="#">Philanthropy</a><a class="s-xs" href="#">Reviews</a><a class="s-xs" href="#">Accessibility statement</a>
+      <a class="s-xs" href="#">Terms and conditions</a><a class="s-xs" href="#">Reseller policy</a>
+    </div>
+    <div>
+      <b class="s-cap" style="display:block;margin-bottom:16px">Newsletter</b>
+      <form onsubmit="return false" style="display:flex;gap:8px">
+        <input class="s-sm" placeholder="Enter your email" aria-label="Email" style="flex:1;height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.25);border-radius:var(--r-md);background:transparent;color:#fff">
+        <button class="lib-btn" data-size="large" data-type="white">Join</button>
+      </form>
+    </div>
+  </div>
+  <p class="s-sub ftr__legal" style="margin:0">©2026 MR. THANK YOU. All rights reserved</p>
+</div></footer>
+
+</body>
+</html>

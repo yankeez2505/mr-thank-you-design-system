@@ -1,0 +1,83 @@
+/* Core components — shop direction. Values taken from the Button (480 variants)
+   and Counter (20 variants) component sets in Mr Thank You.fig. */
+
+/* ---------- Button ---------- */
+.lib-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: var(--stroke-1) solid transparent;
+  border-radius: var(--r-md);
+  font: 600 var(--fs-12)/18px var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .15s, border-color .15s, color .15s;
+
+  --c-500: var(--lib-indigo-500);
+  --c-600: var(--lib-indigo-600);
+  --c-700: var(--lib-indigo-700);
+  --c-25: var(--lib-indigo-50);
+  --c-100: var(--lib-indigo-100);
+  --c-200: var(--lib-indigo-200);
+  --c-on: var(--white);
+}
+.lib-btn[data-size="small"]  { gap: var(--space-1); padding: var(--space-1) var(--space-2); font-size: var(--fs-10); line-height: 16px; }
+.lib-btn[data-size="large"]  { gap: var(--space-3); padding: var(--space-3) var(--space-4); font-size: var(--fs-14); line-height: 20px; }
+
+.lib-btn[data-type="danger"]  { --c-500: var(--lib-red-500);   --c-600: var(--lib-red-600);   --c-700: var(--lib-red-700);   --c-25: var(--lib-red-25);   --c-100: var(--lib-red-50);   --c-200: var(--lib-red-100); }
+.lib-btn[data-type="success"] { --c-500: var(--lib-green-500); --c-600: var(--lib-green-600); --c-700: var(--lib-green-700); --c-25: var(--lib-green-25); --c-100: var(--lib-green-50); --c-200: var(--lib-green-100); }
+.lib-btn[data-type="dark"]    { --c-500: var(--lib-gray-600);  --c-600: var(--lib-gray-700);  --c-700: var(--lib-gray-800);  --c-25: var(--lib-gray-25);  --c-100: var(--lib-gray-50);  --c-200: var(--lib-gray-100); }
+.lib-btn[data-type="white"]   { --c-500: var(--white);         --c-600: var(--lib-gray-50);   --c-700: var(--lib-gray-100);  --c-25: var(--lib-gray-25);  --c-100: var(--lib-gray-50);  --c-200: var(--lib-gray-100); --c-on: var(--shop-navy); }
+
+/* Style = Primary (solid) */
+.lib-btn { background: var(--c-500); border-color: var(--c-500); color: var(--c-on); }
+.lib-btn:hover  { background: var(--c-600); border-color: var(--c-600); }
+.lib-btn:active { background: var(--c-700); border-color: var(--c-700); }
+
+/* Style = Secondary (tinted) */
+.lib-btn[data-style="secondary"] { background: var(--c-100); border-color: transparent; color: var(--c-500); }
+.lib-btn[data-style="secondary"]:hover { background: var(--c-200); }
+
+/* Style = Tertiary (outline) */
+.lib-btn[data-style="tertiary"] { background: transparent; border-color: var(--c-500); color: var(--c-500); }
+.lib-btn[data-style="tertiary"]:hover { background: var(--c-25); }
+
+/* Style = Link */
+.lib-btn[data-style="link"] { background: transparent; border-color: transparent; color: var(--c-500); }
+.lib-btn[data-style="link"]:hover { background: var(--c-100); }
+
+/* Variant = Icon only */
+.lib-btn[data-variant="icon"] { padding: 9px; }
+.lib-btn[data-variant="icon"][data-size="small"] { padding: var(--space-1); }
+.lib-btn[data-variant="icon"][data-size="large"] { padding: var(--space-3); }
+
+.lib-btn[disabled], .lib-btn[data-state="disabled"] { opacity: .5; pointer-events: none; }
+.lib-btn > svg { width: 16px; height: 16px; }
+
+/* ---------- Counter ---------- */
+.counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 1px 5px;
+  border-radius: var(--r-full);
+  font: 600 var(--fs-10)/16px var(--font-sans);
+  background: var(--lib-gray-500);
+  color: var(--white);
+}
+.counter[data-type="primary"] { background: var(--lib-indigo-500); }
+.counter[data-type="danger"]  { background: var(--lib-red-500); }
+.counter[data-type="success"] { background: var(--lib-green-500); }
+.counter[data-type="warning"] { background: var(--lib-amber-500); }
+
+.counter[data-style="flat"] { background: var(--lib-gray-100); color: var(--shop-navy); }
+.counter[data-style="flat"][data-type="primary"] { background: var(--lib-indigo-200); color: var(--lib-indigo-600); }
+.counter[data-style="flat"][data-type="danger"]  { background: var(--lib-red-100);   color: var(--lib-red-600); }
+.counter[data-style="flat"][data-type="success"] { background: var(--lib-green-100); color: var(--lib-green-600); }
+.counter[data-style="flat"][data-type="warning"] { background: var(--lib-amber-100); color: var(--lib-amber-600); }
+
+.counter[data-variant="dot"] { min-width: 8px; width: 8px; height: 8px; padding: 0; font-size: 0; }

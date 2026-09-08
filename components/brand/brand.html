@@ -1,0 +1,21 @@
+<!-- @dsCard group="components" viewport="700x420" subtitle="Примитивы Y2K-направления: обводка 4px, жёсткая тень, радиус 10" name="Brand" -->
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Brand</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 700px; height: 420px; background: var(--sky-500); color: #fff; font-family: var(--font-sans); padding: 24px; display: flex; flex-direction: column; gap: 16px; overflow: hidden; }
+  h1 { margin: 0; font: 700 13px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+  .r { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+</style></head><body>
+<h1>Кнопки и навигация</h1>
+<div class="r"><button class="b-btn" style="min-height:56px;font-size:22px">LEARN MORE</button><button class="b-btn" data-tone="pink" style="min-height:56px;font-size:22px">SHOP ALL</button>
+<button class="icon-btn"><svg viewBox="0 0 20 20" fill="none" stroke="#000" stroke-width="2"><path d="M2 3h3l2 10h9l2-7H6"/></svg></button>
+<button class="icon-btn" data-tone="pink"><svg viewBox="0 0 20 20" fill="none" stroke="#000" stroke-width="2"><circle cx="10" cy="6.5" r="3.2"/><path d="M3.5 17c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg></button>
+<a class="nav-pill" href="#" aria-current="page">SHOP</a></div>
+<h1>Чипы, подписи, пагинация</h1>
+<div class="r"><span class="chip" style="min-width:130px;height:56px;font-size:18px">H&amp;M</span><span class="tag-label">HOME &amp; SLEEP</span><div class="dots"><span aria-current="true"></span><span></span><span></span></div></div>
+<h1>Карточка товара</h1>
+<div class="r"><article class="sticker-card" style="width:220px"><img class="sticker-card__media" src="../../assets/images/brand-leathercap.png" style="height:130px"><div class="sticker-card__title" style="font-size:18px">Headwear</div><div class="sticker-card__cta" style="height:46px;font-size:18px">SHOP NOW</div></article>
+<div class="panel" style="padding:18px 22px;background:var(--sky-400);color:var(--navy-900)"><b style="font:900 24px/1 var(--font-sans)">SHOP</b><div style="font:italic 900 18px/1.6 var(--font-sans)">SHOP ALL<br>HEADWEAR</div></div></div>
+</body></html>

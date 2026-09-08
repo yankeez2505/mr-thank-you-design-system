@@ -1,0 +1,55 @@
+/* Type scale — every size below is measured in the source files.
+   Brand line-height is 100% everywhere; shop text uses 1.5 / 1.212. */
+:root {
+  --fs-10: 10px;  --fs-12: 12px;  --fs-13: 13px;  --fs-14: 14px;
+  --fs-16: 16px;  --fs-18: 18px;  --fs-20: 20px;  --fs-24: 24px;
+  --fs-30: 30px;  --fs-32: 32px;  --fs-36: 36px;  --fs-40: 40px;
+  --fs-48: 48px;  --fs-50: 50px;  --fs-60: 60px;  --fs-72: 72px;
+  --fs-80: 80px;  --fs-96: 96px;  --fs-128: 128px; --fs-148: 148px;
+
+  --lh-tight: 1;      /* brand — 100PERCENT */
+  --lh-title: 1.212;  /* shop headings */
+  --lh-body: 1.5;
+  --ls-tight: -0.03em;
+  --ls-wide: 0.05em;
+}
+
+/* ---- Brand direction ---- */
+.t-hero        { font: italic 900 var(--fs-96)/var(--lh-tight) var(--font-sans); }
+.t-display-80  { font: 900 var(--fs-80)/var(--lh-tight) var(--font-sans); text-transform: uppercase; }
+.t-display-60  { font: 900 var(--fs-60)/var(--lh-tight) var(--font-sans); text-transform: uppercase; }
+.t-title-96    { font: 700 var(--fs-96)/var(--lh-tight) var(--font-sans); }
+.t-title-48    { font: 900 var(--fs-48)/var(--lh-tight) var(--font-sans); }
+.t-title-40    { font: 900 var(--fs-40)/var(--lh-tight) var(--font-sans); }
+.t-marquee     { font: italic 800 var(--fs-40)/var(--lh-tight) var(--font-sans); }
+.t-link-30     { font: italic 900 var(--fs-30)/var(--lh-tight) var(--font-sans); }
+.t-lead-40     { font: 700 var(--fs-40)/var(--lh-tight) var(--font-sans); }
+.t-btn-32      { font: italic 900 var(--fs-32)/var(--lh-tight) var(--font-sans); }
+.t-card-24     { font: 700 var(--fs-24)/var(--lh-tight) var(--font-sans); }
+.t-body-24     { font: 600 var(--fs-24)/var(--lh-tight) var(--font-sans); }
+.t-cta-24      { font: italic 900 var(--fs-24)/var(--lh-tight) var(--font-button); }
+.t-menu-24     { font: italic 900 var(--fs-24)/var(--lh-tight) var(--font-display); }
+.t-tag-24      { font: 700 var(--fs-24)/var(--lh-tight) var(--font-tag); }
+.t-nav-20      { font: italic 900 var(--fs-20)/var(--lh-tight) var(--font-sans); letter-spacing: var(--ls-wide); }
+.t-label-20    { font: 800 var(--fs-20)/var(--lh-tight) var(--font-sans); }
+.t-legal-16    { font: 900 var(--fs-16)/var(--lh-tight) var(--font-sans); }
+.t-mega-148    { font: 900 var(--fs-148)/var(--lh-tight) var(--font-display); }
+.t-mega-128    { font: 900 var(--fs-128)/var(--lh-tight) var(--font-display); }
+
+/* ---- Shop direction ---- */
+.s-h1     { font: 800 var(--fs-72)/var(--lh-title) var(--font-sans); text-transform: uppercase; }
+.s-h2     { font: 800 var(--fs-50)/var(--lh-title) var(--font-sans); text-transform: uppercase; }
+.s-h3     { font: 800 var(--fs-40)/var(--lh-title) var(--font-sans); text-transform: uppercase; }
+.s-h4     { font: 800 var(--fs-36)/var(--lh-title) var(--font-sans); color: var(--shop-heading); }
+.s-h5     { font: 800 var(--fs-32)/var(--lh-title) var(--font-sans); text-transform: uppercase; }
+.s-h6     { font: 800 var(--fs-24)/var(--lh-title) var(--font-sans); }
+.s-lead   { font: 700 var(--fs-20)/var(--lh-body) var(--font-sans); letter-spacing: var(--ls-tight); }
+.s-strong { font: 700 var(--fs-16)/var(--lh-body) var(--font-sans); letter-spacing: var(--ls-tight); }
+.s-body   { font: 500 var(--fs-16)/var(--lh-body) var(--font-sans); letter-spacing: var(--ls-tight); }
+.s-body-r { font: 400 var(--fs-16)/1.875 var(--font-sans); }
+.s-sub    { font: 600 var(--fs-18)/var(--lh-tight) var(--font-sans); }
+.s-sm     { font: 600 var(--fs-14)/1.43 var(--font-sans); }
+.s-xs     { font: 600 var(--fs-12)/1.5 var(--font-sans); }
+.s-2xs    { font: 600 var(--fs-10)/1.6 var(--font-sans); }
+.s-cap    { font: 700 var(--fs-14)/1.43 var(--font-sans); text-transform: uppercase; }
+.s-ui     { font: 700 var(--fs-16)/1.5 var(--font-ui); letter-spacing: -0.02em; }

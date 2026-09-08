@@ -1,0 +1,16 @@
+<!-- @dsCard group="components" viewport="700x150" subtitle="Solid и Flat, пять типов" name="Счётчики" -->
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>Счётчики</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 700px; height: 150px; background: #ffffff; font-family: var(--font-sans); color: #1a202c; padding: 24px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+  h1 { margin: 0; font: 700 13px/1 var(--font-sans); letter-spacing: .1em; text-transform: uppercase; opacity: .55; }
+  .r { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .sw { flex: 1; min-width: 60px; height: 56px; border-radius: 8px; display: flex; align-items: flex-end; padding: 6px; font: 600 10px/1.2 var(--font-sans); }
+  code { font: 500 12px/1.4 ui-monospace, monospace; }
+</style></head><body>
+<h1>Счётчики</h1>
+<div class="r"><span class="counter" data-style="solid" data-type="default">2</span><span class="counter" data-style="solid" data-type="primary">2</span><span class="counter" data-style="solid" data-type="success">2</span><span class="counter" data-style="solid" data-type="warning">2</span><span class="counter" data-style="solid" data-type="danger">2</span></div><div class="r"><span class="counter" data-style="flat" data-type="default">2</span><span class="counter" data-style="flat" data-type="primary">2</span><span class="counter" data-style="flat" data-type="success">2</span><span class="counter" data-style="flat" data-type="warning">2</span><span class="counter" data-style="flat" data-type="danger">2</span></div>
+</body></html>

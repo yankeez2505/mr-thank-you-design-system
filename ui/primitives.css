@@ -1,0 +1,190 @@
+/* shadcn/ui — CSS port of the default (neutral) theme.
+   The documentation shell itself is built on these tokens and classes:
+   same names, same DOM structure as the React components, no build step.
+
+   Product code overrides the same variables inside [data-ds="brand"] /
+   [data-ds="shop"] (tokens/semantic.css), so a shadcn component picks up
+   the brand automatically when it sits inside a direction scope. */
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+  --destructive: #e7000b;
+  --destructive-foreground: #fafafa;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #a1a1a1;
+
+  --radius: 0.625rem;                     /* 10px — shadcn default */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, monospace;
+  --shadow-sm: 0 1px 2px rgba(10, 10, 10, .05);
+  --shadow-md: 0 2px 6px rgba(10, 10, 10, .06), 0 1px 2px rgba(10, 10, 10, .04);
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #171717;
+  --card-foreground: #fafafa;
+  --popover: #171717;
+  --popover-foreground: #fafafa;
+  --primary: #e5e5e5;
+  --primary-foreground: #171717;
+  --secondary: #262626;
+  --secondary-foreground: #fafafa;
+  --muted: #262626;
+  --muted-foreground: #a1a1a1;
+  --accent: #262626;
+  --accent-foreground: #fafafa;
+  --destructive: #ff6467;
+  --border: rgba(255, 255, 255, .1);
+  --input: rgba(255, 255, 255, .15);
+  --ring: #737373;
+}
+
+/* ── base ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; border-color: var(--border); }
+body { margin: 0; background: var(--background); color: var(--foreground); font: 400 14px/1.5 var(--font-sans); -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+code, kbd, samp { font-family: var(--font-mono); }
+
+/* ── button ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 36px; padding: 0 16px; border: 1px solid transparent;
+  border-radius: var(--radius-md); background: var(--primary); color: var(--primary-foreground);
+  font: 500 14px/1 var(--font-sans); text-decoration: none; white-space: nowrap;
+  cursor: pointer; transition: background-color .15s, color .15s, border-color .15s, box-shadow .15s;
+}
+.btn:hover { background: color-mix(in srgb, var(--primary) 90%, transparent); }
+.btn:disabled, .btn[aria-disabled="true"] { pointer-events: none; opacity: .5; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+
+.btn-secondary { background: var(--secondary); color: var(--secondary-foreground); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--secondary) 80%, transparent); }
+.btn-outline { background: var(--background); color: var(--foreground); border-color: var(--input); box-shadow: var(--shadow-sm); }
+.btn-outline:hover { background: var(--accent); color: var(--accent-foreground); }
+.btn-ghost { background: transparent; color: var(--foreground); }
+.btn-ghost:hover { background: var(--accent); color: var(--accent-foreground); }
+.btn-link { background: transparent; color: var(--foreground); text-underline-offset: 4px; padding: 0; height: auto; }
+.btn-link:hover { background: transparent; text-decoration: underline; }
+.btn-destructive { background: var(--destructive); color: var(--destructive-foreground); }
+
+.btn-sm { height: 32px; padding: 0 12px; font-size: 13px; border-radius: var(--radius-sm); }
+.btn-lg { height: 40px; padding: 0 24px; }
+.btn-icon { width: 36px; padding: 0; }
+
+/* ── badge ─────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px; width: fit-content;
+  padding: 2px 8px; border: 1px solid transparent; border-radius: 999px;
+  background: var(--primary); color: var(--primary-foreground);
+  font: 500 11.5px/1.35 var(--font-sans); white-space: nowrap;
+}
+.badge-secondary { background: var(--secondary); color: var(--secondary-foreground); }
+.badge-outline { background: transparent; color: var(--foreground); border-color: var(--border); }
+.badge-destructive { background: var(--destructive); color: var(--destructive-foreground); }
+
+/* ── card ──────────────────────────────────────────────────────────────── */
+.card {
+  display: flex; flex-direction: column; gap: 24px;
+  background: var(--card); color: var(--card-foreground);
+  border: 1px solid var(--border); border-radius: var(--radius-xl);
+  padding: 24px 0; box-shadow: var(--shadow-sm);
+}
+.card-header { display: grid; gap: 6px; padding: 0 24px; }
+.card-title { margin: 0; font: 600 15px/1.3 var(--font-sans); letter-spacing: -.01em; }
+.card-description { margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted-foreground); }
+.card-content { padding: 0 24px; }
+.card-footer { display: flex; align-items: center; gap: 12px; padding: 0 24px; }
+.card-compact { gap: 12px; padding: 0; }
+.card-compact .card-header, .card-compact .card-content, .card-compact .card-footer { padding: 0 14px; }
+
+/* interactive card — the copy-to-clipboard tiles in the docs */
+.card-action { text-align: left; font: inherit; color: inherit; cursor: pointer; width: 100%; }
+.card-action:hover { border-color: color-mix(in srgb, var(--foreground) 18%, var(--border)); box-shadow: var(--shadow-md); }
+
+/* ── table ─────────────────────────────────────────────────────────────── */
+.table-container { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-xl); background: var(--card); }
+.table { width: 100%; border-collapse: collapse; font-size: 14px; caption-side: bottom; }
+.table thead th {
+  text-align: left; padding: 10px 16px; height: 40px; background: var(--muted);
+  font: 500 13px/1 var(--font-sans);
+  color: var(--muted-foreground); border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.table td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; color: var(--muted-foreground); }
+.table tbody tr:last-child td { border-bottom: 0; }
+.table td code { font: 400 12.5px/1.4 var(--font-mono); color: var(--foreground); }
+
+/* ── separator ─────────────────────────────────────────────────────────── */
+.separator { border: 0; height: 1px; width: 100%; background: var(--border); margin: 0; }
+.separator[data-orientation="vertical"] { width: 1px; height: 100%; }
+
+/* ── alert ─────────────────────────────────────────────────────────────── */
+.alert {
+  display: grid; gap: 4px; padding: 14px 18px;
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  background: var(--card); color: var(--foreground); font-size: 14px;
+}
+.alert-title { font: 500 14px/1.4 var(--font-sans); }
+.alert-description { color: var(--muted-foreground); line-height: 1.55; }
+.alert-destructive { color: var(--destructive); border-color: color-mix(in srgb, var(--destructive) 40%, transparent); }
+.alert-destructive .alert-description { color: color-mix(in srgb, var(--destructive) 85%, var(--foreground)); }
+
+/* ── accordion (details/summary) ───────────────────────────────────────── */
+.accordion { border-top: 1px solid var(--border); }
+.accordion-item { border-bottom: 1px solid var(--border); }
+.accordion-trigger {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 2px; cursor: pointer; list-style: none;
+  font: 500 14px/1.4 var(--font-sans); color: var(--foreground);
+}
+.accordion-trigger::-webkit-details-marker { display: none; }
+.accordion-trigger::after { content: ""; width: 9px; height: 9px; flex: none; border-right: 1.6px solid var(--muted-foreground); border-bottom: 1.6px solid var(--muted-foreground); transform: rotate(45deg) translate(-2px, -2px); transition: transform .2s; }
+.accordion-item[open] > .accordion-trigger::after { transform: rotate(225deg) translate(-2px, -2px); }
+.accordion-content { padding: 0 2px 18px; font-size: 13.5px; color: var(--muted-foreground); }
+
+/* ── input ─────────────────────────────────────────────────────────────── */
+.input {
+  display: flex; width: 100%; height: 36px; padding: 0 12px;
+  border: 1px solid var(--input); border-radius: var(--radius-md);
+  background: var(--background); color: var(--foreground);
+  font: 400 14px/1 var(--font-sans); box-shadow: var(--shadow-sm);
+}
+.input::placeholder { color: var(--muted-foreground); }
+.input:focus-visible { border-color: var(--ring); outline: 2px solid color-mix(in srgb, var(--ring) 45%, transparent); outline-offset: 0; }
+.label { font: 500 13px/1 var(--font-sans); color: var(--foreground); }
+
+/* ── toast (sonner) ────────────────────────────────────────────────────── */
+.toast {
+  position: fixed; left: 50%; bottom: 28px; z-index: 50;
+  transform: translate(-50%, 12px); opacity: 0; pointer-events: none;
+  display: flex; align-items: center; gap: 8px; padding: 10px 16px;
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  background: var(--popover); color: var(--popover-foreground);
+  font: 500 13px/1 var(--font-sans); box-shadow: var(--shadow-md);
+  transition: opacity .18s ease-out, transform .18s ease-out;
+}
+.toast[data-state="open"] { opacity: 1; transform: translate(-50%, 0); }
+
+/* ── utilities used by the shell ───────────────────────────────────────── */
+.text-muted { color: var(--muted-foreground); }
+.text-mono { font-family: var(--font-mono); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
