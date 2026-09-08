@@ -36,26 +36,70 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" aria-roledescription="carousel" aria-label="Drop 01 lookbook">
+
   <div class="hero__copy">
-    <p class="hero__label">Drop 01 · out now</p>
-    <h1>Thank you <em>looks good</em> on you.</h1>
-    <p class="lead">Six pieces: caps, sunglasses and sleepwear. Made in a limited run and sold only here.</p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="#shop">Shop the drop</a>
-      <a class="btn btn--ghost" href="#story">Who is Mr. Thank You</a>
+    <article class="look is-active" id="look-1" role="tabpanel" aria-label="Look 1 of 3">
+      <p class="hero__label">Drop 01 · out now</p>
+      <h1 class="look__title">Thank you <em>looks good</em> on you.</h1>
+      <p class="lead">Cap, shades, sleep set and slippers. Six pieces built as one look and sold as separates.</p>
+      <div class="look__act">
+        <a class="btn btn--ink" href="#shop">Shop the drop</a>
+        <a class="link" href="#story">Who is Mr. Thank You</a>
+      </div>
+      <p class="look__meta"><span>The full look</span><b>$318</b><span>Free shipping over</span><b>$80</b></p>
+    </article>
+
+    <article class="look" id="look-2" role="tabpanel" aria-label="Look 2 of 3" aria-hidden="true">
+      <p class="hero__label">The sleep set</p>
+      <h2 class="look__title">Poplin you'd wear <em>outside</em>.</h2>
+      <p class="lead">Cotton poplin, piped seams, monogram stitched on the chest. Machine wash cold — it comes back the same shape.</p>
+      <div class="look__act">
+        <a class="btn btn--ink" href="#shop">See the sleep set</a>
+        <a class="link" href="#help">Size guide</a>
+      </div>
+      <p class="look__meta"><span>Sleep set</span><b>$180</b><span>Sizes</span><b>XS–XXL</b></p>
+    </article>
+
+    <article class="look" id="look-3" role="tabpanel" aria-label="Look 3 of 3" aria-hidden="true">
+      <p class="hero__label">Limited run</p>
+      <h2 class="look__title">When it's gone, <em>it's gone</em>.</h2>
+      <p class="lead">No retail partners, no restock. Drop 01 is made once, packed by us and sent from our own studio.</p>
+      <div class="look__act">
+        <a class="btn btn--ink" href="#shop">Shop before it goes</a>
+        <a class="link" href="#signup">Get the next drop first</a>
+      </div>
+      <p class="look__meta"><span>Dispatch</span><b>48 hours</b><span>Returns</span><b>30 days</b></p>
+    </article>
+  </div>
+
+  <div class="hero__ui">
+    <div class="thumbs" role="tablist" aria-label="Choose a look">
+      <button class="thumb is-active" role="tab" aria-selected="true" aria-controls="look-1">
+        <img src="../assets/images/look-front.jpg" alt="Front of the look" width="1920" height="1280">
+        <span class="thumb__bar"></span>
+      </button>
+      <button class="thumb" role="tab" aria-selected="false" aria-controls="look-2" tabindex="-1">
+        <img src="../assets/images/look-portrait.jpg" alt="Collar detail" width="1920" height="1280">
+        <span class="thumb__bar"></span>
+      </button>
+      <button class="thumb" role="tab" aria-selected="false" aria-controls="look-3" tabindex="-1">
+        <img src="../assets/images/look-back.jpg" alt="Back of the look" width="1920" height="1280">
+        <span class="thumb__bar"></span>
+      </button>
     </div>
+    <p class="hero__count"><b>01</b><span>/ 03</span></p>
+    <button class="hero__toggle" aria-label="Pause the lookbook" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M9 6v12M15 6v12"/><path class="i-play" d="m8 5 11 7-11 7Z"/></svg>
+    </button>
   </div>
-  <div class="hero__art">
-    <figure class="shot shot--main">
-      <div class="shot__box"><img src="../assets/mockups/cap-leather.png" alt="Leather trucker cap with the Mr. Thank You monogram"></div>
-      <figcaption>Leather Trucker Cap <b>$58</b></figcaption>
-    </figure>
-    <figure class="shot shot--inset">
-      <div class="shot__box"><img src="../assets/mockups/sunglasses-a.png" alt="Black sunglasses from Drop 01"></div>
-      <figcaption>Signature Shades <b>$42</b></figcaption>
-    </figure>
+
+  <div class="hero__frames">
+    <img class="frame is-active" src="../assets/images/look-front.jpg" alt="The striped sleep set worn with the cap, shades and slippers, seen from the front" fetchpriority="high" width="1920" height="1280">
+    <img class="frame" src="../assets/images/look-portrait.jpg" alt="Close-up of the sleep shirt collar, navy piping and the stitched monogram" loading="lazy" width="1920" height="1280">
+    <img class="frame" src="../assets/images/look-back.jpg" alt="The sleep set from the back, showing the straight-leg trousers and piped hem" loading="lazy" width="1920" height="1280">
   </div>
+
 </section>
 
 <section class="strip">
@@ -277,5 +321,6 @@
   </div>
 </footer>
 
+<script src="hero.js"></script>
 </body>
 </html>
