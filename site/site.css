@@ -219,7 +219,8 @@ p  { margin: 0; }
 .band h2 em { font-style: normal; color: var(--primary); }
 .band p { margin-top: var(--space-6); max-width: var(--measure); color: var(--muted-foreground); font-size: var(--fs-lead); }
 .band__cta { margin-top: var(--space-8); }
-.band__art { justify-self: center; width: min(320px, 100%); border-radius: var(--r-lg); }
+.band { padding-bottom: 0; }
+.band__art { justify-self: center; align-self: end; width: min(420px, 100%); }
 
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); margin-top: var(--space-16); }
 .stats div { border-top: var(--border-width) solid color-mix(in srgb, var(--inverse-foreground) 25%, transparent); padding-top: var(--space-4); }
