@@ -185,6 +185,44 @@
   </div>
 </div></section>
 
+<section class="sect" id="page"><div class="wrap">
+  <p class="eyebrow">Результат</p>
+  <h2>Главная страница магазина</h2>
+  <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе — ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов, оформление — из презентации. Открывается в браузере, работает на телефоне и на десктопе.</p>
+  <p style="margin-bottom:var(--space-8)"><a class="btn btn--primary" href="site/index.html">Открыть страницу</a></p>
+  <a href="site/index.html" style="display:block;border:var(--border-width) solid var(--border);border-radius:var(--r-lg);overflow:hidden">
+    <img src="assets/preview-home.png" alt="Главная страница магазина Mr. Thank You">
+  </a>
+  <div class="cards" style="margin-top:var(--space-8)">
+    <div class="card"><b>9 блоков</b><span>Полоса объявлений, шапка, первый экран, категории, витрина, история бренда, три эпизода, условия заказа, подписка и подвал</span></div>
+    <div class="card"><b>Поле 40px</b><span>Страница на всю ширину экрана, на мобильном поле сжимается до 20px</span></div>
+    <div class="card"><b>Только свой сайт</b><span>Продажа идёт с этого сайта: доставка, сроки и возврат вместо ссылок на чужие магазины</span></div>
+    <div class="card"><b>Готова к переносу</b><span>Разметка и стили переносятся в тему Shopify без переделки оформления</span></div>
+  </div>
+</div></section>
+
+<section class="sect" id="use"><div class="wrap">
+  <p class="eyebrow">Подключение</p>
+  <h2>Что передаётся и как это подключить</h2>
+  <p class="sect__lead">Система лежит обычными файлами. Разработчику достаточно подключить их в таком порядке — дальше все компоненты берут значения сами.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Папка</th><th>Что внутри</th><th>Зачем</th></tr></thead>
+    <tbody>
+      <tr><td><code>tokens/</code></td><td>Цвет, шрифт, кегли, отступы, скругления, тени, роли</td><td>Единственный источник значений</td></tr>
+      <tr><td><code>site/</code></td><td>Главная страница и её стили</td><td>Готовая сборка и пример применения</td></tr>
+      <tr><td><code>assets/logos/</code></td><td>Логотип и монограмма в трёх цветах, векторные <code>.ai</code></td><td>Сайт, печать, аватары</td></tr>
+      <tr><td><code>assets/mockups/</code></td><td>Товар на прозрачном фоне</td><td>Карточки и плитки категорий</td></tr>
+      <tr><td><code>guidelines/</code></td><td>Правила применения</td><td>Справка при расширении системы</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards" style="margin-top:var(--space-8)">
+    <div class="card"><i class="eyebrow">Шаг 1</i><b>Подключить токены</b><span>Семь файлов из <code>tokens/</code> в указанном порядке — сначала значения, последним <code>semantic.css</code></span></div>
+    <div class="card"><i class="eyebrow">Шаг 2</i><b>Подключить компоненты</b><span><code>site/site.css</code> — кнопки, карточки, плитки, поля, шапка и подвал</span></div>
+    <div class="card"><i class="eyebrow">Шаг 3</i><b>Собирать страницы</b><span>Новые экраны верстаются теми же классами, новые цвета и кегли не заводятся</span></div>
+    <div class="card"><i class="eyebrow">Шаг 4</i><b>Расширять через токены</b><span>Нужен новый оттенок или размер — он добавляется в <code>tokens/</code>, а не в отдельный файл страницы</span></div>
+  </div>
+</div></section>
+
 <footer class="foot"><div class="wrap">
   Mr. Thank You Design System · оформление по презентации Brand Overview · сентябрь 2026
 </div></footer>
