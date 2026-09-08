@@ -11,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
@@ -107,11 +108,11 @@ p  { margin: 0; }
 }
 .stage__ghost {
   position: absolute; inset-inline: -4%; top: 50%; translate: 0 -50%;
-  font: var(--fw-black) clamp(80px, 13vw, 190px)/1 var(--font-sans);
+  font: var(--fw-black) clamp(40px, 6vw, 96px)/1 var(--font-sans);
   letter-spacing: var(--ls-tight); text-align: center; white-space: nowrap;
   color: var(--background); user-select: none;
 }
-.stage img { position: relative; width: 68%; }
+.stage img { position: relative; width: 62%; }
 .stage__tag {
   position: absolute; left: var(--space-6); bottom: var(--space-6);
   display: flex; gap: var(--space-2); align-items: center;
