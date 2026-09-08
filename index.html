@@ -132,6 +132,24 @@
     <button class="btn btn--onDark">Читать историю</button>
   </div>
 
+  <h3>Переключатель языка</h3>
+  <p class="spec">Не <code>&lt;select&gt;</code>, а свой список: системный выпадающий список рисуется шрифтом операционной системы и ломает шапку. Кнопка — код языка прописными <code>--fs-label</code> и шеврон 12px, тоньше иконок действий, чтобы не читаться четвёртой иконкой. Меню — белая карточка <code>--r-lg</code> с тенью <code>--shadow-md</code>, языки в своём написании, код справа. Выбранный — жирный, код розовый. Работает с клавиатуры: стрелки, Home/End, Enter, Escape.</p>
+  <div class="canvas" style="justify-content:flex-end">
+    <div class="lang">
+      <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language: English">
+        <span class="lang__code">EN</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <ul class="lang__menu" role="listbox" aria-label="Language" hidden>
+        <li role="option" tabindex="-1" aria-selected="true" data-code="EN"><span>English</span><code>EN</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="ES"><span>Espa&ntilde;ol</span><code>ES</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="PT"><span>Portugu&ecirc;s</span><code>PT</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="FR"><span>Fran&ccedil;ais</span><code>FR</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="DE"><span>Deutsch</span><code>DE</code></li>
+      </ul>
+    </div>
+  </div>
+
   <h3>Карточка товара</h3>
   <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика — мелким серым. Метка «Новинка» и кнопка «В корзину» появляются поверх фото.</p>
   <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;background:var(--background)">
@@ -241,6 +259,8 @@
 <footer class="foot"><div class="wrap">
   Mr. Thank You Design System · оформление по презентации Brand Overview · сентябрь 2026
 </div></footer>
+
+<script src="site/lang.js"></script>
 
 <script>
 document.addEventListener('click', function (e) {

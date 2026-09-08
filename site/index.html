@@ -30,6 +30,19 @@
     <a href="#help">Help</a>
   </nav>
   <div class="actions">
+    <div class="lang">
+      <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language: English">
+        <span class="lang__code">EN</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <ul class="lang__menu" role="listbox" aria-label="Language" hidden>
+        <li role="option" tabindex="-1" aria-selected="true" data-code="EN"><span>English</span><code>EN</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="ES"><span>Espa&ntilde;ol</span><code>ES</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="PT"><span>Portugu&ecirc;s</span><code>PT</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="FR"><span>Fran&ccedil;ais</span><code>FR</code></li>
+        <li role="option" tabindex="-1" aria-selected="false" data-code="DE"><span>Deutsch</span><code>DE</code></li>
+      </ul>
+    </div>
     <button aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button>
     <button aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.2A3.8 3.8 0 0 1 12 8a3.8 3.8 0 0 1 7 2.8C19 15.6 12 20 12 20Z"/></svg></button>
     <button class="cart" aria-label="Cart, 2 items"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>2</span></button>
@@ -322,5 +335,6 @@
 </footer>
 
 <script src="hero.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>

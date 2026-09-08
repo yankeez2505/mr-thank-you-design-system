@@ -85,8 +85,8 @@ p  { margin: 0; }
 }
 .nav a:hover, .nav a[aria-current] { border-bottom-color: var(--primary); }
 .actions { display: flex; gap: var(--space-5); justify-self: end; align-items: center; }
-.actions button { display: grid; place-items: center; width: 24px; height: 24px; }
-.actions svg { width: 20px; height: 20px; stroke: var(--foreground); fill: none; stroke-width: 1.5; }
+.actions > button { display: grid; place-items: center; width: 24px; height: 24px; }
+.actions > button svg { width: 20px; height: 20px; stroke: var(--foreground); fill: none; stroke-width: 1.5; }
 .cart { position: relative; }
 .cart span {
   position: absolute; top: -6px; right: -8px; min-width: 16px; height: 16px; padding: 0 4px;
@@ -94,6 +94,46 @@ p  { margin: 0; }
   background: var(--primary); color: var(--primary-foreground);
   font-size: 10px; font-weight: var(--fw-bold);
 }
+
+/* language switcher: the trigger reads as part of the nav, not as a fourth
+   icon -- the code in caps at the nav's own size, the chevron a hair thinner
+   than the action icons so it never competes with them */
+.lang { position: relative; }
+.lang__btn {
+  display: flex; align-items: center; gap: var(--space-2);
+  height: 32px; padding-inline: var(--space-3);
+  border-radius: var(--r-md); color: var(--foreground);
+  font-size: var(--fs-label); font-weight: var(--fw-bold); letter-spacing: var(--ls-label);
+  transition: background .18s ease;
+}
+.lang__btn:hover { background: var(--muted); }
+.lang__btn:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.lang__btn svg {
+  width: 12px; height: 12px; stroke: var(--muted-foreground);
+  fill: none; stroke-width: 2; transition: rotate .18s ease;
+}
+.lang__btn[aria-expanded="true"] svg { rotate: 180deg; }
+
+.lang__menu {
+  position: absolute; z-index: 30; top: calc(100% + var(--space-2)); right: 0;
+  min-width: 200px; margin: 0; padding: var(--space-2); list-style: none;
+  display: grid; gap: 2px;
+  background: var(--card); border: var(--border-width) solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-md);
+}
+.lang__menu li {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-6);
+  padding: var(--space-2) var(--space-3); border-radius: var(--r-sm);
+  font-size: var(--fs-small); color: var(--body); cursor: pointer;
+}
+.lang__menu li:hover { background: var(--muted); }
+.lang__menu li:focus-visible { outline: none; background: var(--muted); box-shadow: var(--shadow-focus); }
+.lang__menu li[aria-selected="true"] { color: var(--foreground); font-weight: var(--fw-bold); }
+.lang__menu code {
+  font-family: inherit; font-size: var(--fs-label); letter-spacing: var(--ls-label);
+  color: var(--muted-foreground);
+}
+.lang__menu li[aria-selected="true"] code { color: var(--primary); }
 
 /* ---------- hero: Drop 01 lookbook ----------
    Two horizontals hold the composition: copy starts on the top edge of the
