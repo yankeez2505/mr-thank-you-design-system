@@ -91,7 +91,7 @@ p  { margin: 0; }
 .hero {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: var(--space-16); align-items: center;
-  padding: var(--space-10) var(--gutter) var(--space-16);
+  padding: var(--space-12) var(--gutter) var(--space-16);
 }
 .hero h1 { font-size: clamp(40px, 5.2vw, var(--fs-display)); }
 .hero h1 em { font-style: italic; color: var(--primary); }
@@ -113,11 +113,11 @@ p  { margin: 0; }
   margin-top: var(--space-3); font-size: var(--fs-label); color: var(--muted-foreground);
 }
 .shot figcaption b { color: var(--foreground); font-variant-numeric: tabular-nums; }
-.shot--main .shot__box { height: min(58vh, 520px); background: var(--primary-tint); border-radius: var(--r-lg) 0 0 var(--r-lg); }
+.shot--main .shot__box { height: min(68vh, 600px); background: var(--primary-tint); border-radius: var(--r-lg) 0 0 var(--r-lg); }
 .shot--main figcaption { width: fit-content; margin-left: auto; gap: var(--space-3); padding-right: var(--gutter); }
 .shot--main .shot__box img { width: 62%; }
 .shot--inset { position: absolute; left: 0; bottom: var(--space-12); width: 38%; }
-.shot--inset .shot__box { height: min(40vh, 360px); background: var(--surface); }
+.shot--inset .shot__box { height: min(48vh, 420px); background: var(--surface); }
 .shot--inset figcaption { justify-content: flex-start; gap: var(--space-3); }
 
 /* ---------- numbers strip ---------- */
