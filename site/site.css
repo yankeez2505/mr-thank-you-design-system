@@ -271,30 +271,21 @@ p  { margin: 0; }
   position: relative; overflow: hidden;
   margin-inline: var(--gutter); border-radius: var(--r-xl);
   background: var(--inverse); color: var(--inverse-foreground);
-  padding: var(--space-20) var(--space-16) 0;
+  padding: var(--space-20) var(--space-16) 0; min-height: 680px;
   display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-16); align-items: end;
 }
-/* the pink light the founder is shot in, kept behind him */
-.band::before {
-  content: ""; position: absolute; z-index: 0; pointer-events: none;
-  right: -180px; bottom: -280px; width: 1040px; height: 1040px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--primary) 70%, transparent) 0%, color-mix(in srgb, var(--primary) 34%, transparent) 38%, color-mix(in srgb, var(--primary) 10%, transparent) 58%, transparent 74%);
-}
-/* the wordmark as background type, the way the deck sets it: Inter Black, cropped by the edges */
-.band__word {
-  position: absolute; z-index: 0; left: var(--space-16); top: -.16em; pointer-events: none;
-  font-family: var(--font-display); font-size: clamp(90px, 13vw, 200px);
-  font-weight: var(--fw-black); letter-spacing: var(--ls-tight); line-height: 1;
-  white-space: nowrap; text-transform: uppercase;
-  color: color-mix(in srgb, var(--inverse-foreground) 12%, transparent);
+/* the founder as the deck's first slide sets him: the big rose ellipse behind the
+   whole figure, the small white one right behind his head, both heavily blurred.
+   Rendered on transparent ground, so it melts into the band's black */
+.band__art {
+  position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: right center;
 }
 .band h2 { color: var(--inverse-foreground); font-size: clamp(32px, 3.6vw, 52px); }
 .band h2 em { font-style: normal; color: var(--primary); }
-.band p { margin-top: var(--space-6); max-width: var(--measure); color: var(--muted-foreground); font-size: var(--fs-lead); }
+.band p { margin-top: var(--space-6); max-width: 46ch; color: var(--muted-foreground); font-size: var(--fs-lead); }
 .band__cta { margin-top: var(--space-8); }
-/* copy and founder share one baseline: the stats sit above the bottom edge, he leans on it */
 .band > div { position: relative; z-index: 1; padding-bottom: var(--space-20); }
-.band__art { position: relative; z-index: 1; justify-self: end; height: 600px; width: auto; margin-right: calc(-1 * var(--space-12)); }
 
 .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-8); margin-top: var(--space-16); }
 .stats div { border-top: var(--border-width) solid color-mix(in srgb, var(--inverse-foreground) 25%, transparent); padding-top: var(--space-4); }
@@ -365,8 +356,7 @@ p  { margin: 0; }
 @media (max-width: 1100px) {
   .hero, .band, .signup, .feature { grid-template-columns: 1fr; }
   .band > div { padding-bottom: var(--space-10); }
-  .band__art { justify-self: center; height: auto; width: min(440px, 100%); margin-right: 0; }
-  .band__word { left: var(--space-8); font-size: clamp(56px, 11vw, 120px); }
+  .band__art { object-position: 62% top; }
   .hero { grid-template-rows: auto auto auto; }
   .hero__frames { grid-area: 2 / 1; }
   .hero__ui { grid-area: 3 / 1; }
