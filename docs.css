@@ -1,0 +1,39 @@
+/* Оболочка документации дизайн-системы. Значения — только из tokens/. */
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; background: var(--background); color: var(--foreground);
+  font-family: var(--font-sans); font-size: var(--fs-body); line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { margin: 0; line-height: var(--lh-head); font-weight: var(--fw-bold); }
+h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); }
+h2 { font-size: var(--fs-h2); letter-spacing: var(--ls-tight); }
+h3 { font-size: var(--fs-h3); }
+p { margin: 0; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: var(--gutter); }
+.sect { padding-block: var(--sect-y); border-top: var(--border-width) solid var(--border); }
+.sect > .wrap > h2 { margin-bottom: var(--space-2); }
+.sect__lead { max-width: var(--measure); color: var(--muted-foreground); margin-bottom: var(--space-8); }
+.eyebrow {
+  font-size: var(--fs-label); font-weight: var(--fw-bold); letter-spacing: var(--ls-label);
+  text-transform: uppercase; color: var(--primary); margin-bottom: var(--space-3);
+}
+
+/* ---------- шапка ---------- */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: var(--space-6); height: 56px;
+  padding-inline: var(--gutter);
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter: blur(12px); border-bottom: var(--border-width) solid var(--border);
+}
+.top img { height: 16px; width: auto; }
+.top nav { display: flex; gap: var(--space-5); margin-left: auto; flex-wrap: wrap; }
+.top nav a { font-size: var(--fs-small); color: var(--muted-foreground); text-decoration: none; }
+.top nav a:hover { color: var(--foreground); }
