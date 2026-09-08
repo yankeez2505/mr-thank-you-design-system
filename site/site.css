@@ -85,3 +85,49 @@ p  { margin: 0; }
   background: var(--primary); color: var(--primary-foreground);
   font-size: 10px; font-weight: var(--fw-bold);
 }
+
+/* ---------- hero ---------- */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-16); align-items: center;
+  padding: var(--space-20) var(--gutter) var(--space-16);
+}
+.hero h1 { font-size: clamp(40px, 5.2vw, var(--fs-display)); }
+.hero h1 em { font-style: normal; color: var(--primary); }
+.hero .lead { margin-block: var(--space-6) var(--space-8); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.hero__meta { display: flex; gap: var(--space-8); margin-top: var(--space-12); padding-top: var(--space-6); border-top: var(--border-width) solid var(--border); }
+.hero__meta div { font-size: var(--fs-small); color: var(--muted-foreground); }
+.hero__meta b { display: block; color: var(--foreground); font-size: var(--fs-h3); letter-spacing: var(--ls-tight); }
+
+.stage {
+  position: relative; overflow: hidden;
+  border-radius: var(--r-xl); background: var(--surface);
+  aspect-ratio: 4 / 3; display: grid; place-items: center;
+}
+.stage__ghost {
+  position: absolute; inset-inline: -4%; top: 50%; translate: 0 -50%;
+  font: var(--fw-black) clamp(80px, 13vw, 190px)/1 var(--font-sans);
+  letter-spacing: var(--ls-tight); text-align: center; white-space: nowrap;
+  color: var(--background); user-select: none;
+}
+.stage img { position: relative; width: 68%; }
+.stage__tag {
+  position: absolute; left: var(--space-6); bottom: var(--space-6);
+  display: flex; gap: var(--space-2); align-items: center;
+  font-size: var(--fs-label); letter-spacing: var(--ls-label); text-transform: uppercase;
+  color: var(--foreground);
+}
+.stage__tag i { width: 6px; height: 6px; border-radius: var(--r-pill); background: var(--primary); }
+
+/* ---------- marquee ---------- */
+.marquee { overflow: hidden; border-block: var(--border-width) solid var(--border); padding-block: var(--space-5); }
+.marquee__track { display: flex; gap: var(--space-12); width: max-content; animation: slide 32s linear infinite; }
+.marquee span {
+  display: flex; align-items: center; gap: var(--space-12);
+  font-size: var(--fs-h3); font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--foreground);
+}
+.marquee span::after { content: ""; width: 6px; height: 6px; border-radius: var(--r-pill); background: var(--primary); }
+@keyframes slide { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
