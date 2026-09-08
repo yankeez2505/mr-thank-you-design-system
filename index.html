@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mr. Thank You — Design System</title>
+<meta name="description" content="Дизайн-система Mr. Thank You: цвет, типографика, сетка и компоненты по презентации Brand Overview.">
+<link rel="icon" href="assets/logos/monogram-pink.png">
+<link rel="stylesheet" href="tokens/fonts.css">
+<link rel="stylesheet" href="tokens/colors.css">
+<link rel="stylesheet" href="tokens/typography.css">
+<link rel="stylesheet" href="tokens/spacing.css">
+<link rel="stylesheet" href="tokens/radii.css">
+<link rel="stylesheet" href="tokens/shadows.css">
+<link rel="stylesheet" href="tokens/semantic.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<header class="top">
+  <img src="assets/logos/wordmark-black.png" alt="Mr. Thank You">
+  <nav>
+    <a href="#color">Цвет</a>
+    <a href="#type">Типографика</a>
+    <a href="#layout">Сетка</a>
+    <a href="#logo">Логотип</a>
+    <a href="#components">Компоненты</a>
+    <a href="#page">Главная</a>
+    <a href="#use">Подключение</a>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <p class="eyebrow">Дизайн-система · версия 1.0</p>
+  <h1>Оформление бренда <em>Mr. Thank You</em> в виде готовых значений и компонентов</h1>
+  <p class="hero__lead">Всё оформление собрано из презентации Brand Overview: белый, чёрный и розовый, одно семейство шрифтов, одна сетка. Дальше — набор значений, которые подставляются в макет и в код, и главная страница магазина, собранная на этих значениях.</p>
+  <div class="hero__src">
+    <p><b>Источник оформления:</b> презентация Brand Overview (Figma / PDF). Цвета и кегли считаны из файла, а не подобраны на глаз.</p>
+    <p><b>Источник структуры:</b> присланные прототипы сайта. Из них взят только порядок блоков, оформление — из презентации.</p>
+    <p><b>Шрифт:</b> Inter. Тот же, которым набрана презентация, поэтому слайды и сайт читаются как один материал. Лицензия OFL — бесплатно для сайта и печати.</p>
+  </div>
+  <div class="map">
+    <a href="#color"><i>01</i><b>Основы</b><span>Цвет, типографика, сетка, скругления и тени</span></a>
+    <a href="#components"><i>02</i><b>Компоненты</b><span>Кнопки, поля, карточка товара, шапка, подвал</span></a>
+    <a href="#page"><i>03</i><b>Главная страница</b><span>Собрана целиком на этой системе, открывается в браузере</span></a>
+    <a href="#use"><i>04</i><b>Подключение</b><span>Что передаётся разработчику и как это подключить</span></a>
+  </div>
+</section>
+
+<section class="sect" id="color"><div class="wrap">
+  <p class="eyebrow">Основы</p>
+  <h2>Цвет</h2>
+  <p class="sect__lead">Три цвета держат всё: белый — фон, чёрный — текст и тёмные блоки, розовый — акцент. Розовый работает только на действиях и цифрах, фоном его не заливают. Серые — служебные: границы, подложки, второстепенный текст. Клик по образцу копирует значение.</p>
+  <div class="swatches">
+    <button class="sw" data-copy="#FF2C78"><b style="background:#FF2C78"></b><span><em>--pink-500</em><code>#FF2C78</code><small>Акцент: кнопки, ссылки, цифры</small></span></button>
+    <button class="sw" data-copy="#000000"><b style="background:#000000"></b><span><em>--black</em><code>#000000</code><small>Заголовки, тёмные блоки</small></span></button>
+    <button class="sw" data-copy="#343432"><b style="background:#343432"></b><span><em>--ink-800</em><code>#343432</code><small>Основной текст абзацев</small></span></button>
+    <button class="sw" data-copy="#878787"><b style="background:#878787"></b><span><em>--gray-500</em><code>#878787</code><small>Второстепенный текст</small></span></button>
+    <button class="sw" data-copy="#FFFFFF"><b style="background:#FFFFFF"></b><span><em>--white</em><code>#FFFFFF</code><small>Фон страницы</small></span></button>
+    <button class="sw" data-copy="#E01A63"><b style="background:#E01A63"></b><span><em>--pink-600</em><code>#E01A63</code><small>Нажатое состояние акцента</small></span></button>
+    <button class="sw" data-copy="#FFF2F6"><b style="background:#FFF2F6"></b><span><em>--pink-050</em><code>#FFF2F6</code><small>Розовая подложка</small></span></button>
+    <button class="sw" data-copy="#F7F7F7"><b style="background:#F7F7F7"></b><span><em>--gray-050</em><code>#F7F7F7</code><small>Подложка карточек и секций</small></span></button>
+    <button class="sw" data-copy="#F5F5F5"><b style="background:#F5F5F5"></b><span><em>--gray-100</em><code>#F5F5F5</code><small>Вторая подложка</small></span></button>
+    <button class="sw" data-copy="#D8D8D8"><b style="background:#D8D8D8"></b><span><em>--gray-200</em><code>#D8D8D8</code><small>Границы и линии</small></span></button>
+  </div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  Mr. Thank You Design System · оформление по презентации Brand Overview · сентябрь 2026
+</div></footer>
+
+<script>
+document.addEventListener('click', function (e) {
+  var el = e.target.closest('[data-copy]');
+  if (!el) return;
+  navigator.clipboard.writeText(el.dataset.copy);
+  var t = document.createElement('div');
+  t.className = 'copied';
+  t.textContent = 'Скопировано: ' + el.dataset.copy;
+  document.body.appendChild(t);
+  setTimeout(function () { t.remove(); }, 1400);
+});
+</script>
+
+</body>
+</html>
