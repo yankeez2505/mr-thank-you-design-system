@@ -73,7 +73,9 @@
       <tr><td style="font-size:var(--fs-lead);line-height:var(--lh-body)">Вводный абзац под заголовком</td><td><code>--fs-lead</code></td><td class="num">18 / 1.5</td><td class="num">400</td><td>Лид первого экрана</td></tr>
       <tr><td style="font-size:var(--fs-body);line-height:var(--lh-body)">Основной текст страницы</td><td><code>--fs-body</code></td><td class="num">16 / 1.5</td><td class="num">400</td><td>Абзацы, описания</td></tr>
       <tr><td style="font-size:var(--fs-small);color:var(--muted-foreground)">Второстепенная подпись</td><td><code>--fs-small</code></td><td class="num">13 / 1.5</td><td class="num">400</td><td>Подписи, характеристики</td></tr>
+      <tr><td style="font-size:var(--fs-small);color:var(--muted-foreground)">Shipping &amp; returns</td><td><code>--fs-small</code></td><td class="num">13 / 1.5</td><td class="num">400</td><td>Ссылки подвала и нижняя строка с копирайтом</td></tr>
       <tr><td style="font-size:var(--fs-label);letter-spacing:var(--ls-label);font-weight:700;color:var(--primary)">Подпись под цифрой</td><td><code>--fs-label</code></td><td class="num">12 / 1.5</td><td class="num">700</td><td>Мелкие метки: цена, счётчик, подпись к фото</td></tr>
+      <tr><td style="font-size:var(--fs-label);letter-spacing:var(--ls-label);font-weight:700">Our story</td><td><code>--fs-label</code></td><td class="num">12 / 1.5</td><td class="num">700</td><td>Пункты меню в шапке, заголовки колонок подвала, текстовая ссылка</td></tr>
     </tbody>
   </table></div>
 </div></section>
@@ -118,12 +120,13 @@
   <h2>Компоненты</h2>
   <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
 
-  <h3>Кнопки</h3>
-  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая — в карточке и в корзине, чёрная — на первом экране, где розовый уже занят акцентом в заголовке. Контурная — второстепенное. Светлая контурная — для тёмных блоков.</p>
+  <h3>Кнопки и ссылка</h3>
+  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая — в карточке и в корзине, чёрная — на первом экране, где розовый уже занят акцентом в заголовке. Контурная — второстепенное. Светлая контурная — для тёмных блоков. Ссылка <code>.link</code> — не кнопка: тот же кегль <code>--fs-label</code> и вес 700, но вместо заливки розовая линейка снизу 2px. Стоит рядом с кнопкой как необязательное второе действие.</p>
   <div class="canvas">
     <button class="btn btn--primary">В корзину</button>
     <button class="btn btn--ink">Shop the drop</button>
     <button class="btn btn--ghost">Подробнее</button>
+    <a class="link" href="site/index.html">Get the next drop first</a>
   </div>
   <div class="canvas canvas--dark">
     <button class="btn btn--onDark">Читать историю</button>
