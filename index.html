@@ -31,11 +31,11 @@
   </nav>
 </header>
 
-<section class="hero wrap">
+<section class="intro wrap">
   <p class="eyebrow">Дизайн-система · версия 1.0</p>
   <h1>Оформление бренда <em>Mr. Thank You</em> в виде готовых значений и компонентов</h1>
-  <p class="hero__lead">Всё оформление собрано из презентации Brand Overview: белый, чёрный и розовый, одно семейство шрифтов, одна сетка. Дальше — набор значений, которые подставляются в макет и в код, и главная страница магазина, собранная на этих значениях.</p>
-  <div class="hero__src">
+  <p class="intro__lead">Всё оформление собрано из презентации Brand Overview: белый, чёрный и розовый, одно семейство шрифтов, одна сетка. Дальше — набор значений, которые подставляются в макет и в код, и главная страница магазина, собранная на этих значениях.</p>
+  <div class="intro__src">
     <p><b>Источник оформления:</b> презентация Brand Overview (Figma / PDF). Цвета и кегли считаны из файла, а не подобраны на глаз.</p>
     <p><b>Источник структуры:</b> присланные прототипы сайта. Из них взят только порядок блоков, оформление — из презентации.</p>
     <p><b>Шрифт:</b> Inter. Тот же, которым набрана презентация, поэтому слайды и сайт читаются как один материал. Лицензия OFL — бесплатно для сайта и печати.</p>
@@ -116,10 +116,10 @@
   <h2>Логотип</h2>
   <p class="sect__lead">Два знака: полное написание и монограмма. Каждый — в трёх цветах: чёрный на светлом, белый на тёмном, розовый как акцент. Знак не растягивают, не наклоняют и не перекрашивают в другие цвета. Свободное поле вокруг — не меньше высоты буквы «M».</p>
   <div class="cards">
-    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-black.png" alt="Логотип чёрный" style="width:70%"></div><b>Основной</b><span>Чёрный на белом и светлом фоне</span></div>
-    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--black)"><img src="assets/logos/wordmark-white.png" alt="Логотип белый" style="width:70%"></div><b>Инверсный</b><span>Белый на чёрном и на фото</span></div>
-    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-pink.png" alt="Логотип розовый" style="width:70%"></div><b>Акцентный</b><span>Розовый, точечно</span></div>
-    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/monogram-pink.png" alt="Монограмма" style="height:80%"></div><b>Монограмма</b><span>Аватар, вышивка, иконка сайта</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-black.png" alt="Логотип чёрный"></div><b>Основной</b><span>Чёрный на белом и светлом фоне</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--black)"><img src="assets/logos/wordmark-white.png" alt="Логотип белый"></div><b>Инверсный</b><span>Белый на чёрном и на фото</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-pink.png" alt="Логотип розовый"></div><b>Акцентный</b><span>Розовый, точечно</span></div>
+    <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/monogram-pink.png" alt="Монограмма"></div><b>Монограмма</b><span>Аватар, вышивка, иконка сайта</span></div>
   </div>
 </div></section>
 
@@ -140,7 +140,7 @@
 
   <h3>Карточка товара</h3>
   <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика — мелким серым. Метка «Новинка» и кнопка «В корзину» появляются поверх фото.</p>
-  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start">
+  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;background:var(--background)">
     <article class="prod">
       <div class="prod__media"><span class="prod__badge">Новинка</span><img src="assets/mockups/cap-leather.png" alt=""><button class="prod__add">В корзину</button></div>
       <div class="prod__row"><b>Leather Trucker Cap</b><span>$58</span></div>
@@ -160,7 +160,7 @@
 
   <h3>Плитка категории</h3>
   <p class="spec">Пропорция 3:4, товар по центру, подпись прижата к низу. При наведении подложка становится розовой.</p>
-  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr))">
+  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--background)">
     <a class="tile" href="#components"><img src="assets/mockups/cap-cotton.png" alt=""><b>Headwear</b><span>2 модели</span></a>
     <a class="tile" href="#components"><img src="assets/mockups/sunglasses-b.png" alt=""><b>Eyewear</b><span>2 модели</span></a>
     <a class="tile tile--mark" href="#components"><img src="assets/logos/monogram-pink.png" alt=""><b>Вся коллекция</b><span>Шесть предметов</span></a>
