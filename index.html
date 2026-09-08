@@ -121,7 +121,8 @@
   <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
 
   <h3>Шапка и полоса объявлений</h3>
-  <p class="spec">Три колонки <code>1fr auto 1fr</code>: логотип слева, навигация точно по центру страницы, действия справа. Центр не съезжает, сколько бы пунктов ни было. Шапка липкая — <code>position: sticky</code> и фон <code>color-mix</code> 88% с <code>backdrop-filter: blur(12px)</code>, чтобы товар под ней просвечивал, но текст оставался читаемым. Поля по бокам — <code>--gutter</code>, как у всей страницы. Активный пункт подчёркнут розовой линейкой 2px, она же появляется на наведении. Счётчик корзины — розовый бейдж на <code>--primary</code>. Над шапкой — полоса объявлений на <code>--inverse</code>, кегль <code>--fs-label</code>: две короткие строки про доставку, розовым в ней выделяется только цифра.</p>
+  <p class="spec" style="margin-bottom:var(--space-3)">Три колонки <code>1fr auto 1fr</code>: логотип слева, навигация точно по центру страницы, действия справа. Центр не съезжает, сколько бы пунктов ни было. Шапка липкая — <code>position: sticky</code> и фон <code>color-mix</code> 88% с <code>backdrop-filter: blur(12px)</code>, чтобы товар под ней просвечивал, но текст оставался читаемым. Поля по бокам — <code>--gutter</code>, как у всей страницы. Активный пункт подчёркнут розовой линейкой 2px, она же появляется на наведении. Счётчик корзины — розовый бейдж на <code>--primary</code>.  Над шапкой — полоса объявлений на <code>--inverse</code>, кегль <code>--fs-label</code>: две короткие строки про доставку, розовым в ней выделяется только цифра.</p>
+  <p class="spec">Переключатель языка — не <code>&lt;select&gt;</code>, а свой список: системный выпадающий рисуется шрифтом операционной системы и ломает шапку. Код языка прописными и шеврон 12px — тоньше иконок действий, чтобы не читаться четвёртой иконкой. Меню — карточка <code>--r-lg</code> с тенью <code>--shadow-md</code>, языки в своём написании, код справа, выбранный жирный с розовым кодом. Работает с клавиатуры: стрелки, Home/End, Enter, Escape.</p>
   <div class="canvas canvas--flush">
     <div class="announce">
       <span>Free worldwide shipping over $80</span>
@@ -165,24 +166,6 @@
   </div>
   <div class="canvas canvas--dark">
     <button class="btn btn--onDark">Читать историю</button>
-  </div>
-
-  <h3>Переключатель языка</h3>
-  <p class="spec">Не <code>&lt;select&gt;</code>, а свой список: системный выпадающий список рисуется шрифтом операционной системы и ломает шапку. Кнопка — код языка прописными <code>--fs-label</code> и шеврон 12px, тоньше иконок действий, чтобы не читаться четвёртой иконкой. Меню — белая карточка <code>--r-lg</code> с тенью <code>--shadow-md</code>, языки в своём написании, код справа. Выбранный — жирный, код розовый. Работает с клавиатуры: стрелки, Home/End, Enter, Escape.</p>
-  <div class="canvas" style="justify-content:flex-end">
-    <div class="lang">
-      <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language: English">
-        <span class="lang__code">EN</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-      </button>
-      <ul class="lang__menu" role="listbox" aria-label="Language" hidden>
-        <li role="option" tabindex="-1" aria-selected="true" data-code="EN"><span>English</span><code>EN</code></li>
-        <li role="option" tabindex="-1" aria-selected="false" data-code="ES"><span>Espa&ntilde;ol</span><code>ES</code></li>
-        <li role="option" tabindex="-1" aria-selected="false" data-code="PT"><span>Portugu&ecirc;s</span><code>PT</code></li>
-        <li role="option" tabindex="-1" aria-selected="false" data-code="FR"><span>Fran&ccedil;ais</span><code>FR</code></li>
-        <li role="option" tabindex="-1" aria-selected="false" data-code="DE"><span>Deutsch</span><code>DE</code></li>
-      </ul>
-    </div>
   </div>
 
   <h3>Карточка товара</h3>
