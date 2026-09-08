@@ -1,41 +1,22 @@
-/* Colors — extracted 1:1 from MrThankYou.fig (brand) and Mr Thank You.fig (shop). */
+/* Primitive palette — extracted from Mr.Thank you — Brand Overview.
+   Fill colours read straight out of the deck's vector layer, weighted by area:
+   white and black carry the page, #ff2c78 is the only accent, the greys are
+   borders and secondary text. Nothing here is picked by eye. */
+
 :root {
-  /* Brand core — Y2K direction */
-  --pink-500: #fa6794;        /* primary brand pink, page ground */
-  --pink-400: #ff9dbb;        /* pattern panels */
-  --pink-300: #ed5f84;
-  --pink-600: #da5a82;        /* display type fill */
-  --pink-700: #cd0c47;        /* marquee type, outlines */
-  --sky-500: #229cdf;         /* primary blue, header + footer */
-  --sky-400: #41bcff;         /* footer panel, mission band */
-  --sky-600: #006297;         /* active pill, deep shadow */
-  --navy-900: #00324d;        /* footer text */
-  --cream-100: #fcf6e0;       /* main light ground */
-  --cream-200: #fff2e0;
-  --mint-400: #a3c892;        /* accent green, sign-up button */
-  --paper-50: #f6f7f9;        /* light text on dark */
-  --ink-900: #000000;         /* 4px outlines, everything */
-  --white: #ffffff;
+  /* accent */
+  --pink-500: #ff2c78;   /* THE brand pink — deck accent, numbers, buttons */
+  --pink-600: #e01a63;   /* derived: pressed / hover */
+  --pink-050: #fff2f6;   /* derived: tinted surface */
 
-  /* Shop direction */
-  --shop-heading: #1a202c;
-  --shop-cta: #fac3e1;        /* pale pink button */
-  --shop-cta-alt: #efc3dd;
-  --shop-teal: #007c96;       /* mission overlay @70% */
-  --shop-glass: #8a6a86;      /* glass nav @40% */
-  --shop-navy: #162a41;
-  --shop-black: #000a18;
-  --shop-slate: #486284;
-  --shop-muted: #90a3bf;
-  --shop-line: #dee1e4;
-  --shop-gray-300: #e5e5e5;
-  --shop-gray-400: #c4c4c4;
-  --shop-gray-500: #acacac;
-  --shop-gray-700: #6d6d6d;
+  /* base */
+  --black:    #000000;   /* headlines, dark slides */
+  --ink-800:  #343432;   /* deck body text */
+  --white:    #ffffff;   /* page ground */
 
-  /* Gradients */
-  --grad-candy: radial-gradient(circle at 50% 50%, #fa6794 0%, #fcf6e0 100%);
-  --grad-paper: radial-gradient(circle at 50% 50%, #f6f7f9 0%, #fcf6e0 100%);
-  --grad-paper-lin: linear-gradient(180deg, #f6f7f9 0%, #fcf6e0 100%);
-  --grad-scrim: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  /* neutrals */
+  --gray-500: #878787;   /* secondary text */
+  --gray-200: #d8d8d8;   /* card borders, rules */
+  --gray-100: #f5f5f5;   /* image placeholders */
+  --gray-050: #f7f7f7;   /* section surface */
 }
