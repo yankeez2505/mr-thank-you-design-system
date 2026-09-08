@@ -65,7 +65,7 @@
   <div class="tbl-wrap"><table>
     <thead><tr><th>Пример</th><th>Токен</th><th>Размер</th><th>Начертание</th><th>Где применяется</th></tr></thead>
     <tbody>
-      <tr><td style="font-size:var(--fs-display);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);font-weight:700">Thank you</td><td><code>--fs-display</code></td><td class="num">64 / 1.05</td><td class="num">700</td><td>Заголовок первого экрана</td></tr>
+      <tr><td style="font-size:var(--fs-display);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);font-weight:700">Thank you</td><td><code>--fs-display</code></td><td class="num">36–70 / 1.05</td><td class="num">700</td><td>Заголовок первого экрана</td></tr>
       <tr><td style="font-size:var(--fs-h1);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);font-weight:700">Заголовок H1</td><td><code>--fs-h1</code></td><td class="num">40 / 1.05</td><td class="num">700</td><td>Заголовок страницы</td></tr>
       <tr><td style="font-size:var(--fs-stat);line-height:var(--lh-tight);font-weight:700;color:var(--primary)">78M+</td><td><code>--fs-stat</code></td><td class="num">48 / 1.05</td><td class="num">700</td><td>Цифры статистики, только розовым</td></tr>
       <tr><td style="font-size:var(--fs-h2);line-height:var(--lh-head);letter-spacing:var(--ls-tight);font-weight:700">Заголовок секции</td><td><code>--fs-h2</code></td><td class="num">28 / 1.15</td><td class="num">700</td><td>Начало блока</td></tr>
@@ -88,17 +88,18 @@
       <tr><td><code>--sect-y</code></td><td class="num">64–120px</td><td>Вертикальный отступ секции</td></tr>
       <tr><td><code>--measure</code></td><td class="num">68ch</td><td>Ширина текстового абзаца</td></tr>
       <tr><td><code>--space-2 … --space-30</code></td><td class="num">8 · 12 · 16 · 24 · 32 · 40 · 48 · 64 · 80 · 120</td><td>Внутренние отступы и промежутки</td></tr>
-      <tr><td><code>--r-sm … --r-pill</code></td><td class="num">6 · 10 · 16 · 24 · 999</td><td>Скругления: поле, карточка, блок, кнопка</td></tr>
+      <tr><td><code>--r-sm … --r-pill</code></td><td class="num">8 · 12 · 16 · 24 · 999</td><td>Скругления: вложенный элемент, кнопка, плитка, панель, таблетка</td></tr>
       <tr><td><code>--border-width</code></td><td class="num">1px</td><td>Толщина всех обводок</td></tr>
       <tr><td><code>--shadow-md</code></td><td class="num">0 8 20 / 8%</td><td>Мягкая тень, только на всплывающих элементах</td></tr>
       <tr><td><code>--shadow-focus</code></td><td class="num">0 0 0 3px розовый 35%</td><td>Обводка фокуса при работе с клавиатуры</td></tr>
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:var(--space-8)">
-    <div class="card"><div class="card__box" style="border-radius:var(--r-sm)"></div><b>6px</b><span><code>--r-sm</code> — поле ввода, мелкая метка</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-md)"></div><b>10px</b><span><code>--r-md</code> — базовое скругление интерфейса</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-lg)"></div><b>16px</b><span><code>--r-lg</code> — карточка товара, плитка</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-pill)"></div><b>999px</b><span><code>--r-pill</code> — кнопка, метка на фото</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-sm)"></div><b>8px</b><span><code>--r-sm</code> — элемент внутри плитки с отступом 8–16px</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-md)"></div><b>12px</b><span><code>--r-md</code> — кнопки, поля, чипы: интерактив по умолчанию</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-lg)"></div><b>16px</b><span><code>--r-lg</code> — карточка товара, плитка, кадр</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-xl)"></div><b>24px</b><span><code>--r-xl</code> — панель во всю ширину</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-pill)"></div><b>999px</b><span><code>--r-pill</code> — кнопка-таблетка, метка на фото</span></div>
   </div>
 </div></section>
 
@@ -118,9 +119,10 @@
   <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
 
   <h3>Кнопки</h3>
-  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Розовая — главное действие на экране, оно одно. Контурная — второстепенное. Светлая контурная — для тёмных блоков.</p>
+  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая — в карточке и в корзине, чёрная — на первом экране, где розовый уже занят акцентом в заголовке. Контурная — второстепенное. Светлая контурная — для тёмных блоков.</p>
   <div class="canvas">
     <button class="btn btn--primary">В корзину</button>
+    <button class="btn btn--ink">Shop the drop</button>
     <button class="btn btn--ghost">Подробнее</button>
   </div>
   <div class="canvas canvas--dark">
@@ -147,30 +149,53 @@
     </article>
   </div>
 
-  <h3>Плитка категории</h3>
-  <p class="spec">Пропорция 3:4, товар по центру, подпись прижата к низу. При наведении подложка становится розовой.</p>
-  <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--background)">
-    <a class="tile" href="#components"><img src="assets/mockups/cap-cotton.png" alt=""><b>Headwear</b><span>2 модели</span></a>
-    <a class="tile" href="#components"><img src="assets/mockups/sunglasses-b.png" alt=""><b>Eyewear</b><span>2 модели</span></a>
-    <a class="tile tile--mark" href="#components"><img src="assets/logos/monogram-pink.png" alt=""><b>Вся коллекция</b><span>Шесть предметов</span></a>
+  <h3>Категории</h3>
+  <p class="spec">Полоса неровной высоты: 440 / 320 / 380px, выключка по нижнему краю. Подложка <code>--surface</code>, скругление <code>--r-lg</code>, у первой — <code>--primary-tint</code>. Подпись под фото, не поверх него.</p>
+  <div class="canvas" style="background:var(--background)">
+    <div class="cats" style="width:100%">
+      <a class="cat" href="#components">
+        <div class="cat__box"><img src="assets/mockups/cap-cotton.png" alt=""></div>
+        <div class="cat__row"><b>Headwear</b><span>2 модели</span></div>
+      </a>
+      <a class="cat" href="#components">
+        <div class="cat__box"><img src="assets/mockups/sunglasses-b.png" alt=""></div>
+        <div class="cat__row"><b>Eyewear</b><span>2 модели</span></div>
+      </a>
+      <a class="cat" href="#components">
+        <div class="cat__box"><img src="assets/mockups/sleep-set-pink.png" alt=""></div>
+        <div class="cat__row"><b>Home &amp; Sleep</b><span>2 набора</span></div>
+      </a>
+    </div>
   </div>
 
   <h3>Поле ввода и подписка</h3>
-  <p class="spec">Высота 48px, обводка <code>--border</code>, скругление <code>--r-pill</code>. Фокус — розовая обводка <code>--shadow-focus</code>, чтобы поле было видно при работе с клавиатуры.</p>
-  <div class="canvas">
-    <form class="signup__form" style="display:flex;gap:var(--space-3);flex-wrap:wrap;width:100%" onsubmit="return false">
-      <input type="email" placeholder="your@email.com" aria-label="Почта" style="flex:1 1 240px;min-height:48px;padding:0 var(--space-6);border:var(--border-width) solid var(--input);border-radius:var(--r-pill);font:inherit">
-      <button class="btn btn--primary" type="submit">Подписаться</button>
-    </form>
+  <p class="spec">Высота поля 48px, обводка <code>--input</code>, скругление <code>--r-md</code>. Фокус — розовая обводка <code>--shadow-focus</code>, чтобы поле было видно при работе с клавиатуры. Блок лежит на <code>--primary-tint</code> со скруглением <code>--r-xl</code>.</p>
+  <div class="canvas" style="background:var(--background)">
+    <div class="signup" style="width:100%">
+      <div>
+        <h2>Be first on Drop 02</h2>
+        <p>Шесть новых предметов, тот же ограниченный тираж.</p>
+      </div>
+      <div>
+        <form onsubmit="return false">
+          <label class="sr-only" for="docs-email">Почта</label>
+          <input id="docs-email" type="email" placeholder="your@email.com" autocomplete="email">
+          <button class="btn btn--primary" type="submit">Подписаться</button>
+        </form>
+        <small>Одно письмо на дроп. Отписка в один клик.</small>
+      </div>
+    </div>
   </div>
 
   <h3>Блок условий</h3>
-  <p class="spec">Четыре карточки с обводкой: доставка, сроки, возврат, оплата. Заголовок — <code>--fs-h3</code>, пояснение — <code>--fs-small</code> серым.</p>
-  <div class="canvas" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--background)">
-    <div class="info__c"><b>Бесплатно от $80</b><span>Ниже — $6, в любую страну</span></div>
-    <div class="info__c"><b>Отправка за 48 часов</b><span>Трек-номер приходит на почту</span></div>
-    <div class="info__c"><b>Возврат 30 дней</b><span>Без следов носки, с бирками</span></div>
-    <div class="info__c"><b>Любая оплата</b><span>Карты, Apple Pay, PayPal</span></div>
+  <p class="spec">Четыре строки на линейках, а не карточки: слева заголовок <code>--fs-h3</code> в колонке 24ch, справа пояснение серым. Линейка сверху у каждой и снизу у последней.</p>
+  <div class="canvas" style="background:var(--background)">
+    <div class="terms" style="width:100%">
+      <div class="term"><b>Бесплатно от $80</b><span>Ниже — $6, в любую страну.</span></div>
+      <div class="term"><b>Отправка за 48 часов</b><span>Трек-номер приходит на почту, когда заказ уехал.</span></div>
+      <div class="term"><b>Возврат 30 дней</b><span>Без следов носки, с бирками. Обратную наклейку оплачиваем мы.</span></div>
+      <div class="term"><b>Любая оплата</b><span>Карты, Apple Pay, Google Pay, PayPal, Klarna.</span></div>
+    </div>
   </div>
 </div></section>
 
@@ -179,7 +204,7 @@
   <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе — ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов, оформление — из презентации. Открывается в браузере, работает на телефоне и на десктопе.</p>
   <p style="margin-bottom:var(--space-8)"><a class="btn btn--primary" href="site/index.html">Открыть страницу</a></p>
   <a href="site/index.html" style="display:block;border:var(--border-width) solid var(--border);border-radius:var(--r-lg);overflow:hidden">
-    <img src="assets/preview-home.png" alt="Главная страница магазина Mr. Thank You">
+    <img src="assets/preview-home.jpg" alt="Главная страница магазина Mr. Thank You">
   </a>
   <div class="cards" style="margin-top:var(--space-8)">
     <div class="card"><b>9 блоков</b><span>Полоса объявлений, шапка, первый экран, категории, витрина, история бренда, три эпизода, условия заказа, подписка и подвал</span></div>
