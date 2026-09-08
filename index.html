@@ -120,6 +120,41 @@
   <h2>Компоненты</h2>
   <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
 
+  <h3>Шапка и полоса объявлений</h3>
+  <p class="spec">Три колонки <code>1fr auto 1fr</code>: логотип слева, навигация точно по центру страницы, действия справа. Центр не съезжает, сколько бы пунктов ни было. Шапка липкая — <code>position: sticky</code> и фон <code>color-mix</code> 88% с <code>backdrop-filter: blur(12px)</code>, чтобы товар под ней просвечивал, но текст оставался читаемым. Поля по бокам — <code>--gutter</code>, как у всей страницы. Активный пункт подчёркнут розовой линейкой 2px, она же появляется на наведении. Счётчик корзины — розовый бейдж на <code>--primary</code>. Над шапкой — полоса объявлений на <code>--inverse</code>, кегль <code>--fs-label</code>: две короткие строки про доставку, розовым в ней выделяется только цифра.</p>
+  <div class="canvas canvas--flush">
+    <div class="announce">
+      <span>Free worldwide shipping over $80</span>
+      <span>Drop 01 ships in 48 hours</span>
+    </div>
+    <header class="header">
+      <a class="header__logo" href="site/index.html"><img src="assets/logos/wordmark-black.png" alt="Mr. Thank You"></a>
+      <nav class="nav">
+        <a href="#" aria-current="page">Shop</a>
+        <a href="#">Our story</a>
+        <a href="#">Help</a>
+      </nav>
+      <div class="actions">
+        <div class="lang">
+          <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language: English">
+            <span class="lang__code">EN</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="lang__menu" role="listbox" aria-label="Language" hidden>
+            <li role="option" tabindex="-1" aria-selected="true" data-code="EN"><span>English</span><code>EN</code></li>
+            <li role="option" tabindex="-1" aria-selected="false" data-code="ES"><span>Espa&ntilde;ol</span><code>ES</code></li>
+            <li role="option" tabindex="-1" aria-selected="false" data-code="PT"><span>Portugu&ecirc;s</span><code>PT</code></li>
+            <li role="option" tabindex="-1" aria-selected="false" data-code="FR"><span>Fran&ccedil;ais</span><code>FR</code></li>
+            <li role="option" tabindex="-1" aria-selected="false" data-code="DE"><span>Deutsch</span><code>DE</code></li>
+          </ul>
+        </div>
+        <button aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></button>
+        <button aria-label="Wishlist"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9.2A3.8 3.8 0 0 1 12 8a3.8 3.8 0 0 1 7 2.8C19 15.6 12 20 12 20Z"/></svg></button>
+        <button class="cart" aria-label="Cart, 2 items"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>2</span></button>
+      </div>
+    </header>
+  </div>
+
   <h3>Кнопки и ссылка</h3>
   <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая — в карточке и в корзине, чёрная — на первом экране, где розовый уже занят акцентом в заголовке. Контурная — второстепенное. Светлая контурная — для тёмных блоков. Ссылка <code>.link</code> — не кнопка: тот же кегль <code>--fs-label</code> и вес 700, но вместо заливки розовая линейка снизу 2px. Стоит рядом с кнопкой как необязательное второе действие.</p>
   <div class="canvas">
@@ -218,11 +253,39 @@
       <div class="term"><b>Любая оплата</b><span>Карты, Apple Pay, Google Pay, PayPal, Klarna.</span></div>
     </div>
   </div>
+  <h3>Подвал</h3>
+  <p class="spec">Четыре колонки <code>2fr 1fr 1fr 1fr</code>: колонка бренда вдвое шире списков — логотип, строка о магазине в 32ch серым. Заголовки списков — <code>--fs-label</code> прописными с трекингом, сами ссылки <code>--fs-small</code> серым и розовеют на наведении. Нижняя строка отделена линейкой: копирайт слева, правовые ссылки справа. Разделяет подвал и страницу только линейка сверху — ни заливки, ни тени.</p>
+  <div class="canvas canvas--flush">
+    <footer class="footer">
+      <div class="footer__cols">
+        <div class="footer__brand">
+          <img src="assets/logos/wordmark-black.png" alt="Mr. Thank You">
+          <p>Gratitude you can wear. Limited runs, sold only here, shipped worldwide.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul><li><a href="#">All products</a></li><li><a href="#">Headwear</a></li><li><a href="#">Eyewear</a></li><li><a href="#">Home &amp; Sleep</a></li></ul>
+        </div>
+        <div>
+          <h4>Info</h4>
+          <ul><li><a href="#">Shipping &amp; returns</a></li><li><a href="#">Size guide</a></li><li><a href="#">Contact</a></li><li><a href="#">FAQ</a></li></ul>
+        </div>
+        <div>
+          <h4>Follow</h4>
+          <ul><li><a href="#">Instagram</a></li><li><a href="#">YouTube</a></li><li><a href="#">TikTok</a></li><li><a href="#">LinkedIn</a></li></ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 Mr. Thank You</span>
+        <span>Privacy &middot; Terms</span>
+      </div>
+    </footer>
+  </div>
 </div></section>
 
 <section class="sect" id="page"><div class="wrap">
   <h2>Главная страница магазина</h2>
-  <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе — ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов, оформление — из презентации. Открывается в браузере, работает на телефоне и на десктопе.</p>
+  <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе — ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов. Открывается в браузере, работает на телефоне и на десктопе.</p>
   <p style="margin-bottom:var(--space-8)"><a class="btn btn--primary" href="site/index.html">Открыть страницу</a></p>
   <a href="site/index.html" style="display:block;border:var(--border-width) solid var(--border);border-radius:var(--r-lg);overflow:hidden">
     <img src="assets/preview-home.jpg" alt="Главная страница магазина Mr. Thank You">

@@ -82,6 +82,15 @@ td code { color: var(--primary); }
   border: var(--border-width) solid var(--border); border-radius: var(--r-lg); background: var(--surface);
 }
 .canvas--dark { background: var(--inverse); color: var(--inverse-foreground); }
+.canvas--flush { display: block; padding: 0; background: var(--background); }
+/* full-width components: the canvas frame is their container. No overflow
+   clipping -- the language menu drops out of the header and would be cut off --
+   so the top child rounds the frame's own corners instead. The header stops
+   sticking to the docs window, and neither component draws a hairline where the
+   frame already has one. */
+.canvas--flush > :first-child { border-radius: var(--r-lg) var(--r-lg) 0 0; }
+.canvas--flush .header { position: static; border-bottom: none; }
+.canvas--flush .footer { border-top: none; }
 .spec { font-size: var(--fs-small); color: var(--muted-foreground); margin-bottom: var(--space-8); }
 .spec code { color: var(--foreground); }
 
