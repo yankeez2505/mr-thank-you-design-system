@@ -32,14 +32,8 @@
 </header>
 
 <section class="intro wrap">
-  <p class="eyebrow">Дизайн-система · версия 1.0</p>
-  <h1>Оформление бренда <em>Mr. Thank You</em> в виде готовых значений и компонентов</h1>
-  <p class="intro__lead">Всё оформление собрано из презентации Brand Overview: белый, чёрный и розовый, одно семейство шрифтов, одна сетка. Дальше — набор значений, которые подставляются в макет и в код, и главная страница магазина, собранная на этих значениях.</p>
-  <div class="intro__src">
-    <p><b>Источник оформления:</b> презентация Brand Overview (Figma / PDF). Цвета и кегли считаны из файла, а не подобраны на глаз.</p>
-    <p><b>Источник структуры:</b> присланные прототипы сайта. Из них взят только порядок блоков, оформление — из презентации.</p>
-    <p><b>Шрифт:</b> Inter. Тот же, которым набрана презентация, поэтому слайды и сайт читаются как один материал. Лицензия OFL — бесплатно для сайта и печати.</p>
-  </div>
+  <h1>Дизайн-система <em>Mr. Thank You</em></h1>
+  <p class="intro__lead">Три цвета, одно семейство шрифтов, одна сетка. Ниже — значения, которые подставляются в макет и в код, живые компоненты и главная страница магазина, собранная на них.</p>
   <div class="map">
     <a href="#color"><i>01</i><b>Основы</b><span>Цвет, типографика, сетка, скругления и тени</span></a>
     <a href="#components"><i>02</i><b>Компоненты</b><span>Кнопки, поля, карточка товара, шапка, подвал</span></a>
@@ -49,7 +43,6 @@
 </section>
 
 <section class="sect" id="color"><div class="wrap">
-  <p class="eyebrow">Основы</p>
   <h2>Цвет</h2>
   <p class="sect__lead">Три цвета держат всё: белый — фон, чёрный — текст и тёмные блоки, розовый — акцент. Розовый работает только на действиях и цифрах, фоном его не заливают. Серые — служебные: границы, подложки, второстепенный текст. Клик по образцу копирует значение.</p>
   <div class="swatches">
@@ -67,7 +60,6 @@
 </div></section>
 
 <section class="sect" id="type"><div class="wrap">
-  <p class="eyebrow">Основы</p>
   <h2>Типографика</h2>
   <p class="sect__lead">Одно семейство — Inter. Кегли не выдуманы: взяты пропорции презентации и приведены к экрану, где основной текст равен 16px. Начертания три: 400 для текста, 700 для заголовков, 900 для крупной фоновой надписи.</p>
   <div class="tbl-wrap"><table>
@@ -81,13 +73,12 @@
       <tr><td style="font-size:var(--fs-lead);line-height:var(--lh-body)">Вводный абзац под заголовком</td><td><code>--fs-lead</code></td><td class="num">18 / 1.5</td><td class="num">400</td><td>Лид первого экрана</td></tr>
       <tr><td style="font-size:var(--fs-body);line-height:var(--lh-body)">Основной текст страницы</td><td><code>--fs-body</code></td><td class="num">16 / 1.5</td><td class="num">400</td><td>Абзацы, описания</td></tr>
       <tr><td style="font-size:var(--fs-small);color:var(--muted-foreground)">Второстепенная подпись</td><td><code>--fs-small</code></td><td class="num">13 / 1.5</td><td class="num">400</td><td>Подписи, характеристики</td></tr>
-      <tr><td style="font-size:var(--fs-label);letter-spacing:var(--ls-label);text-transform:uppercase;font-weight:700;color:var(--primary)">Надзаголовок</td><td><code>--fs-label</code></td><td class="num">11 / 1.5</td><td class="num">700</td><td>Метка над заголовком, трекинг 0.12em</td></tr>
+      <tr><td style="font-size:var(--fs-label);letter-spacing:var(--ls-label);font-weight:700;color:var(--primary)">Подпись под цифрой</td><td><code>--fs-label</code></td><td class="num">12 / 1.5</td><td class="num">700</td><td>Мелкие метки: цена, счётчик, подпись к фото</td></tr>
     </tbody>
   </table></div>
 </div></section>
 
 <section class="sect" id="layout"><div class="wrap">
-  <p class="eyebrow">Основы</p>
   <h2>Сетка, отступы, скругления, тени</h2>
   <p class="sect__lead">Шаг сетки — 4px, всё кратно ему. Страница идёт на всю ширину экрана с полем 40px по краям, на мобильном поле сжимается до 20px. Расстояние между секциями задаётся одним значением и меняется вместе с шириной экрана.</p>
   <div class="tbl-wrap"><table>
@@ -112,7 +103,6 @@
 </div></section>
 
 <section class="sect" id="logo"><div class="wrap">
-  <p class="eyebrow">Основы</p>
   <h2>Логотип</h2>
   <p class="sect__lead">Два знака: полное написание и монограмма. Каждый — в трёх цветах: чёрный на светлом, белый на тёмном, розовый как акцент. Знак не растягивают, не наклоняют и не перекрашивают в другие цвета. Свободное поле вокруг — не меньше высоты буквы «M».</p>
   <div class="cards">
@@ -124,7 +114,6 @@
 </div></section>
 
 <section class="sect" id="components"><div class="wrap">
-  <p class="eyebrow">Компоненты</p>
   <h2>Компоненты</h2>
   <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
 
@@ -186,7 +175,6 @@
 </div></section>
 
 <section class="sect" id="page"><div class="wrap">
-  <p class="eyebrow">Результат</p>
   <h2>Главная страница магазина</h2>
   <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе — ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов, оформление — из презентации. Открывается в браузере, работает на телефоне и на десктопе.</p>
   <p style="margin-bottom:var(--space-8)"><a class="btn btn--primary" href="site/index.html">Открыть страницу</a></p>
@@ -202,7 +190,6 @@
 </div></section>
 
 <section class="sect" id="use"><div class="wrap">
-  <p class="eyebrow">Подключение</p>
   <h2>Что передаётся и как это подключить</h2>
   <p class="sect__lead">Система лежит обычными файлами. Разработчику достаточно подключить их в таком порядке — дальше все компоненты берут значения сами.</p>
   <div class="tbl-wrap"><table>
@@ -216,10 +203,10 @@
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:var(--space-8)">
-    <div class="card"><i class="eyebrow">Шаг 1</i><b>Подключить токены</b><span>Семь файлов из <code>tokens/</code> в указанном порядке — сначала значения, последним <code>semantic.css</code></span></div>
-    <div class="card"><i class="eyebrow">Шаг 2</i><b>Подключить компоненты</b><span><code>site/site.css</code> — кнопки, карточки, плитки, поля, шапка и подвал</span></div>
-    <div class="card"><i class="eyebrow">Шаг 3</i><b>Собирать страницы</b><span>Новые экраны верстаются теми же классами, новые цвета и кегли не заводятся</span></div>
-    <div class="card"><i class="eyebrow">Шаг 4</i><b>Расширять через токены</b><span>Нужен новый оттенок или размер — он добавляется в <code>tokens/</code>, а не в отдельный файл страницы</span></div>
+    <div class="card"><i>01</i><b>Подключить токены</b><span>Семь файлов из <code>tokens/</code> в указанном порядке — сначала значения, последним <code>semantic.css</code></span></div>
+    <div class="card"><i>02</i><b>Подключить компоненты</b><span><code>site/site.css</code> — кнопки, карточки, плитки, поля, шапка и подвал</span></div>
+    <div class="card"><i>03</i><b>Собирать страницы</b><span>Новые экраны верстаются теми же классами, новые цвета и кегли не заводятся</span></div>
+    <div class="card"><i>04</i><b>Расширять через токены</b><span>Нужен новый оттенок или размер — он добавляется в <code>tokens/</code>, а не в отдельный файл страницы</span></div>
   </div>
 </div></section>
 

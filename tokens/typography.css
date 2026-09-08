@@ -16,14 +16,14 @@
   --fs-lead:    18px;
   --fs-body:    16px;
   --fs-small:   13px;
-  --fs-label:   11px;   /* uppercase eyebrow */
+  --fs-label:   12px;   /* мелкая подпись */
 
   --lh-tight: 1.05;     /* display and stats */
   --lh-head:  1.15;
   --lh-body:  1.5;
 
   --ls-tight: -0.02em;  /* large headlines */
-  --ls-label: 0.12em;   /* uppercase eyebrow */
+  --ls-label: 0.02em;   /* мелкая подпись */
 
   --fw-regular: 400;
   --fw-bold:    700;
