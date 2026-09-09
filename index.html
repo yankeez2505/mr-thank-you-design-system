@@ -159,32 +159,32 @@
   <h3>Кнопки и ссылка</h3>
   <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая — в карточке и в корзине, чёрная — на первом экране, где розовый уже занят акцентом в заголовке. Контурная — второстепенное. Светлая контурная — для тёмных блоков. Ссылка <code>.link</code> — не кнопка: тот же кегль <code>--fs-label</code> и вес 700, но вместо заливки розовая линейка снизу 2px. Стоит рядом с кнопкой как необязательное второе действие.</p>
   <div class="canvas">
-    <button class="btn btn--primary">В корзину</button>
+    <button class="btn btn--primary">Add to bag</button>
     <button class="btn btn--ink">Shop the drop</button>
-    <button class="btn btn--ghost">Подробнее</button>
+    <button class="btn btn--ghost">View details</button>
     <a class="link" href="site/index.html">Get the next drop first</a>
   </div>
   <div class="canvas canvas--dark">
-    <button class="btn btn--onDark">Читать историю</button>
+    <button class="btn btn--onDark">Read the full story</button>
   </div>
 
   <h3>Карточка товара</h3>
-  <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика — мелким серым. Метка «Новинка» и кнопка «В корзину» появляются поверх фото.</p>
+  <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика — мелким серым. Метка <code>New</code> и кнопка <code>Add to bag</code> появляются поверх фото.</p>
   <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;background:var(--background)">
     <article class="prod">
-      <div class="prod__media"><span class="prod__badge">Новинка</span><img src="assets/mockups/cap-leather.png" alt=""><button class="prod__add">В корзину</button></div>
+      <div class="prod__media"><span class="prod__badge">New</span><img src="assets/mockups/cap-leather.png" alt=""><button class="prod__add">Add to bag</button></div>
       <div class="prod__row"><b>Leather Trucker Cap</b><span>$58</span></div>
-      <p>Кожаная панель, сетка сзади</p>
+      <p>Full-grain panel, mesh back</p>
     </article>
     <article class="prod">
-      <div class="prod__media"><img src="assets/mockups/sunglasses-a.png" alt=""><button class="prod__add">В корзину</button></div>
+      <div class="prod__media"><img src="assets/mockups/sunglasses-a.png" alt=""><button class="prod__add">Add to bag</button></div>
       <div class="prod__row"><b>Signature Sunglasses</b><span>$120</span></div>
-      <p>Итальянский ацетат, UV400</p>
+      <p>Italian acetate, UV400</p>
     </article>
     <article class="prod">
-      <div class="prod__media"><span class="prod__badge">Мало</span><img src="assets/mockups/sleep-set-pink.png" alt=""><button class="prod__add">В корзину</button></div>
+      <div class="prod__media"><span class="prod__badge">Low stock</span><img src="assets/mockups/sleep-set-pink.png" alt=""><button class="prod__add">Add to bag</button></div>
       <div class="prod__row"><b>Sleep Set, Rose</b><span>$180</span></div>
-      <p>Шесть предметов, мытый шёлк</p>
+      <p>Six pieces, washed silk</p>
     </article>
   </div>
 
@@ -194,15 +194,15 @@
     <div class="cats" style="width:100%">
       <a class="cat" href="#components">
         <div class="cat__box"><img src="assets/mockups/cap-cotton.png" alt=""></div>
-        <div class="cat__row"><b>Headwear</b><span>2 модели</span></div>
+        <div class="cat__row"><b>Headwear</b><span>2 styles</span></div>
       </a>
       <a class="cat" href="#components">
         <div class="cat__box"><img src="assets/mockups/sunglasses-b.png" alt=""></div>
-        <div class="cat__row"><b>Eyewear</b><span>2 модели</span></div>
+        <div class="cat__row"><b>Eyewear</b><span>2 styles</span></div>
       </a>
       <a class="cat" href="#components">
         <div class="cat__box"><img src="assets/mockups/sleep-set-pink.png" alt=""></div>
-        <div class="cat__row"><b>Home &amp; Sleep</b><span>2 набора</span></div>
+        <div class="cat__row"><b>Home &amp; Sleep</b><span>2 sets</span></div>
       </a>
     </div>
   </div>
@@ -213,15 +213,15 @@
     <div class="signup" style="width:100%">
       <div>
         <h2>Be first on Drop 02</h2>
-        <p>Шесть новых предметов, тот же ограниченный тираж.</p>
+        <p>Six new pieces, same limited run.</p>
       </div>
       <div>
         <form onsubmit="return false">
-          <label class="sr-only" for="docs-email">Почта</label>
+          <label class="sr-only" for="docs-email">Email</label>
           <input id="docs-email" type="email" placeholder="your@email.com" autocomplete="email">
-          <button class="btn btn--primary" type="submit">Подписаться</button>
+          <button class="btn btn--primary" type="submit">Sign up</button>
         </form>
-        <small>Одно письмо на дроп. Отписка в один клик.</small>
+        <small>One email per drop. Unsubscribe anytime.</small>
       </div>
     </div>
   </div>
@@ -230,10 +230,10 @@
   <p class="spec">Четыре строки на линейках, а не карточки: слева заголовок <code>--fs-h3</code> в колонке 24ch, справа пояснение серым. Линейка сверху у каждой и снизу у последней.</p>
   <div class="canvas" style="background:var(--background)">
     <div class="terms" style="width:100%">
-      <div class="term"><b>Бесплатно от $80</b><span>Ниже — $6, в любую страну.</span></div>
-      <div class="term"><b>Отправка за 48 часов</b><span>Трек-номер приходит на почту, когда заказ уехал.</span></div>
-      <div class="term"><b>Возврат 30 дней</b><span>Без следов носки, с бирками. Обратную наклейку оплачиваем мы.</span></div>
-      <div class="term"><b>Любая оплата</b><span>Карты, Apple Pay, Google Pay, PayPal, Klarna.</span></div>
+      <div class="term"><b>Free over $80</b><span>Flat $6 below that, anywhere in the world.</span></div>
+      <div class="term"><b>Sent in 48 hours</b><span>Tracking link by email when it leaves us.</span></div>
+      <div class="term"><b>30-day returns</b><span>Unworn with tags. We pay the return label.</span></div>
+      <div class="term"><b>Pay your way</b><span>Cards, Apple Pay, Google Pay, PayPal, Klarna.</span></div>
     </div>
   </div>
   <h3>Подвал</h3>
