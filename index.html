@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mr. Thank You — Design System</title>
+<title>Mr. Thank You - Design System</title>
 <meta name="description" content="Дизайн-система Mr. Thank You: цвет, типографика, сетка и компоненты.">
 <link rel="icon" href="assets/logos/monogram-pink.png">
 <link rel="stylesheet" href="tokens/fonts.css">
@@ -33,7 +33,7 @@
 
 <section class="intro wrap">
   <h1>Дизайн-система <em>Mr. Thank You</em></h1>
-  <p class="intro__lead">Три цвета, одно семейство шрифтов, одна сетка. Ниже — значения, которые подставляются в макет и в код, живые компоненты и главная страница магазина, собранная на них.</p>
+  <p class="intro__lead">Три цвета, одно семейство шрифтов, одна сетка. Ниже - значения, которые подставляются в макет и в код, живые компоненты и главная страница магазина, собранная на них.</p>
   <div class="map">
     <a href="#color"><i>01</i><b>Основы</b><span>Цвет, типографика, сетка, скругления и тени</span></a>
     <a href="#components"><i>02</i><b>Компоненты</b><span>Кнопки, поля, карточка товара, шапка, подвал</span></a>
@@ -44,7 +44,7 @@
 
 <section class="sect" id="color"><div class="wrap">
   <h2>Цвет</h2>
-  <p class="sect__lead">Три цвета держат всё: белый — фон, чёрный — текст и тёмные блоки, розовый — акцент. Розовый работает только на действиях и цифрах, фоном его не заливают. Серые — служебные: границы, подложки, второстепенный текст. Клик по образцу копирует значение.</p>
+  <p class="sect__lead">Три цвета держат всё: белый - фон, чёрный - текст и тёмные блоки, розовый - акцент. Розовый работает только на действиях и цифрах, фоном его не заливают. Серые - служебные: границы, подложки, второстепенный текст. Клик по образцу копирует значение.</p>
   <div class="swatches">
     <button class="sw" data-copy="#FF2C78"><b style="background:#FF2C78"></b><span><em>--pink-500</em><code>#FF2C78</code><small>Акцент: кнопки, ссылки, цифры</small></span></button>
     <button class="sw" data-copy="#000000"><b style="background:#000000"></b><span><em>--black</em><code>#000000</code><small>Заголовки, тёмные блоки</small></span></button>
@@ -61,11 +61,11 @@
 
 <section class="sect" id="type"><div class="wrap">
   <h2>Типографика</h2>
-  <p class="sect__lead">Одно семейство — Inter. Кегли не выдуманы: взяты пропорции презентации и приведены к экрану, где основной текст равен 16px. Начертания три: 400 для текста, 700 для заголовков, 900 для крупной фоновой надписи.</p>
+  <p class="sect__lead">Одно семейство - Inter. Кегли не выдуманы: взяты пропорции презентации и приведены к экрану, где основной текст равен 16px. Начертания три: 400 для текста, 700 для заголовков, 900 для крупной фоновой надписи.</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Пример</th><th>Токен</th><th>Размер</th><th>Начертание</th><th>Где применяется</th></tr></thead>
     <tbody>
-      <tr><td style="font-size:var(--fs-display);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);font-weight:700">Thank you</td><td><code>--fs-display</code></td><td class="num">36–70 / 1.05</td><td class="num">700</td><td>Заголовок первого экрана</td></tr>
+      <tr><td style="font-size:var(--fs-display);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);font-weight:700">Thank you</td><td><code>--fs-display</code></td><td class="num">36-70 / 1.05</td><td class="num">700</td><td>Заголовок первого экрана</td></tr>
       <tr><td style="font-size:var(--fs-h1);line-height:var(--lh-tight);letter-spacing:var(--ls-tight);font-weight:700">Заголовок H1</td><td><code>--fs-h1</code></td><td class="num">40 / 1.05</td><td class="num">700</td><td>Заголовок страницы</td></tr>
       <tr><td style="font-size:var(--fs-stat);line-height:var(--lh-tight);font-weight:700;color:var(--primary)">78M+</td><td><code>--fs-stat</code></td><td class="num">48 / 1.05</td><td class="num">700</td><td>Цифры статистики, только розовым</td></tr>
       <tr><td style="font-size:var(--fs-h2);line-height:var(--lh-head);letter-spacing:var(--ls-tight);font-weight:700">Заголовок секции</td><td><code>--fs-h2</code></td><td class="num">28 / 1.15</td><td class="num">700</td><td>Начало блока</td></tr>
@@ -82,32 +82,32 @@
 
 <section class="sect" id="layout"><div class="wrap">
   <h2>Сетка, отступы, скругления, тени</h2>
-  <p class="sect__lead">Шаг сетки — 4px, всё кратно ему. Страница идёт на всю ширину экрана с полем 40px по краям, на мобильном поле сжимается до 20px. Расстояние между секциями задаётся одним значением и меняется вместе с шириной экрана.</p>
+  <p class="sect__lead">Шаг сетки - 4px, всё кратно ему. Страница идёт на всю ширину экрана с полем 40px по краям, на мобильном поле сжимается до 20px. Расстояние между секциями задаётся одним значением и меняется вместе с шириной экрана.</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Токен</th><th>Значение</th><th>Назначение</th></tr></thead>
     <tbody>
       <tr><td><code>--gutter</code></td><td class="num">40px → 20px</td><td>Поле по краям страницы</td></tr>
-      <tr><td><code>--sect-y</code></td><td class="num">64–120px</td><td>Вертикальный отступ секции</td></tr>
+      <tr><td><code>--sect-y</code></td><td class="num">64-120px</td><td>Вертикальный отступ секции</td></tr>
       <tr><td><code>--measure</code></td><td class="num">68ch</td><td>Ширина текстового абзаца</td></tr>
-      <tr><td><code>--space-2 … --space-30</code></td><td class="num">8 · 12 · 16 · 24 · 32 · 40 · 48 · 64 · 80 · 120</td><td>Внутренние отступы и промежутки</td></tr>
-      <tr><td><code>--r-sm … --r-pill</code></td><td class="num">8 · 12 · 16 · 24 · 999</td><td>Скругления: вложенный элемент, кнопка, плитка, панель, таблетка</td></tr>
+      <tr><td><code>--space-2 … --space-30</code></td><td class="num">8 // 12 // 16 // 24 // 32 // 40 // 48 // 64 // 80 // 120</td><td>Внутренние отступы и промежутки</td></tr>
+      <tr><td><code>--r-sm … --r-pill</code></td><td class="num">8 // 12 // 16 // 24 // 999</td><td>Скругления: вложенный элемент, кнопка, плитка, панель, таблетка</td></tr>
       <tr><td><code>--border-width</code></td><td class="num">1px</td><td>Толщина всех обводок</td></tr>
       <tr><td><code>--shadow-md</code></td><td class="num">0 8 20 / 8%</td><td>Мягкая тень, только на всплывающих элементах</td></tr>
       <tr><td><code>--shadow-focus</code></td><td class="num">0 0 0 3px розовый 35%</td><td>Обводка фокуса при работе с клавиатуры</td></tr>
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:var(--space-8)">
-    <div class="card"><div class="card__box" style="border-radius:var(--r-sm)"></div><b>8px</b><span><code>--r-sm</code> — элемент внутри плитки с отступом 8–16px</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-md)"></div><b>12px</b><span><code>--r-md</code> — кнопки, поля, чипы: интерактив по умолчанию</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-lg)"></div><b>16px</b><span><code>--r-lg</code> — карточка товара, плитка, кадр</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-xl)"></div><b>24px</b><span><code>--r-xl</code> — панель во всю ширину</span></div>
-    <div class="card"><div class="card__box" style="border-radius:var(--r-pill)"></div><b>999px</b><span><code>--r-pill</code> — кнопка-таблетка, метка на фото</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-sm)"></div><b>8px</b><span><code>--r-sm</code> - элемент внутри плитки с отступом 8-16px</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-md)"></div><b>12px</b><span><code>--r-md</code> - кнопки, поля, чипы: интерактив по умолчанию</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-lg)"></div><b>16px</b><span><code>--r-lg</code> - карточка товара, плитка, кадр</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-xl)"></div><b>24px</b><span><code>--r-xl</code> - панель во всю ширину</span></div>
+    <div class="card"><div class="card__box" style="border-radius:var(--r-pill)"></div><b>999px</b><span><code>--r-pill</code> - кнопка-таблетка, метка на фото</span></div>
   </div>
 </div></section>
 
 <section class="sect" id="logo"><div class="wrap">
   <h2>Логотип</h2>
-  <p class="sect__lead">Два знака: полное написание и монограмма. Каждый — в трёх цветах: чёрный на светлом, белый на тёмном, розовый как акцент. Знак не растягивают, не наклоняют и не перекрашивают в другие цвета. Свободное поле вокруг — не меньше высоты буквы «M».</p>
+  <p class="sect__lead">Два знака: полное написание и монограмма. Каждый - в трёх цветах: чёрный на светлом, белый на тёмном, розовый как акцент. Знак не растягивают, не наклоняют и не перекрашивают в другие цвета. Свободное поле вокруг - не меньше высоты буквы «M».</p>
   <div class="cards">
     <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--gray-050)"><img src="assets/logos/wordmark-black.png" alt="Логотип чёрный"></div><b>Основной</b><span>Чёрный на белом и светлом фоне</span></div>
     <div class="card"><div class="card__box" style="display:grid;place-items:center;background:var(--black)"><img src="assets/logos/wordmark-white.png" alt="Логотип белый"></div><b>Инверсный</b><span>Белый на чёрном и на фото</span></div>
@@ -118,11 +118,11 @@
 
 <section class="sect" id="components"><div class="wrap">
   <h2>Компоненты</h2>
-  <p class="sect__lead">Ниже — живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе — меняются и они, и сайт.</p>
+  <p class="sect__lead">Ниже - живые элементы, а не картинки: они собраны тем же кодом, что и главная страница магазина. Меняется значение в системе - меняются и они, и сайт.</p>
 
   <h3>Шапка и полоса объявлений</h3>
-  <p class="spec" style="margin-bottom:var(--space-3)">Три колонки <code>1fr auto 1fr</code>: логотип слева, навигация точно по центру страницы, действия справа. Центр не съезжает, сколько бы пунктов ни было. Шапка липкая — <code>position: sticky</code> и фон <code>color-mix</code> 88% с <code>backdrop-filter: blur(12px)</code>, чтобы товар под ней просвечивал, но текст оставался читаемым. Поля по бокам — <code>--gutter</code>, как у всей страницы. Активный пункт подчёркнут розовой линейкой 2px, она же появляется на наведении. Счётчик корзины — розовый бейдж на <code>--primary</code>.  Над шапкой — полоса объявлений на <code>--inverse</code>, кегль <code>--fs-label</code>: две короткие строки про доставку, розовым в ней выделяется только цифра.</p>
-  <p class="spec">Переключатель языка — не <code>&lt;select&gt;</code>, а свой список: системный выпадающий рисуется шрифтом операционной системы и ломает шапку. Код языка прописными и шеврон 12px — тоньше иконок действий, чтобы не читаться четвёртой иконкой. Меню — карточка <code>--r-lg</code> с тенью <code>--shadow-md</code>, языки в своём написании, код справа, выбранный жирный с розовым кодом. Работает с клавиатуры: стрелки, Home/End, Enter, Escape.</p>
+  <p class="spec" style="margin-bottom:var(--space-3)">Три колонки <code>1fr auto 1fr</code>: логотип слева, навигация точно по центру страницы, действия справа. Центр не съезжает, сколько бы пунктов ни было. Шапка липкая - <code>position: sticky</code> и фон <code>color-mix</code> 88% с <code>backdrop-filter: blur(12px)</code>, чтобы товар под ней просвечивал, но текст оставался читаемым. Поля по бокам - <code>--gutter</code>, как у всей страницы. Активный пункт подчёркнут розовой линейкой 2px, она же появляется на наведении. Счётчик корзины - розовый бейдж на <code>--primary</code>.  Над шапкой - полоса объявлений на <code>--inverse</code>, кегль <code>--fs-label</code>: две короткие строки про доставку, розовым в ней выделяется только цифра.</p>
+  <p class="spec">Переключатель языка - не <code>&lt;select&gt;</code>, а свой список: системный выпадающий рисуется шрифтом операционной системы и ломает шапку. Код языка прописными и шеврон 12px - тоньше иконок действий, чтобы не читаться четвёртой иконкой. Меню - карточка <code>--r-lg</code> с тенью <code>--shadow-md</code>, языки в своём написании, код справа, выбранный жирный с розовым кодом. Работает с клавиатуры: стрелки, Home/End, Enter, Escape.</p>
   <div class="canvas canvas--flush">
     <div class="announce">
       <span>Free worldwide shipping over $80</span>
@@ -157,7 +157,7 @@
   </div>
 
   <h3>Кнопки и ссылка</h3>
-  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая — в карточке и в корзине, чёрная — на первом экране, где розовый уже занят акцентом в заголовке. Контурная — второстепенное. Светлая контурная — для тёмных блоков. Ссылка <code>.link</code> — не кнопка: тот же кегль <code>--fs-label</code> и вес 700, но вместо заливки розовая линейка снизу 2px. Стоит рядом с кнопкой как необязательное второе действие.</p>
+  <p class="spec">Высота 48px, скругление <code>--r-pill</code>, подпись прописными с трекингом <code>--ls-label</code>. Главное действие на экране одно: розовая - в карточке и в корзине, чёрная - на первом экране, где розовый уже занят акцентом в заголовке. Контурная - второстепенное. Светлая контурная - для тёмных блоков. Ссылка <code>.link</code> - не кнопка: тот же кегль <code>--fs-label</code> и вес 700, но вместо заливки розовая линейка снизу 2px. Стоит рядом с кнопкой как необязательное второе действие.</p>
   <div class="canvas">
     <button class="btn btn--primary">Add to bag</button>
     <button class="btn btn--ink">Shop the drop</button>
@@ -169,7 +169,7 @@
   </div>
 
   <h3>Карточка товара</h3>
-  <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика — мелким серым. Метка <code>New</code> и кнопка <code>Add to bag</code> появляются поверх фото.</p>
+  <p class="spec">Квадратная подложка <code>--surface</code>, скругление <code>--r-lg</code>. Название и цена в одну строку, характеристика - мелким серым. Метка <code>New</code> и кнопка <code>Add to bag</code> появляются поверх фото.</p>
   <div class="canvas" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;background:var(--background)">
     <article class="prod">
       <div class="prod__media"><span class="prod__badge">New</span><img src="assets/mockups/cap-leather.png" alt=""><button class="prod__add">Add to bag</button></div>
@@ -189,7 +189,7 @@
   </div>
 
   <h3>Категории</h3>
-  <p class="spec">Полоса неровной высоты: 440 / 320 / 380px, выключка по нижнему краю. Подложка <code>--surface</code>, скругление <code>--r-lg</code>, у первой — <code>--primary-tint</code>. Подпись под фото, не поверх него.</p>
+  <p class="spec">Полоса неровной высоты: 440 / 320 / 380px, выключка по нижнему краю. Подложка <code>--surface</code>, скругление <code>--r-lg</code>, у первой - <code>--primary-tint</code>. Подпись под фото, не поверх него.</p>
   <div class="canvas" style="background:var(--background)">
     <div class="cats" style="width:100%">
       <a class="cat" href="#components">
@@ -208,7 +208,7 @@
   </div>
 
   <h3>Поле ввода и подписка</h3>
-  <p class="spec">Высота поля 48px, обводка <code>--input</code>, скругление <code>--r-md</code>. Фокус — розовая обводка <code>--shadow-focus</code>, чтобы поле было видно при работе с клавиатуры. Блок лежит на <code>--primary-tint</code> со скруглением <code>--r-xl</code>.</p>
+  <p class="spec">Высота поля 48px, обводка <code>--input</code>, скругление <code>--r-md</code>. Фокус - розовая обводка <code>--shadow-focus</code>, чтобы поле было видно при работе с клавиатуры. Блок лежит на <code>--primary-tint</code> со скруглением <code>--r-xl</code>.</p>
   <div class="canvas" style="background:var(--background)">
     <div class="signup" style="width:100%">
       <div>
@@ -237,7 +237,7 @@
     </div>
   </div>
   <h3>Подвал</h3>
-  <p class="spec">Четыре колонки <code>2fr 1fr 1fr 1fr</code>: колонка бренда вдвое шире списков — логотип, строка о магазине в 32ch серым. Заголовки списков — <code>--fs-label</code> прописными с трекингом, сами ссылки <code>--fs-small</code> серым и розовеют на наведении. Нижняя строка отделена линейкой: копирайт слева, правовые ссылки справа. Разделяет подвал и страницу только линейка сверху — ни заливки, ни тени.</p>
+  <p class="spec">Четыре колонки <code>2fr 1fr 1fr 1fr</code>: колонка бренда вдвое шире списков - логотип, строка о магазине в 32ch серым. Заголовки списков - <code>--fs-label</code> прописными с трекингом, сами ссылки <code>--fs-small</code> серым и розовеют на наведении. Нижняя строка отделена линейкой: копирайт слева, правовые ссылки справа. Разделяет подвал и страницу только линейка сверху - ни заливки, ни тени.</p>
   <div class="canvas canvas--flush">
     <footer class="footer">
       <div class="footer__cols">
@@ -260,7 +260,7 @@
       </div>
       <div class="footer__bottom">
         <span>&copy; 2026 Mr. Thank You</span>
-        <span>Privacy &middot; Terms</span>
+        <span>Privacy // Terms</span>
       </div>
     </footer>
   </div>
@@ -268,7 +268,7 @@
 
 <section class="sect" id="page"><div class="wrap">
   <h2>Главная страница магазина</h2>
-  <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе — ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов. Открывается в браузере, работает на телефоне и на десктопе.</p>
+  <p class="sect__lead">Финальная сборка: страница целиком построена на этой системе - ни одного цвета и кегля мимо неё. Порядок блоков взят из присланных прототипов. Открывается в браузере, работает на телефоне и на десктопе.</p>
   <p style="margin-bottom:var(--space-8)"><a class="btn btn--primary" href="site/index.html">Открыть страницу</a></p>
   <a href="site/index.html" style="display:block;border:var(--border-width) solid var(--border);border-radius:var(--r-lg);overflow:hidden">
     <img src="assets/preview-home.jpg" alt="Главная страница магазина Mr. Thank You">
@@ -283,7 +283,7 @@
 
 <section class="sect" id="use"><div class="wrap">
   <h2>Что передаётся и как это подключить</h2>
-  <p class="sect__lead">Система лежит обычными файлами. Разработчику достаточно подключить их в таком порядке — дальше все компоненты берут значения сами.</p>
+  <p class="sect__lead">Система лежит обычными файлами. Разработчику достаточно подключить их в таком порядке - дальше все компоненты берут значения сами.</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Папка</th><th>Что внутри</th><th>Зачем</th></tr></thead>
     <tbody>
@@ -295,15 +295,15 @@
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:var(--space-8)">
-    <div class="card"><i>01</i><b>Подключить токены</b><span>Семь файлов из <code>tokens/</code> в указанном порядке — сначала значения, последним <code>semantic.css</code></span></div>
-    <div class="card"><i>02</i><b>Подключить компоненты</b><span><code>site/site.css</code> — кнопки, карточки, плитки, поля, шапка и подвал</span></div>
+    <div class="card"><i>01</i><b>Подключить токены</b><span>Семь файлов из <code>tokens/</code> в указанном порядке - сначала значения, последним <code>semantic.css</code></span></div>
+    <div class="card"><i>02</i><b>Подключить компоненты</b><span><code>site/site.css</code> - кнопки, карточки, плитки, поля, шапка и подвал</span></div>
     <div class="card"><i>03</i><b>Собирать страницы</b><span>Новые экраны верстаются теми же классами, новые цвета и кегли не заводятся</span></div>
-    <div class="card"><i>04</i><b>Расширять через токены</b><span>Нужен новый оттенок или размер — он добавляется в <code>tokens/</code>, а не в отдельный файл страницы</span></div>
+    <div class="card"><i>04</i><b>Расширять через токены</b><span>Нужен новый оттенок или размер - он добавляется в <code>tokens/</code>, а не в отдельный файл страницы</span></div>
   </div>
 </div></section>
 
 <footer class="foot"><div class="wrap">
-  Mr. Thank You Design System · сентябрь 2026
+  Mr. Thank You Design System // сентябрь 2026
 </div></footer>
 
 <script src="site/lang.js"></script>
